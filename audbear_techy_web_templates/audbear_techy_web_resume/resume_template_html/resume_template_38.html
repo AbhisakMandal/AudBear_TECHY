@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- DYNAMIC BASE FOR RELOCATION RESILIENCE -->
+    <script>
+      (function() {
+        var path = window.location.pathname;
+        var segments = path.split('/');
+        var rootIndex = -1;
+        for (var i = 0; i < segments.length; i++) {
+          if (segments[i].indexOf('audbear_techy_web_') === 0 && segments[i].indexOf('.html') === -1) {
+            rootIndex = i - 1;
+            break;
+          }
+        }
+        if (rootIndex !== -1) {
+          var base = segments.slice(0, rootIndex + 1).join('/') + '/';
+          document.write('<base href=\"' + base + '\">');
+        }
+      })();
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template-38 | AudBear TECHY</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --accent-navy: #1b263b;
+            --text-dark: #333333;
+            --text-muted: #666666;
+            --line-color: #bbbbbb;
+            --font-main: 'Montserrat', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: #f4f7f9;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+            color: var(--text-dark);
+        }
+
+        .cv-container {
+            background-color: #ffffff;
+            width: 850px;
+            min-height: 1100px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header Styling */
+        .header {
+            display: flex;
+            height: 280px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .header-left {
+            background-color: var(--accent-navy);
+            width: 40%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-top-left-radius: 10px;
+        }
+
+        .profile-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 4px solid #fff;
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .header-right {
+            width: 60%;
+            padding: 40px 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .header-right h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--accent-navy);
+            margin-bottom: 5px;
+        }
+
+        .header-right h3 {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #777;
+            margin-bottom: 25px;
+        }
+
+        .contact-list {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+            font-size: 0.85rem;
+            color: #555;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .contact-item i {
+            color: var(--accent-navy);
+            width: 15px;
+        }
+
+        /* Body Content */
+        .cv-body {
+            padding: 50px 60px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            flex-grow: 1;
+        }
+
+        .section {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent-navy);
+            border-bottom: 2px solid #eee;
+            padding-bottom: 8px;
+        }
+
+        .section-text {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #444;
+            text-align: justify;
+        }
+
+        .exp-item {
+            margin-bottom: 30px;
+        }
+
+        .exp-item h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .exp-item .meta {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .exp-bullets {
+            list-style: none;
+            padding-left: 0;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .exp-bullets li {
+            margin-bottom: 8px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .exp-bullets li::before {
+            content: '•';
+            color: #000;
+        }
+
+        /* Skills and Languages Bottom Grid */
+        .bottom-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .skill-list {
+            list-style: none;
+            font-size: 0.85rem;
+            line-height: 2;
+            color: #444;
+        }
+
+        .skill-list li::before {
+            content: '•';
+            margin-right: 12px;
+        }
+
+        .lang-item {
+            margin-bottom: 15px;
+        }
+
+        .lang-header {
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background-color: #eee;
+            border-radius: 5px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background-color: var(--accent-navy);
+            border-radius: 5px;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--accent-navy);
+            height: 30px;
+            margin-top: auto;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="cv-container">
+        <!-- HEADER -->
+        <header class="header">
+            <div class="header-left">
+                <div class="profile-photo">
+                    <img src="audbear_techy_web_templates/audbear_techy_web_resume/resume_template_professional_images/resume_template_38.png" alt="AudBear Ostrich">
+                </div>
+            </div>
+            <div class="header-right">
+                <h1>AudBear Hadid</h1>
+                <h3>General Manager</h3>
+                <div class="contact-list">
+                    <div class="contact-item"><i class="fa-solid fa-phone"></i> +123-456-7890</div>
+                    <div class="contact-item"><i class="fa-solid fa-envelope"></i> hello@audbear.com</div>
+                    <div class="contact-item"><i class="fa-solid fa-globe"></i> www.audbear.com</div>
+                    <div class="contact-item"><i class="fa-solid fa-location-dot"></i> 123 Anywhere St., Any City</div>
+                </div>
+            </div>
+        </header>
+
+        <!-- CV BODY -->
+        <div class="cv-body">
+            <section class="section">
+                <span class="section-title">Profile</span>
+                <p class="section-text">
+                    Marketing Manager with over eight years of experience in marketing strategy, brand management, and digital marketing. Expertise in developing whale-sized marketing campaigns, increasing brand awareness, and driving sales growth through data-driven strategies. A results-oriented leader with strong communication, negotiation, and cross-team collaboration skills.
+                </p>
+            </section>
+
+            <section class="section">
+                <span class="section-title">Education</span>
+                <div class="exp-item">
+                    <h4>Bachelor of Marketing Management</h4>
+                    <span class="meta">AudBear University (2000-2003)</span>
+                </div>
+            </section>
+
+            <section class="section">
+                <span class="section-title">Work Experience</span>
+                
+                <div class="exp-item">
+                    <h4>Marketing Manager</h4>
+                    <span class="meta">AudBear Industries (2003-2007)</span>
+                    <ul class="exp-bullets">
+                        <li>Developed and implemented an integrated marketing strategy that increased brand awareness by 45% in 2 years.</li>
+                        <li>Leading a team of 12 in digital marketing, content creation, and market research.</li>
+                        <li>Manage an annual marketing budget of $5 million with an average ROI of 30%.</li>
+                    </ul>
+                </div>
+
+                <div class="exp-item">
+                    <h4>Senior Marketing Executive</h4>
+                    <span class="meta">AudBear & Spencer (2007-2011)</span>
+                    <ul class="exp-bullets">
+                        <li>Responsible for the launch of 5 new products with successful marketing strategies achieving 120% sales target.</li>
+                        <li>Conduct market analysis and consumer trends to identify new opportunities.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <div class="bottom-grid">
+                <section class="section">
+                    <span class="section-title">Skills</span>
+                    <ul class="skill-list">
+                        <li>Digital Marketing (SEO, SEM, Social Media Ads)</li>
+                        <li>Brand Strategy & Positioning</li>
+                        <li>Market Research & Data Analysis</li>
+                        <li>Leadership & Team Management</li>
+                        <li>Campaign Planning & Execution</li>
+                        <li>Communication & Negotiation Skills</li>
+                    </ul>
+                </section>
+
+                <section class="section">
+                    <span class="section-title">Languages</span>
+                    <div class="lang-item">
+                        <span class="lang-header">English</span>
+                        <div class="progress-bar"><div class="progress-fill" style="width: 95%;"></div></div>
+                    </div>
+                    <div class="lang-item">
+                        <span class="lang-header">Arabic</span>
+                        <div class="progress-bar"><div class="progress-fill" style="width: 85%;"></div></div>
+                    </div>
+                    <div class="lang-item">
+                        <span class="lang-header">Spanish</span>
+                        <div class="progress-bar"><div class="progress-fill" style="width: 80%;"></div></div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <footer class="footer"></footer>
+    </div>
+</body>
+
+</html>
+
+
+
+
+

@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- DYNAMIC BASE FOR RELOCATION RESILIENCE -->
+    <script>
+      (function() {
+        var path = window.location.pathname;
+        var segments = path.split('/');
+        var rootIndex = -1;
+        for (var i = 0; i < segments.length; i++) {
+          if (segments[i].indexOf('audbear_techy_web_') === 0 && segments[i].indexOf('.html') === -1) {
+            rootIndex = i - 1;
+            break;
+          }
+        }
+        if (rootIndex !== -1) {
+          var base = segments.slice(0, rootIndex + 1).join('/') + '/';
+          document.write('<base href=\"' + base + '\">');
+        }
+      })();
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template-33 | AudBear TECHY</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --accent-navy: #2e3a47;
+            --text-dark: #333333;
+            --text-muted: #666666;
+            --font-main: 'Montserrat', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+            color: var(--text-dark);
+        }
+
+        .cv-container {
+            background-color: #ffffff;
+            width: 850px;
+            min-height: 1100px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header Styling */
+        .header {
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .header-left {
+            background-color: var(--accent-navy);
+            width: 38%;
+            padding: 40px;
+            border-bottom-right-radius: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .profile-photo {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid #fff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .header-right {
+            width: 62%;
+            padding: 40px 50px;
+        }
+
+        .header-right h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--accent-navy);
+            line-height: 1.1;
+        }
+
+        .header-right h3 {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #555;
+            margin-top: 10px;
+        }
+
+        /* Contact Bar */
+        .contact-bar {
+            background-color: var(--accent-navy);
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            color: #fff;
+            font-size: 0.8rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Body Split */
+        .cv-body {
+            display: flex;
+            flex-grow: 1;
+            padding: 40px 0;
+        }
+
+        .sidebar {
+            width: 38%;
+            background-color: var(--accent-navy);
+            color: #fff;
+            padding: 40px;
+            border-top-right-radius: 80px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .main-content {
+            width: 62%;
+            padding: 0 50px;
+            display: flex;
+            flex-direction: column;
+            gap: 45px;
+        }
+
+        .sidebar-section h2 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            padding-bottom: 10px;
+        }
+
+        .sidebar-list {
+            list-style: none;
+            font-size: 0.85rem;
+            line-height: 2;
+            opacity: 0.9;
+        }
+
+        .sidebar-list li::before {
+            content: '•';
+            margin-right: 12px;
+        }
+
+        .edu-item-sidebar {
+            margin-bottom: 20px;
+        }
+
+        .edu-item-sidebar h4 {
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        .edu-item-sidebar p {
+            font-size: 0.8rem;
+            opacity: 0.8;
+            margin-bottom: 2px;
+        }
+
+        /* Main Content Styling */
+        .section-title-main {
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-transform: capitalize;
+            margin-bottom: 25px;
+            display: block;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+
+        .about-text {
+            font-size: 0.85rem;
+            line-height: 1.7;
+            color: #444;
+            text-align: justify;
+        }
+
+        .exp-item {
+            margin-bottom: 35px;
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 5px;
+        }
+
+        .exp-header h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .exp-header .date {
+            font-size: 0.8rem;
+            color: #777;
+            font-weight: 600;
+        }
+
+        .exp-meta {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .exp-desc {
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: #555;
+            text-align: justify;
+        }
+
+        /* References */
+        .refs-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .ref-item {
+            font-size: 0.8rem;
+            color: #555;
+        }
+
+        .ref-item strong {
+            color: #333;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="cv-container">
+        <!-- HEADER -->
+        <header class="header">
+            <div class="header-left">
+                <div class="profile-photo">
+                    <img src="audbear_techy_web_templates/audbear_techy_web_resume/resume_template_professional_images/resume_template_33.png" alt="AudBear Walrus">
+                </div>
+            </div>
+            <div class="header-right">
+                <h1>AudBear<br>Palmerston</h1>
+                <h3>Graphic Designer</h3>
+            </div>
+        </header>
+
+        <!-- CONTACT BAR -->
+        <div class="contact-bar">
+            <div class="contact-item"><i class="fa-solid fa-phone"></i> +123-456-7890</div>
+            <div class="contact-item"><i class="fa-solid fa-envelope"></i> hello@audbear.com</div>
+            <div class="contact-item"><i class="fa-solid fa-globe"></i> www.audbear.com</div>
+            <div class="contact-item"><i class="fa-solid fa-location-dot"></i> 123 Any St., Any City</div>
+        </div>
+
+        <!-- CV BODY -->
+        <div class="cv-body">
+            <!-- SIDEBAR -->
+            <aside class="sidebar">
+                <section class="sidebar-section">
+                    <h2>Education</h2>
+                    <div class="edu-item-sidebar">
+                        <h4>Bachelor of Design</h4>
+                        <p>AudBear University</p>
+                        <p>2012-2016</p>
+                        <p>123 Any St., Any City</p>
+                    </div>
+                    <div class="edu-item-sidebar">
+                        <h4>Master of Design</h4>
+                        <p>AudBear University</p>
+                        <p>2016-2020</p>
+                        <p>123 Any St., Any City</p>
+                    </div>
+                </section>
+
+                <section class="sidebar-section">
+                    <h2>Certifications</h2>
+                    <ul class="sidebar-list">
+                        <li>Certified Graphic Designer.</li>
+                        <li>User Experience (UX) Design Certificate.</li>
+                    </ul>
+                </section>
+
+                <section class="sidebar-section">
+                    <h2>Skills</h2>
+                    <ul class="sidebar-list">
+                        <li>Organized</li>
+                        <li>Creativity</li>
+                        <li>Teamwork</li>
+                        <li>Meeting deadlines</li>
+                        <li>Critical thinking</li>
+                    </ul>
+                </section>
+
+                <section class="sidebar-section">
+                    <h2>Language</h2>
+                    <ul class="sidebar-list" style="list-style: none;">
+                        <li>French</li>
+                        <li>Spanish</li>
+                        <li>English</li>
+                    </ul>
+                </section>
+            </aside>
+
+            <!-- MAIN CONTENT -->
+            <main class="main-content">
+                <section>
+                    <span class="section-title-main">About me</span>
+                    <p class="about-text">
+                        I am a highly creative and detail-oriented Graphic Designer with over 8 years of experience in delivering whale-sized visual solutions. I specialize in branding, digital design, and marketing communications, helping brands tell their stories through compelling and innovative design.
+                    </p>
+                </section>
+
+                <section>
+                    <span class="section-title-main">Experience</span>
+                    
+                    <div class="exp-item">
+                        <div class="exp-header">
+                            <h4>Graphic Designer</h4>
+                            <span class="date">Jan 2021 - Jan 2022</span>
+                        </div>
+                        <span class="exp-meta">AudBear & Partners</span>
+                        <p class="exp-desc">Led the creative direction for multiple high-impact branding projects. Managed the design lifecycle from concept to execution, ensuring brand consistency and quality.</p>
+                    </div>
+
+                    <div class="exp-item">
+                        <div class="exp-header">
+                            <h4>Graphic Designer</h4>
+                            <span class="date">Jan 2020 - Dec 2020</span>
+                        </div>
+                        <span class="exp-meta">AudBear & Spencer</span>
+                        <p class="exp-desc">Developed visual assets for digital marketing campaigns across various social media platforms. Collaborated with marketing teams to optimize user engagement through visual storytelling.</p>
+                    </div>
+
+                    <div class="exp-item">
+                        <div class="exp-header">
+                            <h4>Graphic Designer</h4>
+                            <span class="date">Jan 2017 - Dec 2019</span>
+                        </div>
+                        <span class="exp-meta">AudBear Company</span>
+                        <p class="exp-desc">Assisted in the design of print and digital materials for regional marketing efforts. Contributed to the development of brand guidelines for new product launches.</p>
+                    </div>
+                </section>
+
+                <section>
+                    <span class="section-title-main">Reference</span>
+                    <div class="refs-grid">
+                        <div class="ref-item">
+                            <strong>AudBear Torres | Director</strong>
+                            AudBear & Partners<br>
+                            +123-456-7890
+                        </div>
+                        <div class="ref-item">
+                            <strong>AudBear Kobayashi | CEO</strong>
+                            AudBear Company<br>
+                            +123-456-7890
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+</body>
+
+</html>
+
+
+
+
+

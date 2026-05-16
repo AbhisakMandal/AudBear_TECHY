@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- DYNAMIC BASE FOR RELOCATION RESILIENCE -->
+    <script>
+      (function() {
+        var path = window.location.pathname;
+        var segments = path.split('/');
+        var rootIndex = -1;
+        for (var i = 0; i < segments.length; i++) {
+          if (segments[i].indexOf('audbear_techy_web_') === 0 && segments[i].indexOf('.html') === -1) {
+            rootIndex = i - 1;
+            break;
+          }
+        }
+        if (rootIndex !== -1) {
+          var base = segments.slice(0, rootIndex + 1).join('/') + '/';
+          document.write('<base href=\"' + base + '\">');
+        }
+      })();
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template-54 | AudBear TECHY</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --sidebar-bg: #f5f2ed;
+            --text-dark: #1a1a1a;
+            --text-muted: #555555;
+            --border-color: #dddddd;
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Montserrat', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: #fcfcfc;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+            color: var(--text-dark);
+        }
+
+        .cv-container {
+            background-color: #ffffff;
+            width: 850px;
+            min-height: 1100px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header Styling */
+        .header {
+            padding: 60px;
+            display: flex;
+            gap: 50px;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .photo-wrapper {
+            width: 280px;
+            height: 280px;
+            background-color: #eee;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .photo-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .header-info h1 {
+            font-family: var(--font-serif);
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 10px;
+        }
+
+        .header-info h1 span {
+            font-family: var(--font-sans);
+            font-weight: 400;
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 2.2rem;
+        }
+
+        .header-info h3 {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            color: #444;
+            margin-top: 15px;
+        }
+
+        /* Body Split */
+        .cv-body {
+            display: flex;
+            flex-grow: 1;
+        }
+
+        .sidebar {
+            width: 35%;
+            background-color: var(--sidebar-bg);
+            padding: 50px 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .main-content {
+            width: 65%;
+            padding: 50px 60px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        /* Section Titles */
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: 1.6rem;
+            margin-bottom: 25px;
+            display: block;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        /* Content Items */
+        .summary-text {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: #444;
+            margin-bottom: 40px;
+            text-align: justify;
+        }
+
+        .content-item {
+            margin-bottom: 35px;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 8px;
+        }
+
+        .item-header h4 {
+            font-family: var(--font-serif);
+            font-size: 1.1rem;
+            font-style: italic;
+        }
+
+        .item-header span {
+            font-size: 0.85rem;
+            color: #777;
+        }
+
+        .item-meta {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #555;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .item-bullets {
+            list-style: none;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #666;
+        }
+
+        .item-bullets li::before {
+            content: '•';
+            margin-right: 12px;
+        }
+
+        /* Skills & Reference */
+        .sidebar-section h2 {
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+        }
+
+        .sidebar-list {
+            list-style: none;
+            font-size: 0.95rem;
+            line-height: 2;
+            color: #444;
+        }
+
+        .sidebar-list li::before {
+            content: '•';
+            margin-right: 12px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        /* Languages */
+        .lang-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+        }
+
+        .lang-item h5 {
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background-color: #eee;
+            border-radius: 4px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background-color: #8c8c8c;
+            border-radius: 4px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="cv-container">
+        <!-- HEADER -->
+        <header class="header">
+            <div class="photo-wrapper">
+                <img src="audbear_techy_web_templates/audbear_techy_web_resume/resume_template_professional_images/resume_template_54.png" alt="AudBear Flying Squirrel">
+            </div>
+            <div class="header-info">
+                <h1>AudBear <span>NAPOLITANI</span></h1>
+                <h3>Graphic Designer</h3>
+            </div>
+        </header>
+
+        <!-- CV BODY -->
+        <div class="cv-body">
+            <!-- SIDEBAR -->
+            <aside class="sidebar">
+                <section class="sidebar-section">
+                    <h2>Contact</h2>
+                    <div class="contact-item"><i class="fa-solid fa-phone"></i> +123-456-7890</div>
+                    <div class="contact-item"><i class="fa-solid fa-envelope"></i> hello@audbear.com</div>
+                    <div class="contact-item"><i class="fa-solid fa-location-dot"></i> 123 Anywhere St., Any City</div>
+                    <div class="contact-item"><i class="fa-solid fa-mouse-pointer"></i> www.audbear.com</div>
+                </section>
+
+                <section class="sidebar-section">
+                    <h2>Skills</h2>
+                    <ul class="sidebar-list">
+                        <li>Organized</li>
+                        <li>Communication</li>
+                        <li>Teamwork</li>
+                        <li>Meeting deadlines</li>
+                        <li>Critical thinking</li>
+                        <li>Resilience</li>
+                    </ul>
+                </section>
+
+                <section class="sidebar-section">
+                    <h2>Reference</h2>
+                    <div style="font-size: 0.85rem; color: #555;">
+                        <p><strong>AudBear Torres</strong></p>
+                        <p>AudBear & Partners / Director</p>
+                        <p>hello@audbear.com</p>
+                        <p>+123-456-7890</p>
+                    </div>
+                </section>
+            </aside>
+
+            <!-- MAIN CONTENT -->
+            <main class="main-content">
+                <p class="summary-text">
+                    Highly creative and dedicated Graphic Designer with over 5 years of experience in delivering whale-sized visual solutions. I specialize in strategic branding, digital design, and user-centric storytelling, consistently transforming complex ideas into impactful visual experiences that resonate with audiences.
+                </p>
+
+                <section>
+                    <span class="section-title">Experience</span>
+                    
+                    <div class="content-item">
+                        <div class="item-header">
+                            <h4>Graphic Designer</h4>
+                            <span>2021-2022</span>
+                        </div>
+                        <span class="item-meta">AudBear & Partners</span>
+                        <ul class="item-bullets">
+                            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet sem nec risus egestas accumsan.</li>
+                            <li>In enim nunc, tincidunt ut quam eget, luctus sollicitudin neque.</li>
+                        </ul>
+                    </div>
+
+                    <div class="content-item">
+                        <div class="item-header">
+                            <h4>Graphic Designer</h4>
+                            <span>2020-2021</span>
+                        </div>
+                        <span class="item-meta">AudBear & Spencer</span>
+                        <ul class="item-bullets">
+                            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet sem nec risus egestas accumsan.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section>
+                    <span class="section-title">Education</span>
+                    <div class="content-item">
+                        <div class="item-header">
+                            <h4>AudBear Excellence University</h4>
+                            <span>2018-2020</span>
+                        </div>
+                        <span class="item-meta">Bachelor of Design</span>
+                        <ul class="item-bullets">
+                            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet sem nec risus egestas accumsan.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section>
+                    <span class="section-title">Language</span>
+                    <div class="lang-grid">
+                        <div class="lang-item">
+                            <h5>French</h5>
+                            <div class="progress-bar"><div class="progress-fill" style="width: 80%;"></div></div>
+                        </div>
+                        <div class="lang-item">
+                            <h5>English</h5>
+                            <div class="progress-bar"><div class="progress-fill" style="width: 95%;"></div></div>
+                        </div>
+                        <div class="lang-item">
+                            <h5>Spanish</h5>
+                            <div class="progress-bar"><div class="progress-fill" style="width: 85%;"></div></div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+</body>
+
+</html>
+
+
+
+
+

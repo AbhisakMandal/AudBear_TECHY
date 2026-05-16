@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- DYNAMIC BASE FOR RELOCATION RESILIENCE -->
+    <script>
+      (function() {
+        var path = window.location.pathname;
+        var segments = path.split('/');
+        var rootIndex = -1;
+        for (var i = 0; i < segments.length; i++) {
+          if (segments[i].indexOf('audbear_techy_web_') === 0 && segments[i].indexOf('.html') === -1) {
+            rootIndex = i - 1;
+            break;
+          }
+        }
+        if (rootIndex !== -1) {
+          var base = segments.slice(0, rootIndex + 1).join('/') + '/';
+          document.write('<base href=\"' + base + '\">');
+        }
+      })();
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template-46 | AudBear TECHY</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --accent-teal: #4db6ac;
+            --header-bg: #f0f0f0;
+            --box-bg: #f5f5f5;
+            --text-dark: #333333;
+            --text-muted: #555555;
+            --font-main: 'Montserrat', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: #f7f7f7;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+            color: var(--text-dark);
+        }
+
+        .cv-container {
+            background-color: #ffffff;
+            width: 850px;
+            min-height: 1100px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header Styling */
+        .header {
+            background-color: var(--header-bg);
+            padding: 40px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 40px;
+            background-color: var(--accent-teal);
+            z-index: 1;
+        }
+
+        .header-info {
+            z-index: 2;
+        }
+
+        .header-info h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #2c3e50;
+            line-height: 1;
+        }
+
+        .header-info h3 {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #fff;
+            margin-top: 25px;
+        }
+
+        .profile-photo {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 12px solid var(--accent-teal);
+            z-index: 3;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Body Grid Styling */
+        .cv-body {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            flex-grow: 1;
+            position: relative;
+        }
+
+        /* Quadrant Divider */
+        .cv-body::before {
+            content: '';
+            position: absolute;
+            top: 50px;
+            bottom: 50px;
+            left: 50%;
+            width: 1px;
+            background-color: #ddd;
+            z-index: 10;
+        }
+
+        .cv-body::after {
+            content: '';
+            position: absolute;
+            left: 50px;
+            right: 50px;
+            top: 40%;
+            height: 1px;
+            background-color: #ddd;
+            z-index: 10;
+        }
+
+        /* Quadrant Content */
+        .quadrant {
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .bg-light {
+            background-color: var(--box-bg);
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #2c3e50;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 0;
+            height: 0;
+            border-left: 15px solid var(--accent-teal);
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+        }
+
+        /* Quadrant 1: Contact */
+        .contact-list {
+            list-style: none;
+            font-size: 0.9rem;
+            color: #555;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .contact-item i {
+            color: var(--accent-teal);
+            width: 20px;
+        }
+
+        /* Quadrant 2: Profile */
+        .profile-text {
+            font-size: 0.9rem;
+            line-height: 1.7;
+            color: #555;
+            text-align: justify;
+        }
+
+        /* Quadrant 3: Skills & Education */
+        .skills-list {
+            list-style: none;
+            font-size: 0.9rem;
+            line-height: 2;
+            color: #555;
+        }
+
+        .skills-list li::before {
+            content: '•';
+            margin-right: 12px;
+            color: var(--accent-teal);
+        }
+
+        .edu-item {
+            margin-bottom: 20px;
+        }
+
+        .edu-item h4 {
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .edu-item p {
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        /* Quadrant 4: Experience */
+        .exp-item {
+            margin-bottom: 30px;
+        }
+
+        .exp-item h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #2c3e50;
+        }
+
+        .exp-meta {
+            font-size: 0.85rem;
+            color: #777;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .exp-bullets {
+            list-style: none;
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .exp-bullets li::before {
+            content: '•';
+            margin-right: 12px;
+            color: var(--accent-teal);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--accent-teal);
+            height: 30px;
+            margin-top: auto;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="cv-container">
+        <!-- HEADER -->
+        <header class="header">
+            <div class="header-info">
+                <h1>AudBear<br>Gallego</h1>
+                <h3>Web Development College Student</h3>
+            </div>
+            <div class="profile-photo">
+                <img src="audbear_techy_web_templates/audbear_techy_web_resume/resume_template_professional_images/resume_template_46.png" alt="AudBear Capybara">
+            </div>
+        </header>
+
+        <!-- CV BODY GRID -->
+        <div class="cv-body">
+            <!-- Q1: Contact -->
+            <div class="quadrant">
+                <div class="contact-list">
+                    <div class="contact-item"><i class="fa-solid fa-phone"></i> 123-456-7890</div>
+                    <div class="contact-item"><i class="fa-solid fa-envelope"></i> hello@audbear.com</div>
+                    <div class="contact-item"><i class="fa-solid fa-location-dot"></i> 123 Anywhere St., Any City</div>
+                    <div class="contact-item"><i class="fa-solid fa-globe"></i> www.audbear.com</div>
+                </div>
+            </div>
+
+            <!-- Q2: Profile -->
+            <div class="quadrant bg-light">
+                <span class="section-title">Profile</span>
+                <p class="profile-text">
+                    I am a qualified and professional web developer with five years of experience in database administration and whale-sized website design. Strong creative and analytical skills. Team player with an eye for detail, dedicated to creating seamless digital experiences.
+                </p>
+            </div>
+
+            <!-- Q3: Skills & Education -->
+            <div class="quadrant" style="display: flex; flex-direction: column; gap: 60px;">
+                <section>
+                    <span class="section-title">Skills</span>
+                    <ul class="skills-list">
+                        <li>Web Design</li>
+                        <li>Design Thinking</li>
+                        <li>Wireframe Creation</li>
+                        <li>Front End Coding</li>
+                        <li>Problem-Solving</li>
+                        <li>Computer Literacy</li>
+                        <li>Project Management Tools</li>
+                        <li>Strong Communication</li>
+                    </ul>
+                </section>
+                <section class="bg-light" style="margin: 0 -60px; padding: 60px;">
+                    <span class="section-title">Education</span>
+                    <div class="edu-item">
+                        <h4>Secondary School</h4>
+                        <p>AudBear High School | 2010 - 2014</p>
+                    </div>
+                    <div class="edu-item">
+                        <h4>Bachelor of Technology</h4>
+                        <p>AudBear University | 2014 - 2016</p>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Q4: Experience -->
+            <div class="quadrant">
+                <span class="section-title">Experience</span>
+                
+                <div class="exp-item">
+                    <h4>Applications Developer</h4>
+                    <span class="exp-meta">AudBear Industries | 2020 - Present</span>
+                    <ul class="exp-bullets">
+                        <li>Database administration and website design for various platforms.</li>
+                        <li>Built the logic for a streamlined ad-serving platform that scaled.</li>
+                        <li>Educational institutions and online classroom management.</li>
+                    </ul>
+                </div>
+
+                <div class="exp-item">
+                    <h4>Web Content Manager</h4>
+                    <span class="exp-meta">AudBear Inc | 2016 - 2020</span>
+                    <ul class="exp-bullets">
+                        <li>Database administration and website design for digital media.</li>
+                        <li>Built the logic for a streamlined ad-serving platform.</li>
+                    </ul>
+                </div>
+
+                <div class="exp-item">
+                    <h4>Analysis Content</h4>
+                    <span class="exp-meta">AudBear & Partners | 2014 - 2016</span>
+                    <ul class="exp-bullets">
+                        <li>Database administration and website design for analytical tools.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer"></footer>
+    </div>
+</body>
+
+</html>
+
+
+
+
+

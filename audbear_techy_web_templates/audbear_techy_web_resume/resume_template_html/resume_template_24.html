@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- DYNAMIC BASE FOR RELOCATION RESILIENCE -->
+    <script>
+      (function() {
+        var path = window.location.pathname;
+        var segments = path.split('/');
+        var rootIndex = -1;
+        for (var i = 0; i < segments.length; i++) {
+          if (segments[i].indexOf('audbear_techy_web_') === 0 && segments[i].indexOf('.html') === -1) {
+            rootIndex = i - 1;
+            break;
+          }
+        }
+        if (rootIndex !== -1) {
+          var base = segments.slice(0, rootIndex + 1).join('/') + '/';
+          document.write('<base href=\"' + base + '\">');
+        }
+      })();
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template-24 | AudBear TECHY</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --accent-color: #3e515b;
+            --text-dark: #333333;
+            --text-muted: #666666;
+            --timeline-color: #bbbbbb;
+            --font-main: 'Montserrat', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: #f1f3f4;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+            color: var(--text-dark);
+        }
+
+        .cv-container {
+            background-color: #ffffff;
+            width: 850px;
+            min-height: 1100px;
+            padding: 60px;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header Styling */
+        .header {
+            margin-bottom: 40px;
+            border-bottom: 1px solid var(--accent-color);
+            padding-bottom: 20px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent-color);
+        }
+
+        .header h3 {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+            font-weight: 400;
+            text-transform: uppercase;
+        }
+
+        /* Body Split */
+        .cv-body {
+            display: flex;
+            position: relative;
+            flex-grow: 1;
+        }
+
+        /* Timeline Line */
+        .timeline-line {
+            position: absolute;
+            top: 0;
+            left: 32%;
+            width: 1px;
+            height: 100%;
+            background-color: var(--timeline-color);
+            transform: translateX(-50%);
+        }
+
+        /* Sidebar Styling */
+        .sidebar {
+            width: 30%;
+            padding-right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        /* Profile Photo (Added to meet requirements) */
+        .profile-photo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-bottom: 30px;
+            border: 2px solid #eee;
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .sidebar-section {
+            margin-bottom: 30px;
+        }
+
+        .sidebar-title {
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            display: block;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+        }
+
+        .contact-list {
+            list-style: none;
+            font-size: 0.8rem;
+            color: #555;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 10px;
+            word-break: break-all;
+        }
+
+        .contact-item i {
+            color: #333;
+            width: 15px;
+        }
+
+        .sidebar-list {
+            list-style: none;
+            font-size: 0.8rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .sidebar-list li::before {
+            content: '•';
+            margin-right: 10px;
+        }
+
+        /* Main Area Styling */
+        .main-content {
+            width: 70%;
+            padding-left: 45px;
+        }
+
+        .main-section {
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        /* Timeline Node */
+        .timeline-node {
+            position: absolute;
+            left: -58px;
+            top: 0;
+            width: 26px;
+            height: 26px;
+            background-color: #000;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            font-size: 0.8rem;
+            z-index: 2;
+        }
+
+        .main-section-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+            display: block;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+        }
+
+        .profile-text {
+            font-size: 0.85rem;
+            line-height: 1.7;
+            color: #555;
+            text-align: justify;
+        }
+
+        .exp-item {
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .exp-item::before {
+            content: '';
+            position: absolute;
+            left: -48px;
+            top: 8px;
+            width: 6px;
+            height: 6px;
+            background-color: #fff;
+            border: 1px solid var(--timeline-color);
+            border-radius: 50%;
+            z-index: 2;
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 5px;
+        }
+
+        .exp-header h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+        }
+
+        .exp-header .date {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .company {
+            font-size: 0.85rem;
+            color: #666;
+            font-style: italic;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .exp-desc {
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .exp-item ul {
+            padding-left: 20px;
+            margin-top: 8px;
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        .edu-item h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .edu-item p {
+            font-size: 0.85rem;
+            color: #555;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="cv-container">
+        <!-- HEADER -->
+        <header class="header">
+            <h1>AudBear Saah</h1>
+            <h3>Marketing Manager</h3>
+        </header>
+
+        <!-- CV BODY -->
+        <div class="cv-body">
+            <div class="timeline-line"></div>
+
+            <!-- SIDEBAR -->
+            <aside class="sidebar">
+                <div class="profile-photo">
+                    <img src="audbear_techy_web_templates/audbear_techy_web_resume/resume_template_professional_images/resume_template_24.png" alt="AudBear Flamingo">
+                </div>
+
+                <div class="sidebar-section">
+                    <span class="sidebar-title">Contact</span>
+                    <ul class="contact-list">
+                        <li class="contact-item"><i class="fa-solid fa-phone"></i> +124-4236-7894</li>
+                        <li class="contact-item"><i class="fa-solid fa-envelope"></i> hello@audbear.com</li>
+                        <li class="contact-item"><i class="fa-solid fa-location-dot"></i> 123 Any St., Any City</li>
+                        <li class="contact-item"><i class="fa-solid fa-globe"></i> www.audbear.com</li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-section">
+                    <span class="sidebar-title">Skills</span>
+                    <ul class="sidebar-list">
+                        <li>Strategic Planning</li>
+                        <li>Problem Solving</li>
+                        <li>Crisis Management</li>
+                        <li>Creative Thinking</li>
+                        <li>Data Analysis</li>
+                        <li>Brand Development</li>
+                        <li>Negotiation</li>
+                        <li>Customer Orientation</li>
+                        <li>Adaptability to Change</li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-section">
+                    <span class="sidebar-title">Languages</span>
+                    <ul class="sidebar-list">
+                        <li>English (Fluent)</li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-section">
+                    <span class="sidebar-title">Reference</span>
+                    <div style="font-size: 0.85rem; color: #444;">
+                        <strong>Estelle Darcy</strong><br>
+                        AudBear Inc. / CTO<br>
+                        Phone: +124-4236-7894<br>
+                        Email: hello@audbear.com
+                    </div>
+                </div>
+            </aside>
+
+            <!-- MAIN CONTENT -->
+            <main class="main-content">
+                <section class="main-section">
+                    <div class="timeline-node"><i class="fa-solid fa-user"></i></div>
+                    <span class="main-section-title">Profile</span>
+                    <p class="profile-text">
+                        Results-driven Marketing Manager with extensive experience in creating whale-sized growth for global brands. I specialize in developing innovative marketing strategies, managing complex projects, and leading high-performing teams to achieve exceptional ROI and brand loyalty.
+                    </p>
+                </section>
+
+                <section class="main-section">
+                    <div class="timeline-node"><i class="fa-solid fa-briefcase"></i></div>
+                    <span class="main-section-title">Work Experience</span>
+
+                    <div class="exp-item">
+                        <div class="exp-header">
+                            <h4>Borcelle Studio</h4>
+                            <span class="date">2030 - PRESENT</span>
+                        </div>
+                        <span class="company">Marketing Manager & Specialist</span>
+                        <ul class="exp-desc">
+                            <li>Formulate and implement detailed marketing strategies and initiatives that support the company's mission and objectives.</li>
+                            <li>Guide, inspire, and oversee a dynamic marketing team, promoting a collaborative and performance-oriented culture.</li>
+                            <li>Ensure uniformity of the brand across all marketing platforms and materials.</li>
+                        </ul>
+                    </div>
+
+                    <div class="exp-item">
+                        <div class="exp-header">
+                            <h4>Pauget Studio</h4>
+                            <span class="date">2025 - 2029</span>
+                        </div>
+                        <span class="company">Marketing Manager & Specialist</span>
+                        <p class="exp-desc">Spearheaded several high-impact digital campaigns that increased user acquisition by 40%. Managed cross-functional teams to deliver cohesive brand stories across diverse channels.</p>
+                    </div>
+
+                    <div class="exp-item">
+                        <div class="exp-header">
+                            <h4>Studio Shodwe</h4>
+                            <span class="date">2024 - 2025</span>
+                        </div>
+                        <span class="company">Marketing Manager & Specialist</span>
+                        <p class="exp-desc">Coordinated localized marketing efforts and assisted in the development of brand guidelines for regional offices.</p>
+                    </div>
+                </section>
+
+                <section class="main-section">
+                    <div class="timeline-node"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <span class="main-section-title">Education</span>
+                    <div class="edu-item">
+                        <div class="exp-header">
+                            <h4>Master of Business Management</h4>
+                            <span class="date">2029 - 2031</span>
+                        </div>
+                        <p>School of business | AudBear University</p>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+</body>
+
+</html>
+
+
+
+
+

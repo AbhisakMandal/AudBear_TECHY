@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- DYNAMIC BASE FOR RELOCATION RESILIENCE -->
+    <script>
+      (function() {
+        var path = window.location.pathname;
+        var segments = path.split('/');
+        var rootIndex = -1;
+        for (var i = 0; i < segments.length; i++) {
+          if (segments[i].indexOf('audbear_techy_web_') === 0 && segments[i].indexOf('.html') === -1) {
+            rootIndex = i - 1;
+            break;
+          }
+        }
+        if (rootIndex !== -1) {
+          var base = segments.slice(0, rootIndex + 1).join('/') + '/';
+          document.write('<base href=\"' + base + '\">');
+        }
+      })();
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template-17 | AudBear TECHY</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --text-dark: #222222;
+            --text-muted: #666666;
+            --border-color: #bbbbbb;
+            --font-main: 'Montserrat', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: #f7f7f7;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+            color: var(--text-dark);
+        }
+
+        .cv-container {
+            background-color: #ffffff;
+            width: 850px;
+            min-height: 1100px;
+            padding: 60px;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header Styling */
+        .header {
+            display: flex;
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+
+        .profile-photo {
+            width: 320px;
+            height: 320px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .header-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .header-info h3 {
+            font-size: 1.1rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .header-info h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            line-height: 1.1;
+        }
+
+        /* Experience Grid */
+        .exp-section {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .exp-item {
+            display: flex;
+            border-top: 1px solid var(--border-color);
+            padding: 40px 0;
+        }
+
+        .exp-left {
+            width: 40%;
+            padding-right: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            text-align: right;
+        }
+
+        .exp-left h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .exp-left .company {
+            font-size: 0.9rem;
+            color: #444;
+            margin-bottom: 5px;
+        }
+
+        .exp-left .meta {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .exp-right {
+            width: 60%;
+            padding-left: 40px;
+            border-left: 1px solid var(--border-color);
+        }
+
+        .exp-right ul {
+            list-style: none;
+            font-size: 0.85rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .exp-right li::before {
+            content: '•';
+            margin-right: 12px;
+            color: #333;
+        }
+
+        /* Signature Area */
+        .footer {
+            margin-top: auto;
+            display: flex;
+            justify-content: flex-end;
+            padding-top: 40px;
+        }
+
+        .signature {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            color: #333;
+            opacity: 0.8;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="cv-container">
+        <!-- HEADER -->
+        <header class="header">
+            <div class="profile-photo">
+                <img src="audbear_techy_web_templates/audbear_techy_web_resume/resume_template_professional_images/resume_template_17.png" alt="AudBear Frog">
+            </div>
+            <div class="header-info">
+                <h3>AudBear Schumacher</h3>
+                <h1>Professional<br>Career</h1>
+            </div>
+        </header>
+
+        <!-- EXPERIENCE SECTION -->
+        <div class="exp-section">
+            <div class="exp-item">
+                <div class="exp-left">
+                    <h4>Marketing Manager</h4>
+                    <p class="company">AudBear & Spies</p>
+                    <p class="meta">Any City | April 2020 to Present</p>
+                </div>
+                <div class="exp-right">
+                    <ul>
+                        <li>Development and implementation of marketing strategies to increase brand awareness.</li>
+                        <li>Analysis of market trends and competitor activities to identify new whale-sized opportunities.</li>
+                        <li>Planning and execution of campaigns (Online & Offline).</li>
+                        <li>Collaboration with sales and product development to optimize customer experience.</li>
+                        <li>Monitoring the marketing budget and reporting of KPIs.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="exp-item">
+                <div class="exp-left">
+                    <h4>Project Manager</h4>
+                    <p class="company">AudBear & Spies</p>
+                    <p class="meta">Any City | May 2016 to March 2020</p>
+                </div>
+                <div class="exp-right">
+                    <ul>
+                        <li>Planning, control, and monitoring of projects within time and budget frameworks.</li>
+                        <li>Coordination of interdisciplinary teams and external service providers.</li>
+                        <li>Identification of risks and implementation of suitable measures.</li>
+                        <li>Communication with stakeholders and presentation of project progress.</li>
+                        <li>Ensuring the quality and timely delivery of project results.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="exp-item">
+                <div class="exp-left">
+                    <h4>Art Director</h4>
+                    <p class="company">AudBear & Spies</p>
+                    <p class="meta">Any City | May 2012 to March 2016</p>
+                </div>
+                <div class="exp-right">
+                    <ul>
+                        <li>Development and implementation of creative concepts for brand communication.</li>
+                        <li>Leadership and inspiration of the design team during campaign implementation.</li>
+                        <li>Ensuring a consistent visual brand appearance across all channels.</li>
+                        <li>Close cooperation with clients, copywriters, and project managers.</li>
+                        <li>Monitoring layout, typography, and visual language throughout the design process.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <div class="signature">AudBear Schumacher</div>
+        </footer>
+    </div>
+</body>
+
+</html>
+
+
+
+
+

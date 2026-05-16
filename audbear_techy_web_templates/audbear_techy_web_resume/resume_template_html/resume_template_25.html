@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- DYNAMIC BASE FOR RELOCATION RESILIENCE -->
+    <script>
+      (function() {
+        var path = window.location.pathname;
+        var segments = path.split('/');
+        var rootIndex = -1;
+        for (var i = 0; i < segments.length; i++) {
+          if (segments[i].indexOf('audbear_techy_web_') === 0 && segments[i].indexOf('.html') === -1) {
+            rootIndex = i - 1;
+            break;
+          }
+        }
+        if (rootIndex !== -1) {
+          var base = segments.slice(0, rootIndex + 1).join('/') + '/';
+          document.write('<base href=\"' + base + '\">');
+        }
+      })();
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template-25 | AudBear TECHY</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --header-bg: #e5e5e5;
+            --text-dark: #222222;
+            --text-muted: #666666;
+            --border-color: #333333;
+            --font-main: 'Montserrat', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+            color: var(--text-dark);
+        }
+
+        .cv-container {
+            background-color: #ffffff;
+            width: 850px;
+            min-height: 1100px;
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        /* Header Styling */
+        .header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .header-bg {
+            position: absolute;
+            left: 100px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: var(--header-bg);
+            width: calc(100% - 100px);
+            height: 100px;
+            border-radius: 50px;
+            z-index: 1;
+            padding-left: 120px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .profile-photo {
+            width: 160px;
+            height: 180px;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 3px solid #333;
+            z-index: 2;
+            background-color: #fff;
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .header-info h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .header-info h3 {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #555;
+            font-weight: 400;
+        }
+
+        /* Body Area */
+        .cv-body {
+            display: flex;
+            position: relative;
+            flex-grow: 1;
+            border-top: 1px solid #000;
+            padding-top: 40px;
+        }
+
+        /* Central Spine */
+        .central-spine {
+            position: absolute;
+            top: 40px;
+            left: 36%;
+            width: 1px;
+            height: calc(100% - 40px);
+            background-color: #000;
+        }
+
+        .diamond {
+            position: absolute;
+            left: 50%;
+            width: 16px;
+            height: 16px;
+            background-color: #000;
+            transform: translate(-50%, -50%) rotate(45deg);
+        }
+
+        .diamond-1 { top: 100px; }
+        .diamond-2 { top: 350px; }
+        .diamond-3 { top: 600px; }
+
+        /* Columns */
+        .sidebar {
+            width: 36%;
+            padding-right: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .main-content {
+            width: 64%;
+            padding-left: 40px;
+        }
+
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+            display: block;
+        }
+
+        .dashed-line {
+            width: 100%;
+            height: 1px;
+            border-bottom: 1px dashed #999;
+            margin: 25px 0;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.8rem;
+            margin-bottom: 12px;
+            color: #555;
+        }
+
+        .contact-item i {
+            width: 15px;
+            color: #333;
+        }
+
+        .list-unstyled {
+            list-style: none;
+            font-size: 0.85rem;
+            line-height: 2;
+            color: #555;
+        }
+
+        .edu-item h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 3px;
+        }
+
+        .edu-item .meta {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .edu-item p {
+            font-size: 0.8rem;
+            line-height: 1.5;
+        }
+
+        /* Language Diamonds */
+        .lang-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            font-size: 0.85rem;
+        }
+
+        .diamond-container {
+            display: flex;
+            gap: 5px;
+        }
+
+        .mini-diamond {
+            width: 10px;
+            height: 10px;
+            background-color: #eee;
+            transform: rotate(45deg);
+        }
+
+        .mini-diamond.filled {
+            background-color: #000;
+        }
+
+        /* Experience */
+        .profile-text {
+            font-size: 0.85rem;
+            line-height: 1.7;
+            color: #444;
+            text-align: justify;
+        }
+
+        .exp-item {
+            margin-bottom: 40px;
+        }
+
+        .exp-item h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .exp-item .company-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .exp-item ul {
+            padding-left: 20px;
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: #555;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="cv-container">
+        <!-- HEADER -->
+        <header class="header">
+            <div class="profile-photo">
+                <img src="audbear_techy_web_templates/audbear_techy_web_resume/resume_template_professional_images/resume_template_25.png" alt="AudBear Swan">
+            </div>
+            <div class="header-bg">
+                <div class="header-info">
+                    <h1>AudBear Loeb</h1>
+                    <h3>Graphics Designer</h3>
+                </div>
+            </div>
+        </header>
+
+        <!-- CV BODY -->
+        <div class="cv-body">
+            <div class="central-spine">
+                <div class="diamond diamond-1"></div>
+                <div class="diamond diamond-2"></div>
+                <div class="diamond diamond-3"></div>
+            </div>
+
+            <!-- SIDEBAR -->
+            <aside class="sidebar">
+                <section>
+                    <span class="section-title">Contact</span>
+                    <div class="contact-item"><i class="fa-solid fa-phone"></i> 123-456-7890</div>
+                    <div class="contact-item"><i class="fa-solid fa-envelope"></i> hello@audbear.com</div>
+                    <div class="contact-item"><i class="fa-solid fa-globe"></i> www.audbear.com</div>
+                    <div class="contact-item"><i class="fa-solid fa-location-dot"></i> 123 Anywhere St., Any City</div>
+                </section>
+
+                <div class="dashed-line"></div>
+
+                <section>
+                    <span class="section-title">Skills</span>
+                    <ul class="list-unstyled">
+                        <li>Skill name here</li>
+                        <li>Your Skill</li>
+                        <li>Special skills</li>
+                        <li>List your skills</li>
+                    </ul>
+                </section>
+
+                <div class="dashed-line"></div>
+
+                <section>
+                    <span class="section-title">Education</span>
+                    <div class="edu-item">
+                        <h4>Your Degree Name</h4>
+                        <span class="meta">Really Great College | 2016-2018</span>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                    <div style="height: 20px;"></div>
+                    <div class="edu-item">
+                        <h4>Your Degree Name</h4>
+                        <span class="meta">Really Great College | 2012-2016</span>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                </section>
+
+                <div class="dashed-line"></div>
+
+                <section>
+                    <span class="section-title">Languages</span>
+                    <div class="lang-item">
+                        <span>English</span>
+                        <div class="diamond-container">
+                            <div class="mini-diamond filled"></div><div class="mini-diamond filled"></div><div class="mini-diamond filled"></div><div class="mini-diamond filled"></div><div class="mini-diamond filled"></div>
+                        </div>
+                    </div>
+                    <div class="lang-item">
+                        <span>German</span>
+                        <div class="diamond-container">
+                            <div class="mini-diamond filled"></div><div class="mini-diamond filled"></div><div class="mini-diamond filled"></div><div class="mini-diamond"></div><div class="mini-diamond"></div>
+                        </div>
+                    </div>
+                    <div class="lang-item">
+                        <span>Spanish</span>
+                        <div class="diamond-container">
+                            <div class="mini-diamond filled"></div><div class="mini-diamond filled"></div><div class="mini-diamond"></div><div class="mini-diamond"></div><div class="mini-diamond"></div>
+                        </div>
+                    </div>
+                </section>
+            </aside>
+
+            <!-- MAIN CONTENT -->
+            <main class="main-content">
+                <section class="section">
+                    <span class="section-title">Profile</span>
+                    <p class="profile-text">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sagittis pretium nisl, nec commodo est. Fusce laoreet consequat sapien, eu fermentum ex pulvinar eget. Praesent hendrerit nulla in varius pharetra. Fusce facilisis venenatis lacus in lobortis. I am a dedicated creative professional with a passion for whale-sized design solutions.
+                    </p>
+                </section>
+
+                <div class="dashed-line"></div>
+
+                <section class="section">
+                    <span class="section-title">Work Experience</span>
+                    
+                    <div class="exp-item">
+                        <h4>Your Job Position here</h4>
+                        <div class="company-row">
+                            <span>AudBear Company</span>
+                            <span>2020-2022</span>
+                        </div>
+                        <ul>
+                            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+                            <li>Fusce laoreet consequat sapien, eu fermentum ex pulvinar eget.</li>
+                            <li>Nunc risus arcu, tempor vel dignissim porta, vulputate id quam.</li>
+                            <li>In eleifend nisl faucibus molestie porttitor.</li>
+                        </ul>
+                    </div>
+
+                    <div class="exp-item">
+                        <h4>Your Job Position here</h4>
+                        <div class="company-row">
+                            <span>AudBear Company</span>
+                            <span>2018-2020</span>
+                        </div>
+                        <ul>
+                            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+                            <li>Fusce laoreet consequat sapien, eu fermentum ex pulvinar eget.</li>
+                            <li>Nunc risus arcu, tempor vel dignissim porta, vulputate id quam.</li>
+                        </ul>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+</body>
+
+</html>
+
+
+
+
+

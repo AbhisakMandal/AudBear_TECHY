@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- DYNAMIC BASE FOR RELOCATION RESILIENCE -->
+    <script>
+      (function() {
+        var path = window.location.pathname;
+        var segments = path.split('/');
+        var rootIndex = -1;
+        for (var i = 0; i < segments.length; i++) {
+          if (segments[i].indexOf('audbear_techy_web_') === 0 && segments[i].indexOf('.html') === -1) {
+            rootIndex = i - 1;
+            break;
+          }
+        }
+        if (rootIndex !== -1) {
+          var base = segments.slice(0, rootIndex + 1).join('/') + '/';
+          document.write('<base href=\"' + base + '\">');
+        }
+      })();
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template-15 | AudBear TECHY</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --header-bg: #e8e0d5;
+            --text-dark: #333333;
+            --text-muted: #666666;
+            --accent-gray: #555555;
+            --font-main: 'Montserrat', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+            color: var(--text-dark);
+        }
+
+        .cv-container {
+            background-color: #ffffff;
+            width: 850px;
+            min-height: 1100px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header Styling */
+        .header {
+            background-color: var(--header-bg);
+            padding: 60px 60px 40px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            position: relative;
+        }
+
+        .header-info {
+            width: 60%;
+        }
+
+        .header-info h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 5px;
+            border-bottom: 1px solid #999;
+            padding-bottom: 10px;
+        }
+
+        .header-info h3 {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            letter-spacing: 2px;
+            font-weight: 400;
+            margin-bottom: 25px;
+        }
+
+        .contact-list {
+            list-style: none;
+            font-size: 0.85rem;
+            color: #444;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 10px;
+        }
+
+        .contact-item i {
+            color: #333;
+            width: 15px;
+        }
+
+        /* Pentagon Photo Frame */
+        .profile-photo {
+            width: 250px;
+            height: 300px;
+            clip-path: polygon(0% 15%, 50% 0%, 100% 15%, 100% 85%, 50% 100%, 0% 85%);
+            background-color: #fff;
+            overflow: hidden;
+            position: absolute;
+            right: 60px;
+            top: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            z-index: 5;
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Body Area */
+        .main-content {
+            padding: 60px;
+            flex-grow: 1;
+            margin-top: 50px;
+        }
+
+        .section {
+            margin-bottom: 45px;
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #333;
+        }
+
+        .section-title span {
+            color: #bbb;
+        }
+
+        .exp-item {
+            margin-bottom: 35px;
+        }
+
+        .exp-item h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 3px;
+        }
+
+        .exp-item .meta {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .exp-item ul {
+            padding-left: 18px;
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .exp-item li {
+            margin-bottom: 5px;
+        }
+
+        /* Lower Grid */
+        .lower-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .lower-section h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .lower-section p {
+            font-size: 0.85rem;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .list-unstyled {
+            list-style: none;
+            font-size: 0.85rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .list-unstyled li::before {
+            content: '•';
+            margin-right: 10px;
+            color: #999;
+        }
+
+        /* Footer Accent */
+        .footer-accent {
+            height: 50px;
+            background-color: #efefef;
+            width: 100%;
+            margin-top: auto;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="cv-container">
+        <!-- HEADER -->
+        <header class="header">
+            <div class="header-info">
+                <h1>Leonie Schwarz</h1>
+                <h3>Human Resources Manager</h3>
+                <ul class="contact-list">
+                    <li class="contact-item"><i class="fa-solid fa-phone"></i> (0221) 1234-56</li>
+                    <li class="contact-item"><i class="fa-solid fa-envelope"></i> hello@audbear.com</li>
+                    <li class="contact-item"><i class="fa-solid fa-location-dot"></i> Jede Straße 123, Any City</li>
+                </ul>
+            </div>
+            <div class="profile-photo">
+                <img src="audbear_techy_web_templates/audbear_techy_web_resume/resume_template_professional_images/resume_template_15.png" alt="AudBear Dolphin">
+            </div>
+        </header>
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+            <section class="section">
+                <h2 class="section-title"><span>&rsaquo;</span> Work Experience</h2>
+                <div class="exp-item">
+                    <h4>Human Resources Manager - Borcelle GmbH, Any City</h4>
+                    <span class="meta">(September 2020 - Today)</span>
+                    <ul>
+                        <li>Led personnel development programs and successfully implemented talent management strategies.</li>
+                        <li>Responsible for the recruitment of qualified specialists through effective job advertisements and applicant management.</li>
+                    </ul>
+                </div>
+                <div class="exp-item">
+                    <h4>HR Specialist - Momoka GmbH, Any City</h4>
+                    <span class="meta">(June 2013 - March 2017)</span>
+                    <ul>
+                        <li>Supported personnel recruitment, including applicant selection and interviews.</li>
+                        <li>Administration of employee benefits (e.g., payroll accounting, social benefits).</li>
+                        <li>Implementation of labor law provisions and employee training on compliance topics.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <div class="lower-grid">
+                <div class="lower-column">
+                    <section class="section">
+                        <h2 class="section-title"><span>&rsaquo;</span> Education</h2>
+                        <div class="lower-section">
+                            <h4>Master in HR Management</h4>
+                            <p>AudBear University<br>(September 2011 - May 2013)</p>
+                        </div>
+                        <div class="lower-section">
+                            <h4>Bachelor of Arts in Psychology</h4>
+                            <p>AudBear University<br>(September 2011 - May 2013)</p>
+                        </div>
+                    </section>
+
+                    <section class="section">
+                        <h2 class="section-title"><span>&rsaquo;</span> Languages</h2>
+                        <ul class="list-unstyled">
+                            <li>English (Native)</li>
+                            <li>German (Fluent)</li>
+                        </ul>
+                    </section>
+                </div>
+
+                <div class="lower-column">
+                    <section class="section">
+                        <h2 class="section-title"><span>&rsaquo;</span> Skills</h2>
+                        <ul class="list-unstyled">
+                            <li>Comprehensive knowledge in talent management and HR.</li>
+                            <li>Familiarity with current labor law provisions.</li>
+                            <li>Strong communication and team orientation.</li>
+                            <li>Mastery of HR software.</li>
+                        </ul>
+                    </section>
+
+                    <section class="section">
+                        <h2 class="section-title"><span>&rsaquo;</span> Interests</h2>
+                        <div style="display: flex; gap: 30px;">
+                            <ul class="list-unstyled">
+                                <li>Travel</li>
+                                <li>Professional Training</li>
+                            </ul>
+                            <ul class="list-unstyled">
+                                <li>Reading</li>
+                                <li>Horse Riding</li>
+                                <li>Swimming</li>
+                            </ul>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </main>
+        <div class="footer-accent"></div>
+    </div>
+</body>
+
+</html>
+
+
+
+
+

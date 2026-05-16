@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- DYNAMIC BASE FOR RELOCATION RESILIENCE -->
+    <script>
+      (function() {
+        var path = window.location.pathname;
+        var segments = path.split('/');
+        var rootIndex = -1;
+        for (var i = 0; i < segments.length; i++) {
+          if (segments[i].indexOf('audbear_techy_web_') === 0 && segments[i].indexOf('.html') === -1) {
+            rootIndex = i - 1;
+            break;
+          }
+        }
+        if (rootIndex !== -1) {
+          var base = segments.slice(0, rootIndex + 1).join('/') + '/';
+          document.write('<base href=\"' + base + '\">');
+        }
+      })();
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template-37 | AudBear TECHY</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --sidebar-bg: #0d1b2a;
+            --header-bg: #d9dee3;
+            --accent-blue: #778da9;
+            --text-light: #ffffff;
+            --text-dark: #1b263b;
+            --text-muted: #555555;
+            --font-main: 'Montserrat', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+            color: var(--text-dark);
+        }
+
+        .cv-container {
+            background-color: #ffffff;
+            width: 850px;
+            min-height: 1100px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+            display: flex;
+        }
+
+        /* Sidebar Styling */
+        .sidebar {
+            width: 40%;
+            background-color: var(--sidebar-bg);
+            color: var(--text-light);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .profile-photo {
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+            border-bottom: 5px solid #fff;
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .sidebar-content {
+            padding: 40px 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .sidebar-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .profile-text {
+            font-size: 0.85rem;
+            line-height: 1.6;
+            opacity: 0.9;
+            text-align: justify;
+        }
+
+        .edu-box {
+            background-color: var(--accent-blue);
+            padding: 25px;
+            margin: 0 -30px;
+            color: #fff;
+        }
+
+        .edu-item {
+            margin-bottom: 15px;
+        }
+
+        .edu-item h4 {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .edu-item p {
+            font-size: 0.8rem;
+            opacity: 0.9;
+        }
+
+        /* Progress Bars */
+        .skill-item {
+            margin-bottom: 15px;
+        }
+
+        .skill-header {
+            font-size: 0.8rem;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background-color: var(--accent-blue);
+            border-radius: 4px;
+        }
+
+        /* Main Area Styling */
+        .main-area {
+            width: 60%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            background-color: var(--header-bg);
+            padding: 50px 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--text-dark);
+            letter-spacing: 2px;
+            line-height: 1;
+        }
+
+        .header h3 {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #555;
+            font-weight: 400;
+        }
+
+        .contact-list {
+            list-style: none;
+            font-size: 0.8rem;
+            color: #444;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .contact-item i {
+            color: var(--text-dark);
+            width: 15px;
+        }
+
+        .main-content {
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .section-title-main {
+            font-size: 1.4rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+            display: block;
+            color: var(--text-dark);
+        }
+
+        .exp-item {
+            margin-bottom: 30px;
+        }
+
+        .exp-item h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #111;
+            margin-bottom: 5px;
+        }
+
+        .exp-item .meta {
+            font-size: 0.85rem;
+            color: #555;
+            font-weight: 600;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .exp-bullets {
+            list-style: none;
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: #555;
+            padding-left: 0;
+        }
+
+        .exp-bullets li {
+            margin-bottom: 8px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .exp-bullets li::before {
+            content: '•';
+            color: #000;
+        }
+
+        /* Language Bars (Main Area) */
+        .lang-progress {
+            background-color: #ddd;
+        }
+
+        .lang-fill {
+            background-color: var(--accent-blue);
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="cv-container">
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="profile-photo">
+                <img src="audbear_techy_web_templates/audbear_techy_web_resume/resume_template_professional_images/resume_template_37.png" alt="AudBear Emu">
+            </div>
+            <div class="sidebar-content">
+                <section>
+                    <span class="sidebar-title">Profile</span>
+                    <p class="profile-text">
+                        Business Administrative Professional with over 5 years of experience supporting whale-sized operational management, document management, scheduling, and inter-division coordination. Proven ability to increase administrative efficiency by up to 30% and maintain smooth office operations with an organized, meticulous, and proactive approach.
+                    </p>
+                </section>
+
+                <div class="edu-box">
+                    <span class="sidebar-title">Education</span>
+                    <div class="edu-item">
+                        <h4>Bachelor of Business Administration</h4>
+                        <p>AudBear University (2000-2004)</p>
+                    </div>
+                    <div class="edu-item">
+                        <h4>Master of Business Administration</h4>
+                        <p>AudBear University (2004-2006)</p>
+                    </div>
+                </div>
+
+                <section>
+                    <span class="sidebar-title">Skills</span>
+                    <div class="skill-item">
+                        <span class="skill-header">Digital Administration and Archives Management</span>
+                        <div class="progress-bar"><div class="progress-fill" style="width: 90%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-header">Business Communication and Customer Service</span>
+                        <div class="progress-bar"><div class="progress-fill" style="width: 85%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-header">Microsoft Office & Google Workspace</span>
+                        <div class="progress-bar"><div class="progress-fill" style="width: 95%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-header">Exclusive Meeting Scheduling and Agenda</span>
+                        <div class="progress-bar"><div class="progress-fill" style="width: 80%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-header">Office Budget Management & Purchasing</span>
+                        <div class="progress-bar"><div class="progress-fill" style="width: 85%;"></div></div>
+                    </div>
+                </section>
+            </div>
+        </aside>
+
+        <!-- MAIN AREA -->
+        <main class="main-area">
+            <header class="header">
+                <h1>AudBear Davis</h1>
+                <h3>Business Administrative</h3>
+                <ul class="contact-list">
+                    <li class="contact-item"><i class="fa-solid fa-phone"></i> +123-456-7890</li>
+                    <li class="contact-item"><i class="fa-solid fa-envelope"></i> hello@audbear.com</li>
+                    <li class="contact-item"><i class="fa-solid fa-globe"></i> www.audbear.com</li>
+                    <li class="contact-item"><i class="fa-solid fa-location-dot"></i> 123 Anywhere St., Any City</li>
+                </ul>
+            </header>
+
+            <div class="main-content">
+                <section>
+                    <span class="section-title-main">Work Experience</span>
+                    
+                    <div class="exp-item">
+                        <h4>Administrative Officer</h4>
+                        <span class="meta">AudBear & Spencer (2006-2008)</span>
+                        <ul class="exp-bullets">
+                            <li>Manage important company documents and digital filing systems for large enterprises.</li>
+                            <li>Prepare weekly and monthly reports for executive management.</li>
+                            <li>Assist in procurement of goods and services and monitor office operational budget.</li>
+                            <li>Coordination of official travel and administrative needs of the main director.</li>
+                        </ul>
+                    </div>
+
+                    <div class="exp-item">
+                        <h4>Administrative Assistant</h4>
+                        <span class="meta">AudBear Industries (2008-2011)</span>
+                        <ul class="exp-bullets">
+                            <li>Compile and update employee and contract databases.</li>
+                            <li>Welcoming guests and scheduling appointments for management with clients.</li>
+                            <li>Support HRD in managing employee administration and attendance.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section>
+                    <span class="section-title-main">Languages</span>
+                    <div class="skill-item">
+                        <span class="skill-header">English</span>
+                        <div class="progress-bar lang-progress"><div class="progress-fill lang-fill" style="width: 95%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-header">Spanish</span>
+                        <div class="progress-bar lang-progress"><div class="progress-fill lang-fill" style="width: 80%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-header">Arabic</span>
+                        <div class="progress-bar lang-progress"><div class="progress-fill lang-fill" style="width: 85%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-header">French</span>
+                        <div class="progress-bar lang-progress"><div class="progress-fill lang-fill" style="width: 75%;"></div></div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>
+
+
+
+
+

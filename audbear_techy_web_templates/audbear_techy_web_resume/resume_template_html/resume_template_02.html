@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- DYNAMIC BASE FOR RELOCATION RESILIENCE -->
+    <script>
+      (function() {
+        var path = window.location.pathname;
+        var segments = path.split('/');
+        var rootIndex = -1;
+        for (var i = 0; i < segments.length; i++) {
+          if (segments[i].indexOf('audbear_techy_web_') === 0 && segments[i].indexOf('.html') === -1) {
+            rootIndex = i - 1;
+            break;
+          }
+        }
+        if (rootIndex !== -1) {
+          var base = segments.slice(0, rootIndex + 1).join('/') + '/';
+          document.write('<base href=\"' + base + '\">');
+        }
+      })();
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template-02 | AudBear TECHY</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --sidebar-bg: #d9e2eb;
+            --main-bg: #ffffff;
+            --accent-blue: #2c3e50;
+            --text-dark: #333333;
+            --text-muted: #666666;
+            --font-main: 'Montserrat', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+            color: var(--text-dark);
+        }
+
+        .cv-container {
+            background-color: var(--main-bg);
+            width: 850px;
+            min-height: 1100px;
+            display: flex;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Sidebar Styling */
+        .sidebar {
+            background-color: var(--sidebar-bg);
+            width: 38%;
+            padding: 50px 35px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .profile-photo {
+            width: 170px;
+            height: 170px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-bottom: 50px;
+            border: 5px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .contact-section {
+            width: 100%;
+            margin-bottom: 45px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 12px;
+            font-size: 0.8rem;
+            color: var(--text-dark);
+        }
+
+        .contact-item i {
+            width: 15px;
+            color: var(--accent-blue);
+        }
+
+        .sidebar-heading {
+            width: 100%;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+            color: var(--accent-blue);
+        }
+
+        .skill-item {
+            width: 100%;
+            margin-bottom: 18px;
+        }
+
+        .skill-name {
+            font-size: 0.85rem;
+            display: block;
+            margin-bottom: 8px;
+            color: #444;
+        }
+
+        .skill-dots {
+            display: flex;
+            gap: 6px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            background-color: #bdc3c7;
+            border-radius: 50%;
+        }
+
+        .dot.filled {
+            background-color: var(--accent-blue);
+        }
+
+        .award-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            font-size: 0.8rem;
+            line-height: 1.5;
+        }
+
+        .award-item i {
+            color: var(--accent-blue);
+            margin-top: 3px;
+        }
+
+        /* Main Content Styling */
+        .main-content {
+            width: 62%;
+            padding: 70px 50px;
+        }
+
+        .header {
+            margin-bottom: 50px;
+        }
+
+        .header h1 {
+            font-size: 3.2rem;
+            font-weight: 700;
+            color: var(--accent-blue);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .header h3 {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 400;
+        }
+
+        .divider {
+            width: 100%;
+            height: 1px;
+            background-color: #e0e0e0;
+            margin: 30px 0 45px 0;
+        }
+
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            color: var(--accent-blue);
+        }
+
+        .profile-text {
+            font-size: 0.9rem;
+            line-height: 1.7;
+            color: #555;
+        }
+
+        .edu-item, .exp-item {
+            margin-bottom: 25px;
+        }
+
+        .edu-item h4, .exp-item h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .edu-item .meta, .exp-item .meta {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .edu-item ul, .exp-item ul {
+            padding-left: 18px;
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .edu-item li, .exp-item li {
+            margin-bottom: 6px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="cv-container">
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="profile-photo">
+                <img src="audbear_techy_web_templates/audbear_techy_web_resume/resume_template_professional_images/resume_template_02.png" alt="AudBear Tiger">
+            </div>
+
+            <div class="contact-section">
+                <div class="contact-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>123 Anywhere St., Any City</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>123-456-7890</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>hello@audbear.com</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fa-solid fa-globe"></i>
+                    <span>www.audbear.com</span>
+                </div>
+            </div>
+
+            <div class="sidebar-heading">Skills</div>
+            <div class="skill-item">
+                <span class="skill-name">Project Management</span>
+                <div class="skill-dots">
+                    <div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div>
+                </div>
+            </div>
+            <div class="skill-item">
+                <span class="skill-name">Software Development</span>
+                <div class="skill-dots">
+                    <div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div><div class="dot"></div>
+                </div>
+            </div>
+            <div class="skill-item">
+                <span class="skill-name">UI UX Design</span>
+                <div class="skill-dots">
+                    <div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div>
+                </div>
+            </div>
+            <div class="skill-item">
+                <span class="skill-name">Business Analysis</span>
+                <div class="skill-dots">
+                    <div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div><div class="dot"></div>
+                </div>
+            </div>
+            <div class="skill-item">
+                <span class="skill-name">Staff and User Training</span>
+                <div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div>
+            </div>
+
+            <div class="sidebar-heading" style="margin-top: 30px;">Awards</div>
+            <div class="award-item">
+                <i class="fa-solid fa-bookmark"></i>
+                <div>
+                    <strong>Most Outstanding Employee</strong><br>
+                    AudBear TECHY (2015)
+                </div>
+            </div>
+            <div class="award-item">
+                <i class="fa-solid fa-bookmark"></i>
+                <div>
+                    <strong>Best Mobile App Design</strong><br>
+                    Global Tech Awards (2014)
+                </div>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+            <header class="header">
+                <h1>AudBear Russo</h1>
+                <h3>Product Manager</h3>
+            </header>
+
+            <div class="divider"></div>
+
+            <section class="section">
+                <h2 class="section-title">Profile</h2>
+                <p class="profile-text">
+                    I am a results-driven product manager with holistic knowledge of software development and design. I am also experienced in coordinating with stakeholders and leading whale-sized projects to success through strategic innovation.
+                </p>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Education</h2>
+                <div class="edu-item">
+                    <h4>BA Product Design | Cliffmoor College</h4>
+                    <span class="meta">Jan 2010 - Jan 2014</span>
+                    <ul>
+                        <li>GPA: 3.26.</li>
+                        <li>Minor in Management.</li>
+                        <li>Thesis involved studying several technology companies and optimizing their product design process.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Experience</h2>
+                <div class="exp-item">
+                    <h4>Product Manager | Thynk Unlimited</h4>
+                    <span class="meta">Jan 2016 - Present</span>
+                    <ul>
+                        <li>Conduct day-to-day project coordination, planning, and implementation across multiple teams.</li>
+                        <li>Create functional and technical application documents.</li>
+                    </ul>
+                </div>
+                <div class="exp-item">
+                    <h4>Content Writer | Studio Shodwe</h4>
+                    <span class="meta">Feb 2014 - Dec 2015</span>
+                    <ul>
+                        <li>Managed complex projects from start to finish.</li>
+                        <li>Collaborated with other designers.</li>
+                        <li>Translated requirements into polished, high-level designs.</li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+
+</html>
+
+
+
+
+

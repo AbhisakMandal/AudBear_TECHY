@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- DYNAMIC BASE FOR RELOCATION RESILIENCE -->
+    <script>
+      (function() {
+        var path = window.location.pathname;
+        var segments = path.split('/');
+        var rootIndex = -1;
+        for (var i = 0; i < segments.length; i++) {
+          if (segments[i].indexOf('audbear_techy_web_') === 0 && segments[i].indexOf('.html') === -1) {
+            rootIndex = i - 1;
+            break;
+          }
+        }
+        if (rootIndex !== -1) {
+          var base = segments.slice(0, rootIndex + 1).join('/') + '/';
+          document.write('<base href=\"' + base + '\">');
+        }
+      })();
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template-40 | AudBear TECHY</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --accent-navy: #1b263b;
+            --text-dark: #222222;
+            --text-muted: #666666;
+            --border-color: #333333;
+            --font-main: 'Montserrat', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: #f7f7f7;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+            color: var(--text-dark);
+        }
+
+        .cv-container {
+            background-color: #ffffff;
+            width: 850px;
+            min-height: 1100px;
+            padding: 50px;
+            border: 20px solid #f7f7f7;
+            /* Outer frame effect */
+            position: relative;
+        }
+
+        .inner-border {
+            border: 1px solid #000;
+            padding: 50px;
+            min-height: calc(1100px - 140px);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header Styling */
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        /* Profile Photo (Added to meet requirements) */
+        .profile-photo {
+            position: absolute;
+            top: -20px;
+            left: 0;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid #000;
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--accent-navy);
+            margin-bottom: 10px;
+        }
+
+        .header h3 {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            color: #555;
+            font-weight: 400;
+            margin-bottom: 25px;
+        }
+
+        .contact-row {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            font-size: 0.85rem;
+            color: #555;
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+            padding: 15px 0;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-item i {
+            color: var(--accent-navy);
+        }
+
+        /* Section Styling */
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            display: block;
+            border-bottom: 1px solid #333;
+            padding-bottom: 10px;
+        }
+
+        .section-text {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #444;
+            text-align: justify;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 30px;
+            margin-bottom: 25px;
+        }
+
+        .content-grid .date {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .content-grid h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .content-grid p {
+            font-size: 0.85rem;
+            line-height: 1.5;
+            color: #555;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            font-size: 0.85rem;
+            color: #444;
+        }
+
+        .skill-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .skill-item::before {
+            content: '•';
+            color: #000;
+        }
+
+        /* References Grid */
+        .refs-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .ref-item {
+            font-size: 0.85rem;
+            color: #555;
+        }
+
+        .ref-item strong {
+            font-size: 0.95rem;
+            color: #111;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="cv-container">
+        <div class="inner-border">
+            <!-- HEADER -->
+            <header class="header">
+                <div class="profile-photo">
+                    <img src="audbear_techy_web_templates/audbear_techy_web_resume/resume_template_professional_images/resume_template_40.png" alt="AudBear Camel">
+                </div>
+                <h1>AudBear Parvati</h1>
+                <h3>Head Manager</h3>
+                <div class="contact-row">
+                    <div class="contact-item"><i class="fa-solid fa-phone"></i> +123-456-7890</div>
+                    <div class="contact-item"><i class="fa-solid fa-location-dot"></i> 123 Anywhere Street., Any City</div>
+                    <div class="contact-item"><i class="fa-solid fa-envelope"></i> hello@audbear.com</div>
+                </div>
+            </header>
+
+            <!-- ABOUT ME -->
+            <section class="section">
+                <span class="section-title">About Me</span>
+                <p class="section-text">
+                    Highly experienced and results-oriented Head Manager with over 12 years of experience in leading whale-sized organizational operations. I specialize in strategic planning, team development, and operational excellence, consistently delivering growth and efficiency in complex business environments.
+                </p>
+            </section>
+
+            <!-- EDUCATION -->
+            <section class="section">
+                <span class="section-title">Education</span>
+                <div class="content-grid">
+                    <span class="date">2020 - 2023</span>
+                    <div>
+                        <h4>Master of Business Management</h4>
+                        <p>AudBear University. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet sem nec risus egestas accumsan.</p>
+                    </div>
+                </div>
+                <div class="content-grid">
+                    <span class="date">2016 - 2020</span>
+                    <div>
+                        <h4>Bachelor of Business Management</h4>
+                        <p>AudBear University. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet sem nec risus egestas accumsan.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- EXPERIENCE -->
+            <section class="section">
+                <span class="section-title">Experience</span>
+                <div class="content-grid">
+                    <span class="date">2023 - NOW</span>
+                    <div>
+                        <h4>Head Manager</h4>
+                        <p>AudBear Studio. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet sem nec risus egestas accumsan. In enim nunc, tincidunt ut quam eget, luctus sollicitudin neque.</p>
+                    </div>
+                </div>
+                <div class="content-grid">
+                    <span class="date">2022 - 2023</span>
+                    <div>
+                        <h4>General Manager</h4>
+                        <p>AudBear & Co. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet sem nec risus egestas accumsan. In enim nunc, tincidunt ut quam eget, luctus sollicitudin neque.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SKILLS -->
+            <section class="section">
+                <span class="section-title">Skills</span>
+                <div class="skills-grid">
+                    <div class="skill-item">Leadership</div>
+                    <div class="skill-item">Digital Marketing</div>
+                    <div class="skill-item">Communication</div>
+                    <div class="skill-item">Innovation</div>
+                    <div class="skill-item">Analytics</div>
+                    <div class="skill-item">Teamwork</div>
+                    <div class="skill-item">Problem Solving</div>
+                    <div class="skill-item">Collaboration</div>
+                </div>
+            </section>
+
+            <!-- REFERENCES -->
+            <section class="section">
+                <span class="section-title">References</span>
+                <div class="refs-grid">
+                    <div class="ref-item">
+                        <strong>AudBear Agarwal</strong>
+                        CEO of AudBear Company<br>
+                        Phone: 123-456-7890 | Social: @audbear
+                    </div>
+                    <div class="ref-item">
+                        <strong>AudBear Varma</strong>
+                        HRD of AudBear Company<br>
+                        Phone: 123-456-7890 | Social: @audbear
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+
+</html>
+
+
+
+
+

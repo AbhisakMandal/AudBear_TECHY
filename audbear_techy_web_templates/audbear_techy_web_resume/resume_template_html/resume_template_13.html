@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- DYNAMIC BASE FOR RELOCATION RESILIENCE -->
+    <script>
+      (function() {
+        var path = window.location.pathname;
+        var segments = path.split('/');
+        var rootIndex = -1;
+        for (var i = 0; i < segments.length; i++) {
+          if (segments[i].indexOf('audbear_techy_web_') === 0 && segments[i].indexOf('.html') === -1) {
+            rootIndex = i - 1;
+            break;
+          }
+        }
+        if (rootIndex !== -1) {
+          var base = segments.slice(0, rootIndex + 1).join('/') + '/';
+          document.write('<base href=\"' + base + '\">');
+        }
+      })();
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template-13 | AudBear TECHY</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --header-bg: #f3f3f3;
+            --section-title-bg: #e5e5e5;
+            --text-dark: #333333;
+            --text-muted: #666666;
+            --font-main: 'Montserrat', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: #efefef;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+            color: var(--text-dark);
+        }
+
+        .cv-container {
+            background-color: #ffffff;
+            width: 850px;
+            min-height: 1100px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Header Styling */
+        .header {
+            background-color: var(--header-bg);
+            padding: 70px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-info h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 5px;
+        }
+
+        .header-info h3 {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            letter-spacing: 2px;
+            font-weight: 400;
+        }
+
+        .profile-photo {
+            width: 180px;
+            height: 180px;
+            border: 2px solid #ccc;
+            padding: 5px;
+            background-color: #fff;
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Body Split */
+        .cv-body {
+            display: flex;
+            padding: 50px 60px;
+            gap: 60px;
+        }
+
+        /* Sidebar Styling */
+        .sidebar {
+            width: 35%;
+        }
+
+        .section-title {
+            background-color: var(--section-title-bg);
+            display: inline-block;
+            padding: 5px 15px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        .sidebar-section {
+            margin-bottom: 40px;
+        }
+
+        .contact-list {
+            list-style: none;
+            font-size: 0.85rem;
+            color: #444;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .contact-item i {
+            width: 15px;
+        }
+
+        .edu-item {
+            margin-bottom: 20px;
+            font-size: 0.85rem;
+        }
+
+        .edu-item h4 {
+            font-weight: 700;
+            margin-bottom: 2px;
+        }
+
+        .edu-item .uni {
+            color: #555;
+            margin-bottom: 3px;
+        }
+
+        .edu-item .date {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .sidebar-list {
+            list-style: none;
+            font-size: 0.85rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .sidebar-list li::before {
+            content: '•';
+            margin-right: 10px;
+        }
+
+        /* Main Content Styling */
+        .main-content {
+            width: 65%;
+        }
+
+        .about-text {
+            font-size: 0.85rem;
+            line-height: 1.7;
+            color: #555;
+            text-align: justify;
+        }
+
+        .exp-item {
+            margin-bottom: 40px;
+        }
+
+        .exp-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 10px;
+        }
+
+        .exp-date-info {
+            width: 150px;
+            font-size: 0.85rem;
+        }
+
+        .exp-date-info .date {
+            font-weight: 700;
+        }
+
+        .exp-date-info .duration {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .exp-details {
+            flex-grow: 1;
+        }
+
+        .exp-details h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 2px;
+        }
+
+        .exp-details .company {
+            font-size: 0.9rem;
+            color: #555;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .exp-details ul {
+            padding-left: 18px;
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: #666;
+        }
+
+        .exp-details li {
+            margin-bottom: 5px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="cv-container">
+        <!-- HEADER -->
+        <header class="header">
+            <div class="header-info">
+                <h1>Leonie Schwarz</h1>
+                <h3>Marketing Manager</h3>
+            </div>
+            <div class="profile-photo">
+                <img src="audbear_techy_web_templates/audbear_techy_web_resume/resume_template_professional_images/resume_template_13.png" alt="AudBear Sloth">
+            </div>
+        </header>
+
+        <!-- CV BODY -->
+        <div class="cv-body">
+            <!-- SIDEBAR -->
+            <aside class="sidebar">
+                <div class="sidebar-section">
+                    <span class="section-title">Contact</span>
+                    <ul class="contact-list">
+                        <li class="contact-item"><i class="fa-solid fa-phone"></i> (0221) 1234-56</li>
+                        <li class="contact-item"><i class="fa-solid fa-envelope"></i> hello@audbear.com</li>
+                        <li class="contact-item"><i class="fa-solid fa-location-dot"></i> Jede Straße 123, 12345 Jede Stadt</li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-section">
+                    <span class="section-title">Education</span>
+                    <div class="edu-item">
+                        <h4>M. A. Marketing</h4>
+                        <p class="uni">AudBear University</p>
+                        <div class="date">2013 - 2015</div>
+                    </div>
+                    <div class="edu-item">
+                        <h4>B. A. Business Management</h4>
+                        <p class="uni">AudBear University</p>
+                        <div class="date">2010 - 2013</div>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <span class="section-title">Languages</span>
+                    <ul class="sidebar-list">
+                        <li>English - Native</li>
+                        <li>German - C1</li>
+                        <li>French - B2</li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-section">
+                    <span class="section-title">Expertise</span>
+                    <ul class="sidebar-list">
+                        <li>Data Analysis</li>
+                        <li>Brand Management</li>
+                        <li>SEO & SEM</li>
+                        <li>Communication</li>
+                        <li>Creativity</li>
+                    </ul>
+                </div>
+            </aside>
+
+            <!-- MAIN CONTENT -->
+            <main class="main-content">
+                <div class="sidebar-section">
+                    <span class="section-title">About Me</span>
+                    <p class="about-text">
+                        Experienced Marketing Manager with in-depth knowledge in global market development and a proven track record in expansion into new markets. I specialize in leading whale-sized strategic initiatives and optimizing digital growth through data-driven insights.
+                    </p>
+                </div>
+
+                <div class="sidebar-section">
+                    <span class="section-title">Work Experience</span>
+                    
+                    <div class="exp-item">
+                        <div class="exp-row">
+                            <div class="exp-date-info">
+                                <p class="date">03/2022 - PRESENT</p>
+                                <p class="duration">2 Years</p>
+                            </div>
+                            <div class="exp-details">
+                                <h4>Marketing Manager</h4>
+                                <span class="company">Altenburg & Güns</span>
+                                <ul>
+                                    <li>Responsible for the development and implementation of marketing strategies to increase brand awareness and sales figures.</li>
+                                    <li>Leading a team of 10 employees in the marketing department.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="exp-item">
+                        <div class="exp-row">
+                            <div class="exp-date-info">
+                                <p class="date">07/2018 - 02/2022</p>
+                                <p class="duration">4 Years</p>
+                            </div>
+                            <div class="exp-details">
+                                <h4>Marketing Specialist</h4>
+                                <span class="company">Hochbauer GmbH</span>
+                                <ul>
+                                    <li>Support in the development and implementation of marketing strategies.</li>
+                                    <li>Execution of market analyses and competitor analyses.</li>
+                                    <li>Coordination of marketing campaigns and events.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="exp-item">
+                        <div class="exp-row">
+                            <div class="exp-date-info">
+                                <p class="date">06/2015 - 06/2018</p>
+                                <p class="duration">3 Years</p>
+                            </div>
+                            <div class="exp-details">
+                                <h4>Marketing Assistant</h4>
+                                <span class="company">Eventagentur Spannungsbogen</span>
+                                <ul>
+                                    <li>Support of the marketing team in administrative tasks.</li>
+                                    <li>Creation of marketing materials and presentations.</li>
+                                    <li>Execution of research and analyses for marketing projects.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+</body>
+
+</html>
+
+
+
+
+

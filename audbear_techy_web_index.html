@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AudBear TECHY | Professional Suite</title>
+
+  <!-- DYNAMIC BASE FOR RELOCATION RESILIENCE -->
+  <script>
+    (function () {
+      var path = window.location.pathname;
+      var segments = path.split('/');
+      var rootIndex = -1;
+      for (var i = 0; i < segments.length; i++) {
+        if (segments[i].indexOf('audbear_techy_web_') === 0 && segments[i].indexOf('.html') === -1) {
+          rootIndex = i - 1;
+          break;
+        }
+      }
+      if (rootIndex !== -1) {
+        var base = segments.slice(0, rootIndex + 1).join('/') + '/';
+        document.write('<base href=\"' + base + '\">');
+      }
+    })();
+  </script>
+
+  <link rel="icon" type="image/png" href="audbear_techy_web_assets/audbear_techy_web_icon.png">
+
+  <!-- FONTS & ICONS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Global Design System -->
+  <link rel="stylesheet" href="audbear_techy_web_css/audbear_techy_web_global_css/audbear_techy_web_main.css">
+  <!-- Page Specific -->
+  <link rel="stylesheet" href="audbear_techy_web_css/audbear_techy_web_global_css/audbear_techy_web_index.css">
+</head>
+
+<body class="landing">
+
+  <!-- HEADER -->
+  <header class="landing-header">
+    <a href="#" class="header-brand">
+      <img src="audbear_techy_web_assets/audbear_techy_web_icon.png" alt="AudBear TECHY">
+      <div class="brand-name">AudBear<span>TECHY</span></div>
+    </a>
+    <nav class="header-nav">
+      <button class="theme-toggle-btn" id="themeToggleBtn" title="Toggle Theme">
+        <i class="fa-solid fa-moon"></i>
+      </button>
+      <a href="#vision">Our Vision</a>
+      <a href="#features">Features</a>
+      <a href="#vault">The Vault</a>
+      <a href="audbear_techy_web_html/audbear_techy_web_global_html/audbear_techy_web_workspace.html"
+        class="launch-btn">
+        <span>Visit Workspace</span>
+        <i class="fa-solid fa-angle-right"></i>
+      </a>
+      <div class="header-user-profile" title="User Profile">
+        <img src="audbear_techy_web_assets/audbear_techy_web_user.png" alt="User" class="user-avatar">
+      </div>
+    </nav>
+  </header>
+
+  <!-- SCROLL CONTAINER (starts below fixed header) -->
+  <div class="page-scroll-wrap">
+
+    <!-- HERO SECTION -->
+    <section class="hero-section">
+      <div class="hero-badge">Welcome to AudBear TECHY</div>
+      <h1 class="hero-title">Your Professional Identity,<br>Perfected.</h1>
+      <p class="hero-subtitle">The ultimate suite for creating ATS-friendly resumes, professional visiting cards, and
+        compliant billing solutions. Craft your success story with precision and style.</p>
+      <div class="hero-cta-group">
+        <a href="audbear_techy_web_html/audbear_techy_web_global_html/audbear_techy_web_workspace.html"
+          class="hero-primary-btn">
+          Visit Workspace <i class="fa-solid fa-arrow-right"></i>
+        </a>
+        <a href="#features" class="hero-secondary-btn">
+          Explore Features
+        </a>
+      </div>
+      <div class="hero-studio-link">
+        <span>Visit to our main page: </span>
+        <div class="ws-header-badge">
+          <img src="audbear_techy_web_assets/audbear_techy_web_icon.png" alt="AudBear" class="badge-icon">
+          <span class="badge-brand">AudBear <span>STUDIO</span></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- VISION & MISSION -->
+    <section id="vision" class="section">
+      <div class="mission-container">
+        <div class="mission-content">
+          <div class="hero-badge" style="display:inline-block; margin-bottom: 16px;">AudBear Family</div>
+          <h3>Empowering Professionals Worldwide</h3>
+          <p>At AudBear, our mission is to break down the barriers between talent and opportunity. We believe that every
+            professional deserves a platform that highlights their true potential without the friction of complex design
+            tools.</p>
+          <p>Our vision is to build an ecosystem where managing your professional identity—from your CV to your business
+            invoices—is seamless, secure, and stunningly beautiful.</p>
+        </div>
+        <div class="mission-image">
+          <!-- Using a premium Unsplash image that fits professional/tech theme -->
+          <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800"
+            alt="Team collaborating">
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section id="features" class="section">
+      <div class="section-header">
+        <h2 class="section-title">Everything You Need</h2>
+        <p class="section-subtitle">A comprehensive suite of tools designed to handle all aspects of your professional
+          documentation and branding.</p>
+      </div>
+      <div class="features-split-showcase">
+        <!-- Feature 1: Resume Builder -->
+        <div class="split-row split-row--blue">
+          <div class="split-col split-col--info">
+            <div class="split-header">
+              <div class="split-icon"><i class="fa-solid fa-file-invoice"></i></div>
+              <h3>Resume Builder</h3>
+            </div>
+            <ul class="split-highlights">
+              <li><i class="fa-solid fa-check"></i> 60+ Premium ATS Templates</li>
+              <li><i class="fa-solid fa-check"></i> Real-time AI Content Guidance</li>
+              <li><i class="fa-solid fa-check"></i> Dynamic Rendering Engine</li>
+              <li><i class="fa-solid fa-check"></i> Professional PDF Export</li>
+            </ul>
+          </div>
+          <div class="split-divider"></div>
+          <div class="split-col split-col--desc">
+            <div class="desc-badge">Flagship Tool</div>
+            <p>Our flagship document engine designed to bypass complex ATS filters and land more interviews. Craft your
+              professional story with absolute precision and style.</p>
+            <a href="audbear_techy_web_html/audbear_techy_web_global_html/audbear_techy_web_workspace.html"
+              class="split-btn">
+              Resume Templates <i class="fa-solid fa-angle-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Feature 2: Visiting Card (Reversed) -->
+        <div class="split-row split-row--purple split-row--reverse">
+          <div class="split-col split-col--desc">
+            <div class="desc-badge">Networking Suite</div>
+            <p>Design and export print-ready visiting cards that make a lasting impression on your network. Bridge the
+              gap between digital and physical branding instantly.</p>
+            <div class="split-btn locked">Visiting Card Templates <i class="fa-solid fa-lock"></i></div>
+          </div>
+          <div class="split-divider"></div>
+          <div class="split-col split-col--info">
+            <div class="split-header">
+              <div class="split-icon"><i class="fa-solid fa-id-card"></i></div>
+              <h3>Visiting Card</h3>
+            </div>
+            <ul class="split-highlights">
+              <li><i class="fa-solid fa-check"></i> Standard & Mini Dimensions</li>
+              <li><i class="fa-solid fa-check"></i> Double-sided Professional Layouts</li>
+              <li><i class="fa-solid fa-check"></i> CMYK Print-Ready Export</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Feature 3: Standard Invoices -->
+        <div class="split-row split-row--amber">
+          <div class="split-col split-col--info">
+            <div class="split-header">
+              <div class="split-icon"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+              <h3>Standard Invoices</h3>
+            </div>
+            <ul class="split-highlights">
+              <li><i class="fa-solid fa-check"></i> Automated Math & Totals</li>
+              <li><i class="fa-solid fa-check"></i> Professional Branding Kits</li>
+              <li><i class="fa-solid fa-check"></i> Multi-Currency Support</li>
+            </ul>
+          </div>
+          <div class="split-divider"></div>
+          <div class="split-col split-col--desc">
+            <div class="desc-badge">Business Essentials</div>
+            <p>Minimalistic billing systems for independent professionals and digital freelancers. Streamline your
+              payments with clean, professional invoices.</p>
+            <div class="split-btn locked">Invoice Templates <i class="fa-solid fa-lock"></i></div>
+          </div>
+        </div>
+
+        <!-- Feature 4: GST Invoices (Reversed) -->
+        <div class="split-row split-row--cyan split-row--reverse">
+          <div class="split-col split-col--desc">
+            <div class="desc-badge">Compliance Ready</div>
+            <p>Fully compliant tax invoicing designed for modern businesses. Automate your GST calculations and stay
+              tax-ready with zero effort.</p>
+            <div class="split-btn locked">GST Templates <i class="fa-solid fa-lock"></i></div>
+          </div>
+          <div class="split-divider"></div>
+          <div class="split-col split-col--info">
+            <div class="split-header">
+              <div class="split-icon"><i class="fa-solid fa-receipt"></i></div>
+              <h3>GST Billing</h3>
+            </div>
+            <ul class="split-highlights">
+              <li><i class="fa-solid fa-check"></i> Automatic GST/HST Math</li>
+              <li><i class="fa-solid fa-check"></i> HSN/SAC Database Integration</li>
+              <li><i class="fa-solid fa-check"></i> Digital Signature Support</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Feature 5: Document Converter -->
+        <div class="split-row split-row--indigo">
+          <div class="split-col split-col--info">
+            <div class="split-header">
+              <div class="split-icon"><i class="fa-solid fa-repeat"></i></div>
+              <h3>Converter</h3>
+            </div>
+            <ul class="split-highlights">
+              <li><i class="fa-solid fa-check"></i> PDF to DOCX Accuracy</li>
+              <li><i class="fa-solid fa-check"></i> Image to Document OCR</li>
+              <li><i class="fa-solid fa-check"></i> Zero Format Loss Conversion</li>
+            </ul>
+          </div>
+          <div class="split-divider"></div>
+          <div class="split-col split-col--desc">
+            <div class="desc-badge">Utility Engine</div>
+            <p>Advanced format switching technology that preserves every pixel. Seamlessly transform your documents
+              between formats in seconds.</p>
+            <div class="split-btn locked">Converter Suite <i class="fa-solid fa-lock"></i></div>
+          </div>
+        </div>
+
+        <!-- Feature 6: Resizer (Reversed) -->
+        <div class="split-row split-row--pink split-row--reverse">
+          <div class="split-col split-col--desc">
+            <div class="desc-badge">Precision Tool</div>
+            <p>Intelligence-driven scaling for documents that need to meet strict upload specifications. Adjust
+              dimensions without sacrificing quality.</p>
+            <div class="split-btn locked">Resizer Tool <i class="fa-solid fa-lock"></i></div>
+          </div>
+          <div class="split-divider"></div>
+          <div class="split-col split-col--info">
+            <div class="split-header">
+              <div class="split-icon"><i class="fa-solid fa-expand"></i></div>
+              <h3>Precision Resizer</h3>
+            </div>
+            <ul class="split-highlights">
+              <li><i class="fa-solid fa-check"></i> Smart Aspect Ratio Locking</li>
+              <li><i class="fa-solid fa-check"></i> Unit Calibration (cm/in/px)</li>
+              <li><i class="fa-solid fa-check"></i> High-Fidelity Scaling AI</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VAULT SYSTEM -->
+    <section id="vault" class="vault-section">
+      <div class="vault-grid">
+        <div class="vault-visual">
+          <div class="vault-card-mockup">
+            <div class="vault-item-mockup">
+              <div class="icon" style="color: #60A5FA; background: rgba(96,165,250,0.1)"><i
+                  class="fa-solid fa-file-invoice"></i></div>
+              <div class="lines">
+                <div></div>
+                <div></div>
+              </div>
+              <i class="fa-solid fa-ellipsis-vertical" style="margin-left: auto; color: var(--builder-muted)"></i>
+            </div>
+            <div class="vault-item-mockup">
+              <div class="icon" style="color: #F59E0B; background: rgba(245,158,11,0.1)"><i
+                  class="fa-solid fa-file-invoice-dollar"></i></div>
+              <div class="lines">
+                <div></div>
+                <div></div>
+              </div>
+              <i class="fa-solid fa-ellipsis-vertical" style="margin-left: auto; color: var(--builder-muted)"></i>
+            </div>
+            <div class="vault-item-mockup">
+              <div class="icon" style="color: #A855F7; background: rgba(168,85,247,0.1)"><i
+                  class="fa-solid fa-id-card"></i></div>
+              <div class="lines">
+                <div></div>
+                <div></div>
+              </div>
+              <i class="fa-solid fa-ellipsis-vertical" style="margin-left: auto; color: var(--builder-muted)"></i>
+            </div>
+          </div>
+        </div>
+        <div class="vault-content">
+          <h2 class="section-title">The Vault System</h2>
+          <p class="section-subtitle" style="margin: 0 0 24px 0; text-align: left;">Your secure, centralized hub for all
+            professional documents.</p>
+          <p style="color: var(--builder-muted); line-height: 1.8; margin-bottom: 30px;">
+            Never lose a resume version again. The AudBear Vault automatically saves your progress and organizes your
+            documents in one safe place. Edit, duplicate, or export your saved files as PDF, DOCX, or Image with a
+            single click.
+          </p>
+          <a href="audbear_techy_web_html/audbear_techy_web_vault_html/audbear_techy_web_vault.html"
+            class="vault-action-btn">
+            <i class="fa-solid fa-vault"></i> Open Vault
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="landing-footer">
+      <div class="footer-brand">
+        <img src="audbear_techy_web_assets/audbear_techy_web_icon.png" alt="AudBear TECHY">
+        <div class="brand-name" style="font-family: 'Outfit'; font-weight: 800; font-size: 16px;">AudBear<span
+            style="color: #FBBF24;">TECHY</span></div>
+      </div>
+      <div class="footer-links">
+        <a href="audbear_techy_web_html/audbear_techy_web_global_html/audbear_techy_web_workspace.html">Workspace</a>
+        <a href="audbear_techy_web_html/audbear_techy_web_resume_html/audbear_techy_web_resume_builder.html">Builder</a>
+        <a href="audbear_techy_web_html/audbear_techy_web_vault_html/audbear_techy_web_vault.html">Vault</a>
+      </div>
+      <div class="footer-copyright">
+        &copy; 2026 AudBear Family. All rights reserved.
+      </div>
+
+  </div>
+  </footer>
+
+  </div><!-- /.page-scroll-wrap -->
+
+  <!-- PAGE SCRIPTS -->
+  <script src="audbear_techy_web_js/audbear_techy_web_global_js/audbear_techy_web_index.js"></script>
+
+</body>
+
+</html>

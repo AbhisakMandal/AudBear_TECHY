@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- DYNAMIC BASE FOR RELOCATION RESILIENCE -->
+    <script>
+      (function() {
+        var path = window.location.pathname;
+        var segments = path.split('/');
+        var rootIndex = -1;
+        for (var i = 0; i < segments.length; i++) {
+          if (segments[i].indexOf('audbear_techy_web_') === 0 && segments[i].indexOf('.html') === -1) {
+            rootIndex = i - 1;
+            break;
+          }
+        }
+        if (rootIndex !== -1) {
+          var base = segments.slice(0, rootIndex + 1).join('/') + '/';
+          document.write('<base href=\"' + base + '\">');
+        }
+      })();
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template-26 | AudBear TECHY</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --header-bg: #051c33;
+            --accent-orange: #f49d37;
+            --text-dark: #333333;
+            --text-muted: #555555;
+            --line-color: #a5b4be;
+            --font-main: 'Montserrat', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+            color: var(--text-dark);
+        }
+
+        .cv-container {
+            background-color: #ffffff;
+            width: 850px;
+            min-height: 1100px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        /* Header Styling */
+        .header {
+            background-color: var(--header-bg);
+            padding: 60px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            color: var(--accent-orange);
+            margin-bottom: 10px;
+        }
+
+        .header h3 {
+            font-size: 1.2rem;
+            color: #ffffff;
+            letter-spacing: 4px;
+            font-weight: 400;
+            text-transform: uppercase;
+        }
+
+        /* Profile Photo (Added to meet requirements) */
+        .profile-photo {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid var(--accent-orange);
+            z-index: 5;
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Body Split */
+        .cv-body {
+            display: flex;
+            padding: 50px 60px;
+            gap: 50px;
+            position: relative;
+            flex-grow: 1;
+        }
+
+        /* Vertical Line Divider */
+        .cv-body::after {
+            content: '';
+            position: absolute;
+            top: 50px;
+            left: 60%;
+            width: 1px;
+            height: calc(100% - 100px);
+            background-color: var(--line-color);
+        }
+
+        /* Columns */
+        .main-content {
+            width: 55%;
+        }
+
+        .sidebar {
+            width: 45%;
+            padding-left: 20px;
+        }
+
+        .section {
+            margin-bottom: 45px;
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 30px;
+            display: block;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: var(--line-color);
+        }
+
+        /* Content Blocks */
+        .content-item {
+            margin-bottom: 30px;
+        }
+
+        .content-date {
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .content-subtitle {
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 3px;
+            display: block;
+        }
+
+        .content-desc {
+            font-size: 0.85rem;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        .exp-bullets {
+            list-style: none;
+            padding-left: 10px;
+            margin-top: 10px;
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        .exp-bullets li {
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .exp-bullets li::before {
+            content: '•';
+            color: #000;
+        }
+
+        /* Sidebar Styling */
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+            color: #444;
+        }
+
+        .contact-item i {
+            color: var(--accent-orange);
+            font-size: 1.1rem;
+            width: 20px;
+        }
+
+        .summary-text {
+            font-size: 0.85rem;
+            line-height: 1.7;
+            color: #555;
+            text-align: justify;
+        }
+
+        .skills-list {
+            list-style: none;
+            font-size: 0.85rem;
+            line-height: 2;
+            color: #555;
+        }
+
+        .skills-list li::before {
+            content: '•';
+            margin-right: 12px;
+            color: #333;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="cv-container">
+        <!-- PROFILE PHOTO -->
+        <div class="profile-photo">
+            <img src="audbear_techy_web_templates/audbear_techy_web_resume/resume_template_professional_images/resume_template_26.png" alt="AudBear Eagle">
+        </div>
+
+        <!-- HEADER -->
+        <header class="header">
+            <h1>AudBear Sanchez</h1>
+            <h3>Web Developer</h3>
+        </header>
+
+        <!-- CV BODY -->
+        <div class="cv-body">
+            <!-- MAIN CONTENT -->
+            <main class="main-content">
+                <section class="section">
+                    <span class="section-title">Education</span>
+                    <div class="content-item">
+                        <span class="content-date">2014 - 2016</span>
+                        <span class="content-subtitle">University of Really Great</span>
+                        <p class="content-desc">Master of IT, Major in Technology</p>
+                    </div>
+                    <div class="content-item">
+                        <span class="content-date">2013 - 2014</span>
+                        <span class="content-subtitle">University of Really Great</span>
+                        <p class="content-desc">Bachelor of IT, Major in Technology</p>
+                    </div>
+                    <div class="content-item">
+                        <span class="content-date">2010 - 2013</span>
+                        <span class="content-subtitle">Really Great Academy</span>
+                        <p class="content-desc">Completed Requirements for High School</p>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <span class="section-title">Experience</span>
+                    <div class="content-item">
+                        <span class="content-subtitle">Applications Developer</span>
+                        <span class="content-date">AudBear Company | 2016 - Present</span>
+                        <ul class="exp-bullets">
+                            <li>Database administration and website design for whale-sized applications.</li>
+                            <li>Built the logic for a streamlined ad-serving platform that scaled effectively.</li>
+                            <li>Educational institutions and online classroom management solutions.</li>
+                        </ul>
+                    </div>
+                    <div class="content-item">
+                        <span class="content-subtitle">Web Content Manager</span>
+                        <span class="content-date">AudBear Company | 2014 - 2016</span>
+                        <ul class="exp-bullets">
+                            <li>Database administration and website design.</li>
+                            <li>Built the logic for a streamlined ad-serving platform that scaled.</li>
+                            <li>Educational institutions and online classroom management.</li>
+                        </ul>
+                    </div>
+                </section>
+            </main>
+
+            <!-- SIDEBAR -->
+            <aside class="sidebar">
+                <section class="section">
+                    <span class="section-title">Contact</span>
+                    <div class="contact-item"><i class="fa-solid fa-phone"></i> +123-456-7890</div>
+                    <div class="contact-item"><i class="fa-solid fa-envelope"></i> hello@audbear.com</div>
+                    <div class="contact-item"><i class="fa-solid fa-location-dot"></i> 123 Anywhere St., Any City, ST 12345</div>
+                </section>
+
+                <section class="section">
+                    <span class="section-title">Summary</span>
+                    <p class="summary-text">
+                        I am a qualified and professional web developer with five years of experience in database administration and website design. Strong creative and analytical skills. Team player with an eye for detail and a passion for building robust digital ecosystems.
+                    </p>
+                </section>
+
+                <section class="section">
+                    <span class="section-title">Skills</span>
+                    <ul class="skills-list">
+                        <li>Web Design</li>
+                        <li>Design Thinking</li>
+                        <li>Wireframe Creation</li>
+                        <li>Front End Coding</li>
+                        <li>Backend Tech</li>
+                        <li>Problem-Solving</li>
+                        <li>Computer Literacy</li>
+                        <li>Project Management Tools</li>
+                    </ul>
+                </section>
+            </aside>
+        </div>
+    </div>
+</body>
+
+</html>
+
+
+
+
+

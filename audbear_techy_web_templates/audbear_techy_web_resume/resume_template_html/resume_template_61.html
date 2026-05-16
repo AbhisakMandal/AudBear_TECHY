@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- DYNAMIC BASE FOR RELOCATION RESILIENCE -->
+    <script>
+      (function() {
+        var path = window.location.pathname;
+        var segments = path.split('/');
+        var rootIndex = -1;
+        for (var i = 0; i < segments.length; i++) {
+          if (segments[i].indexOf('audbear_techy_web_') === 0 && segments[i].indexOf('.html') === -1) {
+            rootIndex = i - 1;
+            break;
+          }
+        }
+        if (rootIndex !== -1) {
+          var base = segments.slice(0, rootIndex + 1).join('/') + '/';
+          document.write('<base href=\"' + base + '\">');
+        }
+      })();
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template-61 | AudBear TECHY</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-red: #ff4b4b;
+            --sidebar-bg: #2d2d2d;
+            --text-dark: #333;
+            --text-light: #fff;
+            --bg-gray: #f9f9f9;
+            --border-color: #ddd;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #e0e0e0;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+            color: var(--text-dark);
+        }
+
+        .cv-container {
+            background-color: #fff;
+            width: 850px;
+            min-height: 1100px;
+            display: flex;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        /* Left Column (Main Content) */
+        .main-content {
+            width: 68%;
+            padding: 50px;
+        }
+
+        /* Right Column (Sidebar) */
+        .sidebar {
+            width: 32%;
+            background-color: var(--sidebar-bg);
+            color: var(--text-light);
+            padding: 50px 30px;
+        }
+
+        /* Header Area */
+        .header-area {
+            display: flex;
+            align-items: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .profile-pic-container {
+            position: relative;
+            width: 160px;
+            height: 180px;
+            margin-right: 35px;
+        }
+
+        /* The red decorative shape behind the photo */
+        .profile-pic-container::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            width: 90px;
+            height: 90px;
+            background-color: var(--primary-red);
+            z-index: 0;
+        }
+
+        .profile-pic-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: relative;
+            z-index: 1;
+        }
+
+        .name-role {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .name-role h1 {
+            font-size: 3.5rem;
+            line-height: 0.9;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .name-role h3 {
+            font-size: 1.2rem;
+            color: var(--primary-red);
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Section Headings */
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            position: relative;
+            color: var(--text-dark);
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 1px;
+            background-color: var(--border-color);
+            margin-top: 5px;
+        }
+
+        .sidebar .section-title {
+            color: var(--text-light);
+            margin-bottom: 25px;
+        }
+
+        .sidebar .section-title::after {
+            background-color: #555;
+        }
+
+        /* Experience Items */
+        .experience-item {
+            margin-bottom: 30px;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 5px;
+        }
+
+        .experience-header h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #666;
+        }
+
+        .experience-header .date {
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        .company-name {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .experience-desc {
+            font-size: 0.8rem;
+            line-height: 1.6;
+            color: #777;
+            text-align: justify;
+        }
+
+        /* References Grid */
+        .references-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .reference-item h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 2px;
+        }
+
+        .reference-item p {
+            font-size: 0.8rem;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .reference-contact {
+            font-size: 0.75rem;
+            color: #888;
+        }
+
+        /* Sidebar Contacts */
+        .contact-list {
+            list-style: none;
+            margin-bottom: 40px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 0.8rem;
+        }
+
+        .contact-item i {
+            background-color: var(--primary-red);
+            color: #fff;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.7rem;
+        }
+
+        /* About Me / Education / Skills */
+        .sidebar-section {
+            margin-bottom: 40px;
+        }
+
+        .sidebar-section p {
+            font-size: 0.8rem;
+            line-height: 1.6;
+            color: #bbb;
+        }
+
+        .education-item {
+            margin-bottom: 20px;
+        }
+
+        .education-item h4 {
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 2px;
+        }
+
+        .education-item p {
+            font-size: 0.8rem;
+            color: #bbb;
+            margin-bottom: 2px;
+        }
+
+        .education-item .date {
+            font-size: 0.75rem;
+            color: #888;
+        }
+
+        .skills-list {
+            list-style: none;
+        }
+
+        .skills-list li {
+            font-size: 0.85rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #bbb;
+        }
+
+        .skills-list li::before {
+            content: '•';
+            color: var(--primary-red);
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cv-container">
+        <div class="main-content">
+            <div class="header-area">
+                <div class="profile-pic-container">
+<img src="audbear_techy_web_templates/audbear_techy_web_resume/resume_template_professional_images/resume_template_61.png"
+                        alt="AudBear Macaw">
+                </div>
+                <div class="name-role">
+                    <h1>AudBear<br>TECHY</h1>
+                    <h3>UI / UX Designer</h3>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Work Experience</h2>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h4>Job position here</h4>
+                        <span class="date">2019 - 2022</span>
+                    </div>
+                    <div class="company-name">Company Name | Location</div>
+<p class="experience-desc">Led the design team to create innovative user interfaces for mobile and web applications. 
+                        Collaborated with cross-functional teams to deliver projects on time and within budget. Conducted 
+                        user research and usability testing to improve product quality and user satisfaction.</p>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h4>Job position here</h4>
+                        <span class="date">2017 - 2019</span>
+                    </div>
+                    <div class="company-name">Company Name | Location</div>
+                    <p class="experience-desc">Created wireframes, prototypes, and high-fidelity mockups for various client projects. 
+                        Worked closely with developers to ensure design consistency and accessibility standards were met. 
+                       Participated in design reviews and provided constructive feedback to team members.</p>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h4>Job position here</h4>
+                        <span class="date">2015 - 2017</span>
+                    </div>
+                    <div class="company-name">Company Name | Location</div>
+                    <p class="experience-desc">Assisted senior designers in creating visual designs and brand identities. Conducted market research 
+                        and competitor analysis to identify design trends and best practices. Created presentation decks for client meetings.</p>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h4>Job position here</h4>
+                        <span class="date">2013 - 2015</span>
+                    </div>
+                    <div class="company-name">Company Name | Location</div>
+                    <p class="experience-desc">Supported the design team with various administrative tasks and project coordination. 
+                        Created and maintained design documentation and style guides. Assisted in organizing design workshops and team meetings.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">References</h2>
+                <div class="references-grid">
+<div class="reference-item">
+                        <h4>Harumi Kobayashi</h4>
+                        <p>Wardiere Inc. / CEO</p>
+                        <div class="reference-contact">
+                            Phone: 123-456-7890<br>
+                            Email: harumi.kobayashi@example.com
+                        </div>
+                    </div>
+                    <div class="reference-item">
+                        <h4>Bailey Dupont</h4>
+                        <p>Wardiere Inc. / CEO</p>
+                        <div class="reference-contact">
+                            Phone: 123-456-7890<br>
+                            Email: bailey.dupont@example.com
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <aside class="sidebar">
+            <div class="sidebar-section">
+                <h2 class="section-title">Contacts</h2>
+                <ul class="contact-list">
+                    <li class="contact-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>+123-456-7890</span>
+                    </li>
+                    <li class="contact-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>hello@reallygreatsite.com</span>
+                    </li>
+                    <li class="contact-item">
+                        <i class="fa-solid fa-globe"></i>
+                        <span>www.reallygreatsite.com</span>
+                    </li>
+                    <li class="contact-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>123 Anywhere St., Any City,<br>ST 12345</span>
+                    </li>
+                </ul>
+            </div>
+
+<div class="sidebar-section">
+                <h2 class="section-title">About Me</h2>
+                <p>Passionate UI/UX designer with a keen eye for detail and a love for creating intuitive user experiences. 
+                    Dedicated to continuous learning and staying updated with the latest design trends and technologies.</p>
+            </div>
+
+            <div class="sidebar-section">
+                <h2 class="section-title">Education</h2>
+                <div class="education-item">
+                    <h4>Course Studied</h4>
+                    <p>University/College Details</p>
+                    <span class="date">2006 - 2008</span>
+                </div>
+                <div class="education-item">
+                    <h4>Course Studied</h4>
+                    <p>University/College Details</p>
+                    <span class="date">2006 - 2008</span>
+                </div>
+                <div class="education-item">
+                    <h4>Course Studied</h4>
+                    <p>University/College Details</p>
+                    <span class="date">2006 - 2008</span>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <h2 class="section-title">Skills</h2>
+                <ul class="skills-list">
+                    <li>UI/UX</li>
+                    <li>Visual Design</li>
+                    <li>Wireframes</li>
+                    <li>Storyboards</li>
+                    <li>User Flows</li>
+                    <li>Process Flows</li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+</body>
+
+</html>
+
+
+
+

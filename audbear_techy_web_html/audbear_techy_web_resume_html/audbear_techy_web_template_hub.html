@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template Hub | AudBear TECHY</title>
+    <meta name="description"
+        content="Explore and select professional templates for Resumes, Visiting Cards, and Invoices.">
+
+    <link rel="icon" type="image/png" href="../../audbear_techy_web_assets/audbear_techy_web_icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Global Design System -->
+    <link rel="stylesheet" href="../../audbear_techy_web_css/audbear_techy_web_global_css/audbear_techy_web_main.css">
+    <!-- Component-specific styles -->
+    <link rel="stylesheet"
+        href="../../audbear_techy_web_css/audbear_techy_web_global_css/audbear_techy_web_workspace.css">
+    <link rel="stylesheet"
+        href="../../audbear_techy_web_css/audbear_techy_web_resume_css/audbear_techy_web_template_hub.css">
+</head>
+
+<body class="standalone">
+    <aside id="sidebar">
+        <div class="sidebar-header">
+            <div class="brand-section" onclick="window.location.href='../../audbear_techy_web_index.html'">
+                <div class="logo-container">
+                    <img src="../../audbear_techy_web_assets/audbear_techy_web_icon.png" alt="AudBear TECHY">
+                </div>
+                <div class="brand-name">AudBear <span>TECHY</span></div>
+            </div>
+            <div class="sidebar-divider"></div>
+        </div>
+
+        <nav>
+            <div class="nav-link"
+                onclick="window.location.href='../audbear_techy_web_global_html/audbear_techy_web_workspace.html'">
+                <i class="fa-solid fa-table-columns"></i>
+                <span>Workspace</span>
+            </div>
+            <div class="nav-link active" onclick="window.location.href='audbear_techy_web_template_hub.html'">
+                <i class="fa-solid fa-layer-group"></i>
+                <span>Templates</span>
+            </div>
+            <div class="nav-link"
+                onclick="window.location.href='../audbear_techy_web_vault_html/audbear_techy_web_vault.html'">
+                <i class="fa-solid fa-vault"></i>
+                <span>Vault</span>
+            </div>
+            <div class="sidebar-divider" style="opacity: 0.3; margin: 15px 20px;"></div>
+            <div class="nav-link" onclick="javascript:void(0)">
+                <i class="fa-solid fa-arrows-rotate"></i>
+                <span>Converter</span>
+            </div>
+            <div class="nav-link" onclick="javascript:void(0)">
+                <i class="fa-solid fa-expand"></i>
+                <span>Resize Document</span>
+            </div>
+            <div class="nav-link" onclick="javascript:void(0)">
+                <i class="fa-solid fa-circle-user"></i>
+                <span>Account</span>
+            </div>
+        </nav>
+
+        <div class="sidebar-footer">
+            <div class="sidebar-divider"></div>
+            <div class="nav-link logout-btn" onclick="window.location.href='audbear_techy_web_index.html'">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>Exit</span>
+            </div>
+        </div>
+    </aside>
+
+    <main class="hub-container">
+        <!-- Page Header -->
+        <header class="dashboard-header">
+            <div class="header-left">
+                <button class="back-btn"
+                    onclick="window.location.href='../audbear_techy_web_global_html/audbear_techy_web_workspace.html'"
+                    title="Return to Workspace">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </button>
+                <div class="header-title-group">
+                    <h1 class="header-title">Template Hub</h1>
+                    <p class="header-subtitle">Choose a document category to explore premium design templates.</p>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="ws-header-badge">
+                    <img src="../../audbear_techy_web_assets/audbear_techy_web_icon.png" alt="AudBear"
+                        class="badge-icon">
+                    <span class="badge-brand">AudBear <span>STUDIO</span></span>
+                </div>
+                <button class="theme-toggle-btn" id="themeToggleBtn" title="Toggle Theme">
+                    <i class="fa-solid fa-moon"></i>
+                    <span>Dark</span>
+                </button>
+                <div class="header-user-profile">
+                    <img src="../../audbear_techy_web_assets/audbear_techy_web_user.png" alt="User" class="user-avatar">
+                </div>
+            </div>
+        </header>
+
+        <div class="ws-top-bar">
+            <div class="ws-categories">
+                <div class="ws-cat-item active" data-cat="docs">
+                    <i class="fa-solid fa-file-lines"></i>
+                    <span>Document Templates</span>
+                </div>
+                <div class="ws-cat-item" data-cat="billing">
+                    <i class="fa-solid fa-file-invoice-dollar"></i>
+                    <span>Invoice Templates</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="ws-content-scrollable">
+            <!-- ── SECTION 1: Document Templates ── -->
+            <section class="ws-section" id="section-docs">
+                <h3 class="ws-section-label"><i class="fa-solid fa-file-lines"></i> Document Templates</h3>
+                <div class="ws-tools-grid">
+                    <!-- Resume Templates -->
+                    <div class="ws-tool-card ws-card--blue"
+                        onclick="window.location.href='audbear_techy_web_resume_templates.html'">
+                        <div class="ws-card-left">
+                            <div class="ws-card-icon">
+                                <i class="fa-solid fa-file-invoice"></i>
+                            </div>
+                            <div class="ws-card-badge ws-badge--active">Live Now</div>
+                        </div>
+                        <div class="ws-card-middle">
+                            <h3 class="ws-card-title">Resume Templates</h3>
+                            <p class="ws-card-desc">63+ Premium professional designs for every career stage.</p>
+                        </div>
+                        <div class="ws-card-actions">
+                            <button class="ws-btn ws-btn--primary"
+                                onclick="window.location.href='audbear_techy_web_resume_templates.html'">
+                                <span>Explore Designs</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Visiting Card Templates (Locked) -->
+                    <div class="ws-tool-card ws-card--purple ws-card--locked">
+                        <div class="ws-card-left">
+                            <div class="ws-card-icon">
+                                <i class="fa-solid fa-id-card"></i>
+                            </div>
+                            <div class="ws-card-badge ws-badge--locked">Coming Soon</div>
+                        </div>
+                        <div class="ws-card-middle">
+                            <h3 class="ws-card-title">Visiting Card</h3>
+                            <p class="ws-card-desc">High-impact digital and print-ready business cards.</p>
+                        </div>
+                        <div class="ws-card-actions">
+                            <button class="ws-btn" disabled
+                                style="background: rgba(255,255,255,0.05); color: var(--builder-muted); border: 1px solid var(--builder-border);">
+                                <span>Locked</span>
+                                <i class="fa-solid fa-lock"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── SECTION 2: Invoice Templates ── -->
+            <section class="ws-section" id="section-billing">
+                <h3 class="ws-section-label"><i class="fa-solid fa-file-invoice-dollar"></i> Invoice Templates</h3>
+                <div class="ws-tools-grid">
+                    <!-- Standard Invoice Templates (Locked) -->
+                    <div class="ws-tool-card ws-card--amber ws-card--locked">
+                        <div class="ws-card-left">
+                            <div class="ws-card-icon">
+                                <i class="fa-solid fa-file-invoice-dollar"></i>
+                            </div>
+                            <div class="ws-card-badge ws-badge--locked">Coming Soon</div>
+                        </div>
+                        <div class="ws-card-middle">
+                            <h3 class="ws-card-title">Standard Invoice</h3>
+                            <p class="ws-card-desc">Professional billing templates for freelancers and agencies.</p>
+                        </div>
+                        <div class="ws-card-actions">
+                            <button class="ws-btn" disabled
+                                style="background: rgba(255,255,255,0.05); color: var(--builder-muted); border: 1px solid var(--builder-border);">
+                                <span>Locked</span>
+                                <i class="fa-solid fa-lock"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- GST Invoice Templates (Locked) -->
+                    <div class="ws-tool-card ws-card--cyan ws-card--locked">
+                        <div class="ws-card-left">
+                            <div class="ws-card-icon">
+                                <i class="fa-solid fa-receipt"></i>
+                            </div>
+                            <div class="ws-card-badge ws-badge--locked">Coming Soon</div>
+                        </div>
+                        <div class="ws-card-middle">
+                            <h3 class="ws-card-title">GST Invoice</h3>
+                            <p class="ws-card-desc">Compliant tax invoice templates for registered businesses.</p>
+                        </div>
+                        <div class="ws-card-actions">
+                            <button class="ws-btn" disabled
+                                style="background: rgba(255,255,255,0.05); color: var(--builder-muted); border: 1px solid var(--builder-border);">
+                                <span>Locked</span>
+                                <i class="fa-solid fa-lock"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggleBtn = document.getElementById('themeToggleBtn');
+            const htmlElement = document.documentElement;
+
+            const updateThemeIcon = () => {
+                if (!themeToggleBtn) return;
+                if (htmlElement.getAttribute('data-theme') === 'light') {
+                    themeToggleBtn.innerHTML = '<i class="fa-solid fa-sun"></i><span>Light</span>';
+                } else {
+                    themeToggleBtn.innerHTML = '<i class="fa-solid fa-moon"></i><span>Dark</span>';
+                }
+            };
+
+            const savedTheme = localStorage.getItem('audbear_theme') || 'dark';
+            htmlElement.setAttribute('data-theme', savedTheme);
+            updateThemeIcon();
+
+            if (themeToggleBtn) {
+                themeToggleBtn.addEventListener('click', () => {
+                    const currentTheme = htmlElement.getAttribute('data-theme');
+                    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                    htmlElement.setAttribute('data-theme', newTheme);
+                    localStorage.setItem('audbear_theme', newTheme);
+                    updateThemeIcon();
+                });
+            }
+        });
+    </script>
+    <script src="../../audbear_techy_web_js/audbear_techy_web_resume_js/audbear_techy_web_template_hub.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- DYNAMIC BASE FOR RELOCATION RESILIENCE -->
+    <script>
+      (function() {
+        var path = window.location.pathname;
+        var segments = path.split('/');
+        var rootIndex = -1;
+        for (var i = 0; i < segments.length; i++) {
+          if (segments[i].indexOf('audbear_techy_web_') === 0 && segments[i].indexOf('.html') === -1) {
+            rootIndex = i - 1;
+            break;
+          }
+        }
+        if (rootIndex !== -1) {
+          var base = segments.slice(0, rootIndex + 1).join('/') + '/';
+          document.write('<base href=\"' + base + '\">');
+        }
+      })();
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template-60 | AudBear TECHY</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --sidebar-bg: #e5e5e5;
+            --accent-teal: #00a8cc;
+            --text-dark: #333;
+            --text-muted: #666;
+            --white: #ffffff;
+            --font-main: 'Open Sans', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+            color: var(--text-dark);
+        }
+
+        .cv-container {
+            background-color: var(--white);
+            width: 850px;
+            min-height: 1100px;
+            display: flex;
+            border-radius: 30px;
+            overflow: hidden;
+            border: 1px solid #ddd;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Sidebar Styling */
+        .sidebar {
+            background-color: var(--sidebar-bg);
+            width: 35%;
+            padding: 50px 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .profile-frame {
+            width: 180px;
+            height: 180px;
+            border: 6px solid var(--accent-teal);
+            border-radius: 45px;
+            overflow: hidden;
+            margin-bottom: 50px;
+        }
+
+        .profile-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .sidebar-section {
+            width: 100%;
+            margin-bottom: 40px;
+        }
+
+        .sidebar-heading {
+            background-color: var(--accent-teal);
+            color: var(--white);
+            text-align: center;
+            padding: 10px 15px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+        }
+
+        .contact-list {
+            list-style: none;
+            padding: 0 10px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 0.8rem;
+            color: var(--text-dark);
+        }
+
+        .contact-item i {
+            color: var(--accent-teal);
+            width: 15px;
+            font-size: 0.9rem;
+        }
+
+        .sidebar-list {
+            list-style: none;
+            padding: 0 10px;
+        }
+
+        .sidebar-list li {
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+
+        .sidebar-list li strong {
+            display: block;
+            font-size: 0.9rem;
+            margin-bottom: 3px;
+        }
+
+        .sidebar-list li .date {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .skills-list {
+            list-style: none;
+            padding: 0 10px;
+        }
+
+        .skills-list li {
+            font-size: 0.85rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .skills-list li::before {
+            content: '•';
+            color: var(--text-dark);
+            font-size: 1.2rem;
+        }
+
+        /* Main Content Styling */
+        .main-content {
+            width: 65%;
+            padding: 60px 40px;
+            background-color: var(--white);
+        }
+
+        .header {
+            margin-bottom: 50px;
+        }
+
+        .header h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            line-height: 1;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .header h1 span {
+            color: var(--accent-teal);
+            display: block;
+        }
+
+        .header h3 {
+            font-size: 1.4rem;
+            color: var(--text-muted);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+
+        .section {
+            margin-bottom: 45px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .section-header h2 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            white-space: nowrap;
+            margin-right: 20px;
+        }
+
+        .section-header .line {
+            flex-grow: 1;
+            height: 1px;
+            background-color: #ccc;
+        }
+
+        .experience-item {
+            margin-bottom: 25px;
+        }
+
+        .exp-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 5px;
+        }
+
+        .exp-row h4 {
+            font-size: 0.95rem;
+            font-weight: 400;
+            color: var(--text-dark);
+        }
+
+        .exp-row .date {
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .company-name {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .exp-desc {
+            font-size: 0.8rem;
+            line-height: 1.6;
+            color: var(--text-muted);
+            text-align: justify;
+        }
+
+        /* References */
+        .references-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .ref-item h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 2px;
+        }
+
+        .ref-item p {
+            font-size: 0.85rem;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+        }
+
+        .ref-contact {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cv-container">
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+<div class="profile-frame">
+                <img src="audbear_techy_web_templates/audbear_techy_web_resume/resume_template_professional_images/resume_template_60.png"
+                    alt="AudBear Condor">
+            </div>
+
+            <div class="sidebar-section">
+                <div class="sidebar-heading">Contact Me</div>
+                <ul class="contact-list">
+                    <li class="contact-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>+123-456-7890</span>
+                    </li>
+                    <li class="contact-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>hello@reallygreatsite.com</span>
+                    </li>
+                    <li class="contact-item">
+                        <i class="fa-solid fa-globe"></i>
+                        <span>www.reallygreatsite.com</span>
+                    </li>
+                    <li class="contact-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>123 Anywhere St., Any City,<br>ST 12345</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <div class="sidebar-heading">Education</div>
+                <ul class="sidebar-list">
+                    <li>
+                        <strong>Master of Marketing</strong>
+                        Global School of Business, Paris
+                        <div class="date">2010 - 2012</div>
+                    </li>
+                    <li>
+                        <strong>Bachelor of Communication</strong>
+                        University of Southern California, LA
+                        <div class="date">2006 - 2010</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <div class="sidebar-heading">Skills</div>
+                <ul class="skills-list">
+                    <li>UI/UX</li>
+                    <li>Visual Design</li>
+                    <li>Wireframes</li>
+                    <li>Storyboards</li>
+                    <li>User Flows</li>
+                    <li>Process Flows</li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+            <header class="header">
+                <h1>AudBear<span>TECHY</span></h1>
+                <h3>Marketing Manager</h3>
+            </header>
+
+            <section class="section">
+                <div class="section-header">
+                    <h2>Work Experience</h2>
+                    <div class="line"></div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="exp-row">
+                        <h4>Senior Marketing Manager</h4>
+                        <span class="date">2019 - 2022</span>
+                    </div>
+                    <div class="company-name">AudBear TECHY | Singapore</div>
+                    <p class="exp-desc">Spearheaded the global brand repositioning strategy, resulting in a 25% increase in market share. Managed a multi-million dollar advertising budget and led cross-functional teams to execute high-impact campaigns across digital and traditional channels.</p>
+                </div>
+
+                <div class="experience-item">
+                    <div class="exp-row">
+                        <h4>Lead Growth Strategist</h4>
+                        <span class="date">2017 - 2019</span>
+                    </div>
+                    <div class="company-name">GrowthOps Digital | Sydney</div>
+                    <p class="exp-desc">Optimized the customer acquisition funnel, reducing CAC by 30% while increasing lifetime value. Implemented advanced data analytics to track campaign performance and drive data-informed decision making.</p>
+                </div>
+
+                <div class="experience-item">
+                    <div class="exp-row">
+                        <h4>Digital Marketing Specialist</h4>
+                        <span class="date">2015 - 2017</span>
+                    </div>
+                    <div class="company-name">BlueWave Media | Toronto</div>
+                    <p class="exp-desc">Managed social media strategy and SEO initiatives for a diverse portfolio of clients. Increased organic search traffic by 50% through content optimization and technical SEO improvements.</p>
+                </div>
+
+                <div class="experience-item">
+                    <div class="exp-row">
+                        <h4>Marketing Coordinator</h4>
+                        <span class="date">2013 - 2015</span>
+                    </div>
+                    <div class="company-name">Creative Hub Agency | Berlin</div>
+                    <p class="exp-desc">Coordinated product launches and promotional events. Assisted in the creation of marketing collateral and managed relationships with external vendors and agencies.</p>
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="section-header">
+                    <h2>References</h2>
+                    <div class="line"></div>
+                </div>
+
+                <div class="references-grid">
+                    <div class="ref-item">
+                        <h4>Harumi Kobayashi</h4>
+                        <p>Wardiere Inc. / CEO</p>
+                        <div class="ref-contact">
+                            Phone: 123-456-7890<br>
+                            Email: hello@reallygreatsite.com
+                        </div>
+                    </div>
+                    <div class="ref-item">
+                        <h4>Bailey Dupont</h4>
+                        <p>Wardiere Inc. / CEO</p>
+                        <div class="ref-contact">
+                            Phone: 123-456-7890<br>
+                            Email: hello@reallygreatsite.com
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+
+</html>
+
+
+
+

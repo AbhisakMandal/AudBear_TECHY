@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- DYNAMIC BASE FOR RELOCATION RESILIENCE -->
+    <script>
+      (function() {
+        var path = window.location.pathname;
+        var segments = path.split('/');
+        var rootIndex = -1;
+        for (var i = 0; i < segments.length; i++) {
+          if (segments[i].indexOf('audbear_techy_web_') === 0 && segments[i].indexOf('.html') === -1) {
+            rootIndex = i - 1;
+            break;
+          }
+        }
+        if (rootIndex !== -1) {
+          var base = segments.slice(0, rootIndex + 1).join('/') + '/';
+          document.write('<base href=\"' + base + '\">');
+        }
+      })();
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template-01 | AudBear TECHY</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #1a535c;
+            --bg-light: #f7f9f9;
+            --text-dark: #333333;
+            --text-muted: #666666;
+            --white: #ffffff;
+            --font-main: 'Roboto', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: #d1d9d9;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+            color: var(--text-dark);
+        }
+
+        .cv-container {
+            background-color: #e8eeee;
+            width: 850px;
+            min-height: 1100px;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        /* Header Background Shape */
+        .header-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background-color: var(--primary-color);
+            border-radius: 20px 20px 0 0;
+            z-index: 1;
+        }
+
+        .header-bg::after {
+            content: '';
+            position: absolute;
+            bottom: -30px;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background-color: var(--primary-color);
+            clip-path: ellipse(60% 100% at 50% 0%);
+        }
+
+        /* Top Profile Box */
+        .profile-header {
+            position: relative;
+            z-index: 2;
+            background-color: var(--white);
+            margin: 50px 20px 30px 20px;
+            padding: 25px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .profile-photo {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 5px solid #eee;
+            overflow: hidden;
+            margin-right: 35px;
+            flex-shrink: 0;
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-info h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #222;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .profile-info h3 {
+            font-size: 1.5rem;
+            color: #444;
+            font-weight: 400;
+            margin-bottom: 15px;
+        }
+
+        .contact-row {
+            display: flex;
+            gap: 20px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .contact-row span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-row i {
+            color: #000;
+        }
+
+        /* Main Body Split */
+        .cv-body {
+            display: flex;
+            gap: 25px;
+            padding: 0 20px;
+        }
+
+        /* Sidebar Styling */
+        .sidebar {
+            width: 30%;
+            background-color: #f0f5f5;
+            padding: 25px;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 35px;
+        }
+
+        .sidebar-section h2 {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .skill-item {
+            margin-bottom: 15px;
+        }
+
+        .skill-name {
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background-color: #d8e2e2;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background-color: var(--primary-color);
+        }
+
+        .hobbies-list {
+            list-style: none;
+            font-size: 0.9rem;
+            line-height: 1.8;
+            color: var(--text-muted);
+        }
+
+        /* Main Content Styling */
+        .main-content {
+            width: 70%;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .content-box {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+        }
+
+        .content-section {
+            margin-bottom: 30px;
+        }
+
+        .content-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .section-title {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            display: inline-block;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 4px;
+            background-color: var(--primary-color);
+        }
+
+        .summary-text {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #555;
+            margin-top: 15px;
+        }
+
+        .history-item {
+            margin-top: 20px;
+        }
+
+        .history-item h4 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .history-item .meta {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .history-item ul {
+            padding-left: 20px;
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .history-item li {
+            margin-bottom: 5px;
+        }
+
+        .education-item h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            margin-top: 15px;
+        }
+
+        .education-item .meta {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .referee-note {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-align: center;
+            margin-top: 30px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="cv-container">
+        <div class="header-bg"></div>
+
+        <!-- PROFILE HEADER -->
+        <header class="profile-header">
+            <div class="profile-photo">
+                <img src="audbear_techy_web_templates/audbear_techy_web_resume/resume_template_professional_images/resume_template_01.png" alt="AudBear Lion">
+            </div>
+            <div class="profile-info">
+                <h1>AudBear TECHY</h1>
+                <h3>Project Manager</h3>
+                <div class="contact-row">
+                    <span><i class="fa-solid fa-phone"></i> (123) 456-7890</span>
+                    <span><i class="fa-solid fa-envelope"></i> hello@audbear.com</span>
+                    <span><i class="fa-solid fa-location-dot"></i> 123 Main St, Anytown, USA</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- CV BODY -->
+        <div class="cv-body">
+            <!-- SIDEBAR -->
+            <aside class="sidebar">
+                <div class="sidebar-section">
+                    <h2>Skills</h2>
+                    <div class="skill-item">
+                        <span class="skill-name">Project Management</span>
+                        <div class="progress-bar"><div class="progress-fill" style="width: 90%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Team Leadership</span>
+                        <div class="progress-bar"><div class="progress-fill" style="width: 85%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Budget Management</span>
+                        <div class="progress-bar"><div class="progress-fill" style="width: 80%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Communication</span>
+                        <div class="progress-bar"><div class="progress-fill" style="width: 95%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Problem Solving</span>
+                        <div class="progress-bar"><div class="progress-fill" style="width: 90%;"></div></div>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <h2>Software</h2>
+                    <div class="skill-item">
+                        <span class="skill-name">Adobe Suite</span>
+                        <div class="progress-bar"><div class="progress-fill" style="width: 85%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">MS Word</span>
+                        <div class="progress-bar"><div class="progress-fill" style="width: 70%;"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">CorelDRAW</span>
+                        <div class="progress-bar"><div class="progress-fill" style="width: 90%;"></div></div>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <h2>Hobbies</h2>
+                    <ul class="hobbies-list">
+                        <li>Reading</li>
+                        <li>Cooking</li>
+                        <li>Travel</li>
+                    </ul>
+                </div>
+            </aside>
+
+            <!-- MAIN CONTENT -->
+            <div class="main-content">
+                <div class="content-box">
+                    <section class="content-section">
+                        <h2 class="section-title">Summary</h2>
+                        <p class="summary-text">
+                            Dedicated professional with over 5 years of experience in project management and a proven track record of delivering projects on time and within budget. Strong leadership and communication skills, specializing in digital transformations and whale-sized strategic initiatives.
+                        </p>
+                    </section>
+                </div>
+
+                <div class="content-box">
+                    <section class="content-section">
+                        <h2 class="section-title">Employment History</h2>
+                        <div class="history-item">
+                            <h4>Project Manager, ABC Corporation</h4>
+                            <span class="meta">January 2018 - Present, Anytown, USA</span>
+                            <ul>
+                                <li>Led a team of 10 in the successful completion of multiple projects.</li>
+                                <li>Managed project budgets exceeding $1 million.</li>
+                                <li>Developed project plans and timelines to ensure timely delivery.</li>
+                            </ul>
+                        </div>
+                        <div class="history-item">
+                            <h4>Assistant Project Manager, XYZ Inc.</h4>
+                            <span class="meta">June 2015 - December 2017, Anytown, USA</span>
+                            <ul>
+                                <li>Assisted in the management of project schedules and budgets.</li>
+                                <li>Coordinated communication between stakeholders and team members.</li>
+                            </ul>
+                        </div>
+
+                        <h2 class="section-title" style="margin-top: 40px;">Education</h2>
+                        <div class="education-item">
+                            <h4>University Of Anytown, Bachelor Of Science</h4>
+                            <span class="meta">- May 2015, Anytown, USA</span>
+                        </div>
+
+                        <h2 class="section-title" style="margin-top: 40px;">Referees</h2>
+                        <p class="referee-note">Available on Request</p>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+
+
+
+

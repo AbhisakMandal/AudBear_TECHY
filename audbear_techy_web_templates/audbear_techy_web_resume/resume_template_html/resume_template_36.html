@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- DYNAMIC BASE FOR RELOCATION RESILIENCE -->
+    <script>
+      (function() {
+        var path = window.location.pathname;
+        var segments = path.split('/');
+        var rootIndex = -1;
+        for (var i = 0; i < segments.length; i++) {
+          if (segments[i].indexOf('audbear_techy_web_') === 0 && segments[i].indexOf('.html') === -1) {
+            rootIndex = i - 1;
+            break;
+          }
+        }
+        if (rootIndex !== -1) {
+          var base = segments.slice(0, rootIndex + 1).join('/') + '/';
+          document.write('<base href=\"' + base + '\">');
+        }
+      })();
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template-36 | AudBear TECHY</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --header-bg: #e8e8e8;
+            --bar-bg: #f5f5f5;
+            --text-dark: #333333;
+            --text-muted: #666666;
+            --line-color: #bbbbbb;
+            --font-main: 'Montserrat', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+            color: var(--text-dark);
+        }
+
+        .cv-container {
+            background-color: #ffffff;
+            width: 850px;
+            min-height: 1100px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header Styling */
+        .header {
+            background-color: var(--header-bg);
+            padding: 60px 80px;
+            text-align: center;
+            position: relative;
+        }
+
+        .header h1 {
+            font-size: 3.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #222;
+        }
+
+        .header h3 {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            color: #555;
+            font-weight: 400;
+            margin-top: 10px;
+        }
+
+        /* Contact Bar and Profile Photo */
+        .contact-bar-wrapper {
+            position: relative;
+            background-color: var(--bar-bg);
+            height: 100px;
+            display: flex;
+            align-items: center;
+            padding: 0 80px;
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .profile-photo {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 8px solid #fff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .contact-col {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            font-size: 0.8rem;
+            color: #555;
+        }
+
+        .contact-col.right {
+            align-items: flex-end;
+            text-align: right;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Body Split */
+        .cv-body {
+            display: flex;
+            padding: 80px 80px 40px 80px;
+            gap: 60px;
+            flex-grow: 1;
+        }
+
+        .sidebar {
+            width: 38%;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .main-content {
+            width: 62%;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .section-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            display: block;
+            border-bottom: 1px solid var(--line-color);
+            padding-bottom: 8px;
+        }
+
+        /* Sidebar Content */
+        .sidebar-text {
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: #555;
+            text-align: justify;
+        }
+
+        .sidebar-list {
+            list-style: none;
+            font-size: 0.85rem;
+            line-height: 1.8;
+            color: #444;
+        }
+
+        .sidebar-list li::before {
+            content: '•';
+            margin-right: 12px;
+            color: #000;
+        }
+
+        /* Main Area Content */
+        .exp-item {
+            margin-bottom: 35px;
+        }
+
+        .exp-item h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #111;
+            margin-bottom: 5px;
+        }
+
+        .exp-item .meta {
+            font-size: 0.85rem;
+            color: #555;
+            margin-bottom: 3px;
+            display: block;
+        }
+
+        .exp-item .date {
+            font-size: 0.8rem;
+            color: #777;
+            font-style: italic;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .exp-bullets {
+            list-style: none;
+            padding-left: 0;
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .exp-bullets li {
+            margin-bottom: 8px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .exp-bullets li::before {
+            content: '•';
+            color: #000;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="cv-container">
+        <!-- HEADER -->
+        <header class="header">
+            <h1>AudBear Alvarado</h1>
+            <h3>Interior Designer</h3>
+        </header>
+
+        <!-- CONTACT BAR & PHOTO -->
+        <div class="contact-bar-wrapper">
+            <div class="contact-col">
+                <div class="contact-item"><i class="fa-solid fa-envelope"></i> hello@audbear.com</div>
+                <div class="contact-item"><i class="fa-solid fa-phone"></i> +123-456-7890</div>
+            </div>
+            <div class="profile-photo">
+                <img src="audbear_techy_web_templates/audbear_techy_web_resume/resume_template_professional_images/resume_template_36.png" alt="AudBear Panda">
+            </div>
+            <div class="contact-col right">
+                <div class="contact-item">www.audbear.com <i class="fa-solid fa-globe"></i></div>
+                <div class="contact-item">123 Anywhere St., Any City <i class="fa-solid fa-location-dot"></i></div>
+            </div>
+        </div>
+
+        <!-- CV BODY -->
+        <div class="cv-body">
+            <!-- SIDEBAR -->
+            <aside class="sidebar">
+                <section>
+                    <span class="section-title">About Me</span>
+                    <p class="sidebar-text">
+                        Creative and detail-oriented Interior Designer with over 5 years of experience in designing whale-sized residential, commercial, and hospitality spaces. I am passionate about creating functional and aesthetically pleasing environments that enhance the user experience.
+                    </p>
+                </section>
+
+                <section>
+                    <span class="section-title">Skills</span>
+                    <ul class="sidebar-list">
+                        <li>Interior Concept Development</li>
+                        <li>Space Planning & Layout Design</li>
+                        <li>3D Visualization & Rendering</li>
+                        <li>Material & Color Coordination</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <span class="section-title">Languages</span>
+                    <ul class="sidebar-list" style="list-style: none;">
+                        <li>English – Fluent</li>
+                        <li>French – Intermediate</li>
+                        <li>Japanese – Basic</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <span class="section-title">Achievements</span>
+                    <ul class="sidebar-list">
+                        <li>Top 10 Finalist, Young Designer Awards (2022)</li>
+                        <li>Best Residential Interior Concept, ArchDesign Expo (2021)</li>
+                    </ul>
+                </section>
+            </aside>
+
+            <!-- MAIN CONTENT -->
+            <main class="main-content">
+                <section>
+                    <span class="section-title">Experience</span>
+                    
+                    <div class="exp-item">
+                        <h4>Senior Interior Designer</h4>
+                        <span class="meta">AudBear Design Studio | Any City</span>
+                        <span class="date">Jan 2022 – Present</span>
+                        <ul class="exp-bullets">
+                            <li>Led concept design and project execution for residential and café interiors.</li>
+                            <li>Collaborated with architects, lighting experts, and suppliers to ensure project consistency.</li>
+                            <li>Presented mood boards, layout plans, and 3D renders to clients.</li>
+                        </ul>
+                    </div>
+
+                    <div class="exp-item">
+                        <h4>Interior Designer</h4>
+                        <span class="meta">AudBear Design Studio | Any City</span>
+                        <span class="date">Aug 2019 – Dec 2021</span>
+                        <ul class="exp-bullets">
+                            <li>Led concept design and project execution for residential and café interiors.</li>
+                            <li>Collaborated with architects, lighting experts, and suppliers to ensure project consistency.</li>
+                            <li>Presented mood boards, layout plans, and 3D renders to clients.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section>
+                    <span class="section-title">Education</span>
+                    <div class="exp-item">
+                        <h4>Bachelor of Interior Design</h4>
+                        <span class="meta">AudBear Excellence University</span>
+                        <span class="date">2015 – 2019</span>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+</body>
+
+</html>
+
+
+
+
+

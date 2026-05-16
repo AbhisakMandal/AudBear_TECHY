@@ -1,0 +1,250 @@
+/* ============================================================
+   AUDBEAR TECHY — PREMIUM IMAGE CROPPER STYLES
+   ============================================================ */
+
+.cropper-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s ease;
+}
+
+.cropper-card {
+    width: 900px;
+    max-width: 95vw;
+    background: #0f172a;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+}
+
+.cropper-header {
+    padding: 20px 30px;
+    background: rgba(255, 255, 255, 0.03);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cropper-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #f1f5f9;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.cropper-title i {
+    color: #FBBF24;
+}
+
+.cropper-close {
+    background: none;
+    border: none;
+    color: #94a3b8;
+    font-size: 28px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.cropper-close:hover {
+    color: #f1f5f9;
+    transform: scale(1.1);
+}
+
+.cropper-body {
+    padding: 30px;
+}
+
+.cropper-workspace {
+    display: flex;
+    gap: 30px;
+    height: 450px;
+}
+
+.img-container {
+    flex: 1;
+    background: #000;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+}
+
+.cropper-sidebar {
+    width: 240px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.sidebar-label {
+    color: #94a3b8;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.shape-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.shape-opt {
+    aspect-ratio: 1;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    padding: 10px;
+}
+
+.shape-opt:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.shape-opt.active {
+    background: rgba(251, 191, 36, 0.1);
+    border-color: #FBBF24;
+}
+
+/* Shape Previews & Actual Masks */
+.shape-preview {
+    width: 100%;
+    height: 100%;
+    background: #94a3b8;
+    transition: all 0.2s;
+}
+
+.shape-opt.active .shape-preview {
+    background: #FBBF24;
+}
+
+/* Define all 11 shapes */
+.square { border-radius: 0; }
+.circle { border-radius: 50%; }
+.rounded-soft { border-radius: 8px; }
+.rounded-elite { border-radius: 20px; }
+.arch { border-radius: 50% 50% 0 0; }
+.pentagon { clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%); }
+.hexagon { clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); }
+.elongated-hexagon { clip-path: polygon(0% 15%, 50% 0%, 100% 15%, 100% 85%, 50% 100%, 0% 85%); }
+.beveled { clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0% 85%); }
+.slope-cut { clip-path: polygon(0 0, 100% 0, 100% 80%, 80% 100%, 0 100%); }
+.standard-frame { border-radius: 12px; }
+
+/* Cropper.js Mask Overrides */
+.cropper-view-box,
+.cropper-face {
+    transition: all 0.3s ease;
+}
+
+/* These will be applied dynamically via JS to the cropper elements */
+.mask-circle { border-radius: 50% !important; }
+.mask-rounded-soft { border-radius: 8px !important; }
+.mask-rounded-elite { border-radius: 20px !important; }
+.mask-arch { border-radius: 50% 50% 0 0 !important; }
+.mask-pentagon { clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%) !important; }
+.mask-hexagon { clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%) !important; }
+.mask-elongated-hexagon { clip-path: polygon(0% 15%, 50% 0%, 100% 15%, 100% 85%, 50% 100%, 0% 85%) !important; }
+.mask-beveled { clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0% 85%) !important; }
+.mask-slope-cut { clip-path: polygon(0 0, 100% 0, 100% 80%, 80% 100%, 0 100%) !important; }
+.mask-standard-frame { border-radius: 12px !important; }
+
+.cropper-controls {
+    margin-top: auto;
+    display: flex;
+    gap: 10px;
+}
+
+.control-btn {
+    flex: 1;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    color: #cbd5e1;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.control-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #f1f5f9;
+}
+
+.cropper-footer {
+    padding: 20px 30px;
+    background: rgba(255, 255, 255, 0.02);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+}
+
+.crop-btn {
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.crop-btn.cancel {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #94a3b8;
+}
+
+.crop-btn.cancel:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: #f1f5f9;
+}
+
+.crop-btn.save {
+    background: #FBBF24;
+    border: none;
+    color: #000;
+    box-shadow: 0 4px 15px rgba(251, 191, 36, 0.3);
+}
+
+.crop-btn.save:hover {
+    background: #F59E0B;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(251, 191, 36, 0.4);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Cropper.js Overrides for UI consistency */
+.cropper-line, .cropper-point {
+    background-color: #FBBF24 !important;
+}
+.cropper-view-box {
+    outline: 2px solid #FBBF24 !important;
+    outline-color: rgba(251, 191, 36, 0.75) !important;
+}

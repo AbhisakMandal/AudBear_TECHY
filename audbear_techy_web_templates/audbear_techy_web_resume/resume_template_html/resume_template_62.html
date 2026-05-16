@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- DYNAMIC BASE FOR RELOCATION RESILIENCE -->
+    <script>
+      (function() {
+        var path = window.location.pathname;
+        var segments = path.split('/');
+        var rootIndex = -1;
+        for (var i = 0; i < segments.length; i++) {
+          if (segments[i].indexOf('audbear_techy_web_') === 0 && segments[i].indexOf('.html') === -1) {
+            rootIndex = i - 1;
+            break;
+          }
+        }
+        if (rootIndex !== -1) {
+          var base = segments.slice(0, rootIndex + 1).join('/') + '/';
+          document.write('<base href=\"' + base + '\">');
+        }
+      })();
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template-62 | AudBear TECHY</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Oswald:wght@500;700&family=Pinyon+Script&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #323232;
+            --accent-beige: #f5e6d3;
+            --text-muted: #dcdcdc;
+            --font-main: 'Montserrat', sans-serif;
+            --font-heading: 'Oswald', sans-serif;
+            --font-script: 'Pinyon Script', cursive;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: #e0e0e0;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+            color: var(--accent-beige);
+        }
+
+        .cv-container {
+            background-color: var(--bg-dark);
+            width: 850px;
+            min-height: 1100px;
+            padding: 40px;
+            border: 15px solid var(--accent-beige);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        /* Header Section */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .profile-pic {
+            width: 280px;
+            height: 320px;
+            border: 1px solid rgba(245, 230, 211, 0.3);
+            overflow: hidden;
+        }
+
+        .profile-pic img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(20%);
+        }
+
+        .name-area {
+            flex-grow: 1;
+            text-align: right;
+            padding-left: 40px;
+        }
+
+        .name-area h1 {
+            font-family: var(--font-script);
+            font-size: 7rem;
+            font-weight: 400;
+            line-height: 0.8;
+            margin-bottom: 20px;
+        }
+
+        .name-area h3 {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            opacity: 0.9;
+        }
+
+        /* Content Sections */
+        .grid-section {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 60px;
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+            color: var(--accent-beige);
+        }
+
+        /* Timeline Styling */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+            border-left: 1px solid rgba(245, 230, 211, 0.3);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -35px;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            background-color: var(--accent-beige);
+            border-radius: 50%;
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 5px;
+        }
+
+        .timeline-header h4 {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .timeline-header .date {
+            font-size: 0.8rem;
+            opacity: 0.6;
+        }
+
+        .institution,
+        .company {
+            font-size: 0.85rem;
+            opacity: 0.7;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .description {
+            font-size: 0.8rem;
+            line-height: 1.6;
+            opacity: 0.8;
+            text-align: justify;
+        }
+
+        /* Horizontal Divider */
+        .horizontal-divider {
+            position: relative;
+            height: 1px;
+            background-color: rgba(245, 230, 211, 0.3);
+            width: 100%;
+            margin: 20px 0;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .horizontal-divider::before,
+        .horizontal-divider::after,
+        .divider-dot {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background-color: var(--accent-beige);
+            border-radius: 50%;
+        }
+
+        /* Sidebar Style Content (Skills/Contact) */
+        .sidebar-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .skills-list {
+            list-style: none;
+        }
+
+        .skills-list li {
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            opacity: 0.9;
+        }
+
+        .skills-list li::before {
+            content: '•';
+            color: var(--accent-beige);
+        }
+
+        .contact-info p {
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+
+        .about-text {
+            font-size: 0.9rem;
+            line-height: 1.8;
+            opacity: 0.8;
+            text-align: justify;
+            font-style: italic;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cv-container">
+        <!-- HEADER -->
+        <header class="header">
+            <div class="profile-pic">
+                    <img src="audbear_techy_web_templates/audbear_techy_web_resume/resume_template_professional_images/resume_template_62.png"
+                    alt="AudBear Persian Cat">
+            </div>
+            <div class="name-area">
+                <h1>AudBear TECHY</h1>
+                <h3>Marketing Manager</h3>
+            </div>
+        </header>
+
+        <!-- TOP GRID (ABOUT & EDUCATION) -->
+        <div class="grid-section">
+            <div class="section">
+                <h2 class="section-title">About Me</h2>
+<p class="about-text">
+                    Dynamic marketing professional with proven expertise in brand strategy and digital marketing campaigns.
+                    Passionate about driving growth through innovative marketing solutions and building strong client relationships.
+                </p>
+            </div>
+            <div class="section">
+                <h2 class="section-title">Education</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <h4>Bachelor of Business Management</h4>
+                            <span class="date">2017 - 2020</span>
+                        </div>
+                        <span class="institution">Borcelle University</span>
+                        <p class="description">Specialized in marketing and business strategy. Graduated with honors and received the 
+                            Outstanding Student Award for academic excellence.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <h4>Master of Business Administration</h4>
+                            <span class="date">2020 - 2024</span>
+                        </div>
+                        <span class="institution">Borcelle University</span>
+                        <p class="description">Focused on strategic marketing and leadership. Completed thesis on digital transformation 
+                            in marketing and presented at international business conferences.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DIVIDER -->
+        <div class="horizontal-divider">
+            <div class="divider-dot"></div>
+            <div class="divider-dot"></div>
+        </div>
+
+        <!-- BOTTOM GRID (EXPERIENCE & SIDEBAR) -->
+        <div class="grid-section">
+            <div class="section">
+                <h2 class="section-title">Experience</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <h4>Product Design Manager</h4>
+                            <span class="date">2018 - 2020</span>
+                        </div>
+                        <span class="company">Arowwai Industries</span>
+                        <p class="description">Led product design team to launch innovative marketing solutions. Increased customer satisfaction 
+                            by 40% through enhanced product features and user experience improvements.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <h4>Marketing Manager</h4>
+                            <span class="date">2018 - 2020</span>
+                        </div>
+                        <span class="company">Arowwai Industries</span>
+                        <p class="description">Developed and executed comprehensive marketing strategies that increased brand awareness 
+                            by 60% and drove significant revenue growth across multiple channels.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <h4>Marketing Manager</h4>
+                            <span class="date">2017 - 2019</span>
+                        </div>
+                        <span class="company">Arowwai Industries</span>
+                        <p class="description">Managed digital marketing campaigns with focus on social media and content marketing. 
+                            Grew social media engagement by 150% and improved lead generation metrics.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <h4>Marketing Manager</h4>
+                            <span class="date">2016 - 2017</span>
+                        </div>
+                        <span class="company">Arowwai Industries</span>
+                        <p class="description">Started career as Marketing Coordinator and quickly promoted to manager role. 
+                            Developed foundational marketing skills and contributed to team success.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-grid">
+                <div class="section">
+                    <h2 class="section-title">Skills</h2>
+                    <ul class="skills-list">
+                        <li>Creativity</li>
+                        <li>Critical Thinking</li>
+                        <li>Management Skills</li>
+                        <li>Leadership</li>
+                        <li>Digital Marketing</li>
+                        <li>Negotiation</li>
+                    </ul>
+                </div>
+
+<div class="section contact-info">
+                    <h2 class="section-title">Contact</h2>
+                    <p>+123-456-7890</p>
+                    <p>marketing@example.com</p>
+                    <p>123 Anywhere St., Any City, ST 12345</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+
+
+

@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workspace | AudBear TECHY</title>
+
+    <link rel="icon" type="image/png" href="../../audbear_techy_web_assets/audbear_techy_web_icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Global Design System -->
+    <link rel="stylesheet" href="../../audbear_techy_web_css/audbear_techy_web_global_css/audbear_techy_web_main.css">
+    <!-- Component-specific styles -->
+    <link rel="stylesheet"
+        href="../../audbear_techy_web_css/audbear_techy_web_global_css/audbear_techy_web_workspace.css">
+</head>
+
+<body class="standalone">
+
+    <!-- ── SIDEBAR ── -->
+    <aside id="sidebar">
+        <div class="sidebar-header">
+            <div class="brand-section" onclick="window.location.href='../../audbear_techy_web_index.html'">
+                <div class="logo-container">
+                    <img src="../../audbear_techy_web_assets/audbear_techy_web_icon.png" alt="AudBear TECHY">
+                </div>
+                <div class="brand-name">AudBear <span>TECHY</span></div>
+            </div>
+            <div class="sidebar-divider"></div>
+        </div>
+
+        <nav>
+            <div class="nav-link active" onclick="window.location.href='audbear_techy_web_workspace.html'">
+                <i class="fa-solid fa-table-columns"></i>
+                <span>Workspace</span>
+            </div>
+            <div class="nav-link"
+                onclick="window.location.href='../audbear_techy_web_resume_html/audbear_techy_web_template_hub.html'">
+                <i class="fa-solid fa-layer-group"></i>
+                <span>Templates</span>
+            </div>
+            <div class="nav-link"
+                onclick="window.location.href='../audbear_techy_web_vault_html/audbear_techy_web_vault.html'">
+                <i class="fa-solid fa-vault"></i>
+                <span>Vault</span>
+            </div>
+            <div class="sidebar-divider" style="opacity: 0.3; margin: 15px 20px;"></div>
+            <div class="nav-link" onclick="javascript:void(0)">
+                <i class="fa-solid fa-arrows-rotate"></i>
+                <span>Converter</span>
+            </div>
+            <div class="nav-link" onclick="javascript:void(0)">
+                <i class="fa-solid fa-expand"></i>
+                <span>Resize Document</span>
+            </div>
+            <div class="nav-link" onclick="javascript:void(0)">
+                <i class="fa-solid fa-circle-user"></i>
+                <span>Account</span>
+            </div>
+        </nav>
+
+        <div class="sidebar-footer">
+            <div class="sidebar-divider"></div>
+            <div class="nav-link logout-btn" onclick="window.location.href='../../audbear_techy_web_index.html'">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>Exit</span>
+            </div>
+        </div>
+    </aside>
+
+    <!-- ── MAIN CONTENT ── -->
+    <main class="workspace-main">
+
+        <!-- Page Header -->
+        <header class="dashboard-header">
+            <div class="header-left">
+                <button class="back-btn" onclick="window.location.href='../../audbear_techy_web_index.html'"
+                    title="Return Home">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </button>
+                <div class="header-title-group">
+                    <h1 class="header-title">Your Professional Workspace</h1>
+                    <p class="header-subtitle">Everything you need to build a professional identity — in one place.</p>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="ws-header-badge">
+                    <img src="../../audbear_techy_web_assets/audbear_techy_web_icon.png" alt="AudBear"
+                        class="badge-icon">
+                    <span class="badge-brand">AudBear <span>STUDIO</span></span>
+                </div>
+                <button class="theme-toggle-btn" id="themeToggleBtn" title="Toggle Theme">
+                    <i class="fa-solid fa-moon"></i>
+                    <span>Dark</span>
+                </button>
+                <div class="header-user-profile">
+                    <img src="../../audbear_techy_web_assets/audbear_techy_web_user.png" alt="User" class="user-avatar">
+                </div>
+            </div>
+        </header>
+
+        <div class="ws-top-bar">
+            <div class="ws-categories">
+                <div class="ws-cat-item active" data-cat="builder">
+                    <i class="fa-solid fa-pen-nib"></i>
+                    <span>Document Builder</span>
+                </div>
+                <div class="ws-cat-item" data-cat="billing">
+                    <i class="fa-solid fa-file-invoice-dollar"></i>
+                    <span>Invoice Generator</span>
+                </div>
+                <div class="ws-cat-item" data-cat="utilities">
+                    <i class="fa-solid fa-screwdriver-wrench"></i>
+                    <span>Tools & Utilities</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="ws-content-scrollable">
+
+            <!-- ── SECTION 1: Document Builder ── -->
+            <section class="ws-section" id="section-builder">
+                <h3 class="ws-section-label"><i class="fa-solid fa-pen-nib"></i> Document Builder</h3>
+                <div class="ws-tools-grid">
+
+                    <!-- Resume / CV -->
+                    <div class="ws-tool-card ws-card--blue" id="card-resume">
+                        <div class="ws-card-left">
+                            <div class="ws-card-icon">
+                                <i class="fa-solid fa-file-invoice"></i>
+                            </div>
+                            <span class="ws-card-badge ws-badge--active">Available</span>
+                        </div>
+                        <div class="ws-card-middle">
+                            <h2 class="ws-card-title">Resume / CV Builder</h2>
+
+                            <ul class="ws-feature-list">
+                                <li><i class="fa-solid fa-check"></i> 60+ Templates</li>
+                                <li><i class="fa-solid fa-check"></i> AI Suggestions</li>
+                                <li><i class="fa-solid fa-check"></i> ATS Analyzer</li>
+                                <li><i class="fa-solid fa-check"></i> PDF/DOCX Export</li>
+                            </ul>
+                        </div>
+                        <div class="ws-card-actions">
+                            <a href="../audbear_techy_web_resume_html/audbear_techy_web_resume_templates.html"
+                                class="ws-btn ws-btn--primary">
+                                <i class="fa-solid fa-layer-group"></i> Pick Template
+                            </a>
+                            <a href="../audbear_techy_web_resume_html/audbear_techy_web_resume_builder.html"
+                                class="ws-btn ws-btn--secondary">
+                                <i class="fa-solid fa-pen-to-square"></i> Open Builder
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Visiting Card -->
+                    <div class="ws-tool-card ws-card--purple ws-card--locked" id="card-vcard">
+                        <div class="ws-card-left">
+                            <div class="ws-card-icon">
+                                <i class="fa-solid fa-id-card"></i>
+                            </div>
+                            <span class="ws-card-badge ws-badge--locked">Coming Soon</span>
+                        </div>
+                        <div class="ws-card-middle">
+                            <h2 class="ws-card-title">Visiting Card Designer</h2>
+
+                            <ul class="ws-feature-list">
+                                <li><i class="fa-solid fa-check"></i> Pro Layouts</li>
+                                <li><i class="fa-solid fa-check"></i> Custom Themes</li>
+                                <li><i class="fa-solid fa-check"></i> Print Export</li>
+                                <li><i class="fa-solid fa-check"></i> QR Integration</li>
+                            </ul>
+                        </div>
+                        <div class="ws-card-actions">
+                            <button class="ws-btn ws-btn--locked" disabled>
+                                <i class="fa-solid fa-bell"></i> Notify Me
+                            </button>
+                            <button class="ws-btn ws-btn--locked" disabled>
+                                <i class="fa-solid fa-lock"></i> Locked
+                            </button>
+                        </div>
+                    </div>
+
+                </div><!-- /.ws-tools-grid -->
+            </section>
+
+            <!-- ── SECTION 2: Invoice Generator ── -->
+            <section class="ws-section" id="section-billing">
+                <h3 class="ws-section-label"><i class="fa-solid fa-file-invoice-dollar"></i> Invoice Generator</h3>
+                <div class="ws-tools-grid">
+
+                    <!-- Standard Invoice -->
+                    <div class="ws-tool-card ws-card--amber ws-card--locked" id="card-invoice">
+                        <div class="ws-card-left">
+                            <div class="ws-card-icon">
+                                <i class="fa-solid fa-file-invoice-dollar"></i>
+                            </div>
+                            <span class="ws-card-badge ws-badge--locked">Coming Soon</span>
+                        </div>
+                        <div class="ws-card-middle">
+                            <h2 class="ws-card-title">Standard Invoice</h2>
+
+                            <ul class="ws-feature-list">
+                                <li><i class="fa-solid fa-check"></i> Auto Tax</li>
+                                <li><i class="fa-solid fa-check"></i> Clients</li>
+                                <li><i class="fa-solid fa-check"></i> PDF Export</li>
+                                <li><i class="fa-solid fa-check"></i> Multi-Currency</li>
+                            </ul>
+                        </div>
+                        <div class="ws-card-actions">
+                            <button class="ws-btn ws-btn--locked" disabled>
+                                <i class="fa-solid fa-bell"></i> Notify Me
+                            </button>
+                            <button class="ws-btn ws-btn--locked" disabled>
+                                <i class="fa-solid fa-lock"></i> Locked
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- GST Invoice -->
+                    <div class="ws-tool-card ws-card--cyan ws-card--locked" id="card-gst">
+                        <div class="ws-card-left">
+                            <div class="ws-card-icon">
+                                <i class="fa-solid fa-receipt"></i>
+                            </div>
+                            <span class="ws-card-badge ws-badge--locked">Coming Soon</span>
+                        </div>
+                        <div class="ws-card-middle">
+                            <h2 class="ws-card-title">GST Invoice</h2>
+
+                            <ul class="ws-feature-list">
+                                <li><i class="fa-solid fa-check"></i> CGST/SGST/IGST</li>
+                                <li><i class="fa-solid fa-check"></i> HSN/SAC Support</li>
+                                <li><i class="fa-solid fa-check"></i> GSTIN Validation</li>
+                                <li><i class="fa-solid fa-check"></i> Govt-Compliant</li>
+                            </ul>
+                        </div>
+                        <div class="ws-card-actions">
+                            <button class="ws-btn ws-btn--locked" disabled>
+                                <i class="fa-solid fa-bell"></i> Notify Me
+                            </button>
+                            <button class="ws-btn ws-btn--locked" disabled>
+                                <i class="fa-solid fa-lock"></i> Locked
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ── SECTION 3: Tools & Utilities ── -->
+            <section class="ws-section" id="section-utilities">
+                <h3 class="ws-section-label"><i class="fa-solid fa-screwdriver-wrench"></i> Tools & Utilities</h3>
+                <div class="ws-tools-grid">
+
+                    <!-- Convert Document -->
+                    <div class="ws-tool-card ws-card--indigo ws-card--locked" id="card-convert">
+                        <div class="ws-card-left">
+                            <div class="ws-card-icon">
+                                <i class="fa-solid fa-repeat"></i>
+                            </div>
+                            <span class="ws-card-badge ws-badge--locked">Coming Soon</span>
+                        </div>
+                        <div class="ws-card-middle">
+                            <h2 class="ws-card-title">Convert Document Format</h2>
+
+                            <ul class="ws-feature-list">
+                                <li><i class="fa-solid fa-check"></i> PDF to DOCX</li>
+                                <li><i class="fa-solid fa-check"></i> Image to PDF</li>
+                                <li><i class="fa-solid fa-check"></i> Batch Process</li>
+                                <li><i class="fa-solid fa-check"></i> High Accuracy</li>
+                            </ul>
+                        </div>
+                        <div class="ws-card-actions">
+                            <button class="ws-btn ws-btn--locked" disabled>
+                                <i class="fa-solid fa-bell"></i> Notify Me
+                            </button>
+                            <button class="ws-btn ws-btn--locked" disabled>
+                                <i class="fa-solid fa-lock"></i> Locked
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Resize Document -->
+                    <div class="ws-tool-card ws-card--pink ws-card--locked" id="card-resize">
+                        <div class="ws-card-left">
+                            <div class="ws-card-icon">
+                                <i class="fa-solid fa-maximize"></i>
+                            </div>
+                            <span class="ws-card-badge ws-badge--locked">Coming Soon</span>
+                        </div>
+                        <div class="ws-card-middle">
+                            <h2 class="ws-card-title">Resize Document</h2>
+
+                            <ul class="ws-feature-list">
+                                <li><i class="fa-solid fa-check"></i> Custom Dims</li>
+                                <li><i class="fa-solid fa-check"></i> Auto Padding</li>
+                                <li><i class="fa-solid fa-check"></i> Compression</li>
+                                <li><i class="fa-solid fa-check"></i> Fast Engine</li>
+                            </ul>
+                        </div>
+                        <div class="ws-card-actions">
+                            <button class="ws-btn ws-btn--locked" disabled>
+                                <i class="fa-solid fa-bell"></i> Notify Me
+                            </button>
+                            <button class="ws-btn ws-btn--locked" disabled>
+                                <i class="fa-solid fa-lock"></i> Locked
+                            </button>
+                        </div>
+                    </div>
+
+                </div><!-- /.ws-tools-grid -->
+            </section>
+
+
+        </div>
+    </main>
+
+    <script src="../../audbear_techy_web_js/audbear_techy_web_global_js/audbear_techy_web_workspace.js"></script>
+</body>
+
+</html>

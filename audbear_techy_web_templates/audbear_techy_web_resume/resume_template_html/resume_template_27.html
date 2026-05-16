@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- DYNAMIC BASE FOR RELOCATION RESILIENCE -->
+    <script>
+      (function() {
+        var path = window.location.pathname;
+        var segments = path.split('/');
+        var rootIndex = -1;
+        for (var i = 0; i < segments.length; i++) {
+          if (segments[i].indexOf('audbear_techy_web_') === 0 && segments[i].indexOf('.html') === -1) {
+            rootIndex = i - 1;
+            break;
+          }
+        }
+        if (rootIndex !== -1) {
+          var base = segments.slice(0, rootIndex + 1).join('/') + '/';
+          document.write('<base href=\"' + base + '\">');
+        }
+      })();
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template-27 | AudBear TECHY</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --text-dark: #111111;
+            --text-muted: #555555;
+            --border-color: #bbbbbb;
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Montserrat', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+            color: var(--text-dark);
+        }
+
+        .cv-container {
+            background-color: #ffffff;
+            width: 850px;
+            min-height: 1100px;
+            padding: 70px;
+            border-radius: 5px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header Styling */
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .logo-box {
+            width: 180px;
+            height: 180px;
+            border: 1px solid #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .logo-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .header-info {
+            flex-grow: 1;
+        }
+
+        .header-info h1 {
+            font-family: var(--font-sans);
+            font-size: 3.5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+            line-height: 0.9;
+            margin-bottom: 10px;
+        }
+
+        .header-info h3 {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            color: #555;
+            font-weight: 300;
+        }
+
+        /* Body Split */
+        .cv-body {
+            display: flex;
+            position: relative;
+            flex-grow: 1;
+            gap: 50px;
+        }
+
+        /* Vertical Line Divider */
+        .cv-body::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 35%;
+            width: 1px;
+            height: 100%;
+            background-color: #eee;
+        }
+
+        /* Columns */
+        .sidebar {
+            width: 35%;
+            padding-right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+        }
+
+        .main-content {
+            width: 65%;
+            padding-left: 20px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            margin-bottom: 25px;
+            display: block;
+            border-bottom: 1px solid #000;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+
+        /* Content Blocks */
+        .contact-info {
+            font-size: 0.85rem;
+            line-height: 1.8;
+            color: #444;
+            text-align: left;
+        }
+
+        .summary-text {
+            font-size: 0.85rem;
+            line-height: 1.7;
+            color: #555;
+            text-align: justify;
+        }
+
+        .skills-list {
+            list-style: none;
+            font-size: 0.85rem;
+            line-height: 2;
+            color: #555;
+        }
+
+        .skills-list li::before {
+            content: '•';
+            margin-right: 12px;
+            color: #000;
+        }
+
+        .exp-item {
+            margin-bottom: 40px;
+        }
+
+        .exp-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .exp-meta {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .exp-bullets {
+            list-style: none;
+            padding-left: 10px;
+            font-size: 0.8rem;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .exp-bullets li::before {
+            content: '•';
+            margin-right: 10px;
+        }
+
+        .edu-item {
+            margin-bottom: 30px;
+        }
+
+        .edu-item .date {
+            font-weight: 700;
+            font-size: 0.85rem;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .edu-item .school {
+            font-size: 0.9rem;
+            color: #555;
+            margin-bottom: 3px;
+            display: block;
+        }
+
+        .edu-item .degree {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #333;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="cv-container">
+        <!-- HEADER -->
+        <header class="header">
+            <div class="logo-box">
+                <img src="audbear_techy_web_templates/audbear_techy_web_resume/resume_template_professional_images/resume_template_27.png" alt="AudBear Falcon">
+            </div>
+            <div class="header-info">
+                <h1>AudBear Gallego</h1>
+                <h3>Graphic Designer</h3>
+            </div>
+        </header>
+
+        <!-- CV BODY -->
+        <div class="cv-body">
+            <!-- SIDEBAR -->
+            <aside class="sidebar">
+                <section class="section">
+                    <span class="section-title">Contact</span>
+                    <div class="contact-info">
+                        123-456-7890<br>
+                        123 Anywhere St., Any City, ST 12345<br>
+                        hello@audbear.com
+                    </div>
+                </section>
+
+                <section class="section">
+                    <span class="section-title">Summary</span>
+                    <p class="summary-text">
+                        I am a qualified and professional graphic designer with over five years of experience in creating whale-sized visual solutions. I possess strong creative and analytical skills, with a focus on delivering high-impact designs that meet client objectives and resonate with target audiences.
+                    </p>
+                </section>
+
+                <section class="section">
+                    <span class="section-title">Skills</span>
+                    <ul class="skills-list">
+                        <li>Web Design</li>
+                        <li>Design Thinking</li>
+                        <li>Wireframe Creation</li>
+                        <li>Front End Coding</li>
+                        <li>Problem-Solving</li>
+                        <li>Computer Literacy</li>
+                        <li>Project Management Tools</li>
+                        <li>Strong Communication</li>
+                    </ul>
+                </section>
+            </aside>
+
+            <!-- MAIN CONTENT -->
+            <main class="main-content">
+                <section class="section">
+                    <span class="section-title">Experience</span>
+                    
+                    <div class="exp-item">
+                        <span class="exp-title">Applications Developer</span>
+                        <span class="exp-meta">AudBear Company | 2016 - Present</span>
+                        <ul class="exp-bullets">
+                            <li>Database administration and website design for complex engineering systems.</li>
+                            <li>Built the logic for a streamlined ad-serving platform that scaled effectively.</li>
+                            <li>Educational institutions and online classroom management solutions.</li>
+                        </ul>
+                    </div>
+
+                    <div class="exp-item">
+                        <span class="exp-title">Web Content Manager</span>
+                        <span class="exp-meta">AudBear Company | 2014 - 2016</span>
+                        <ul class="exp-bullets">
+                            <li>Database administration and website design for various digital platforms.</li>
+                            <li>Built the logic for a streamlined ad-serving platform that scaled.</li>
+                            <li>Educational institutions and online classroom management.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <span class="section-title">Education</span>
+                    
+                    <div class="edu-item">
+                        <span class="date">2014 - 2016</span>
+                        <span class="school">University of AudBear Excellence</span>
+                        <span class="degree">MASTER OF IT, MAJOR IN TECHNOLOGY</span>
+                    </div>
+
+                    <div class="edu-item">
+                        <span class="date">2013 - 2014</span>
+                        <span class="school">University of AudBear Excellence</span>
+                        <span class="degree">BACHELOR OF IT, MAJOR IN TECHNOLOGY</span>
+                    </div>
+
+                    <div class="edu-item">
+                        <span class="date">2010 - 2013</span>
+                        <span class="school">AudBear High Academy</span>
+                        <span class="degree">COMPLETED REQUIREMENTS FOR HIGH SCHOOL</span>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+</body>
+
+</html>
+
+
+
+
+

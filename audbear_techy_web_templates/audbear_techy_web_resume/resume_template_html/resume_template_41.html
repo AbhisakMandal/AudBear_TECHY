@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- DYNAMIC BASE FOR RELOCATION RESILIENCE -->
+    <script>
+      (function() {
+        var path = window.location.pathname;
+        var segments = path.split('/');
+        var rootIndex = -1;
+        for (var i = 0; i < segments.length; i++) {
+          if (segments[i].indexOf('audbear_techy_web_') === 0 && segments[i].indexOf('.html') === -1) {
+            rootIndex = i - 1;
+            break;
+          }
+        }
+        if (rootIndex !== -1) {
+          var base = segments.slice(0, rootIndex + 1).join('/') + '/';
+          document.write('<base href=\"' + base + '\">');
+        }
+      })();
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template-41 | AudBear TECHY</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --main-bg: #2b3a4a;
+            --box-bg: #f5f7f9;
+            --text-light: #ffffff;
+            --text-dark: #333333;
+            --font-main: 'Montserrat', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+            color: var(--text-light);
+        }
+
+        .cv-container {
+            background-color: var(--main-bg);
+            width: 850px;
+            min-height: 1100px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            display: flex;
+            padding: 50px;
+            gap: 50px;
+        }
+
+        /* Left Column Styling */
+        .sidebar {
+            width: 35%;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .profile-wrapper {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 100px 100px 20px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .profile-photo {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid var(--main-bg);
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .sidebar-section h2 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-transform: capitalize;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .info-box {
+            background-color: var(--box-bg);
+            padding: 25px;
+            border-radius: 20px;
+            color: var(--text-dark);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            font-size: 0.85rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .contact-item i {
+            color: var(--main-bg);
+            width: 15px;
+        }
+
+        .sidebar-list {
+            list-style: none;
+            line-height: 1.8;
+        }
+
+        /* Right Column Styling */
+        .main-content {
+            width: 65%;
+            display: flex;
+            flex-direction: column;
+            gap: 45px;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            text-transform: capitalize;
+            margin-bottom: 5px;
+        }
+
+        .header h3 {
+            font-size: 1.1rem;
+            font-weight: 400;
+            opacity: 0.8;
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            padding-bottom: 10px;
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            text-transform: capitalize;
+            margin-bottom: 20px;
+            display: block;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            padding-bottom: 10px;
+        }
+
+        .summary-text {
+            font-size: 0.9rem;
+            line-height: 1.7;
+            opacity: 0.9;
+            text-align: justify;
+        }
+
+        .content-item {
+            margin-bottom: 10px;
+        }
+
+        .content-item h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .content-item p {
+            font-size: 0.9rem;
+            opacity: 0.85;
+            line-height: 1.6;
+        }
+
+        .bullets {
+            list-style: none;
+            padding-left: 0;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            opacity: 0.85;
+        }
+
+        .bullets li {
+            margin-bottom: 10px;
+            display: flex;
+            gap: 12px;
+        }
+
+        .bullets li::before {
+            content: '•';
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="cv-container">
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="profile-wrapper">
+                <div class="profile-photo">
+                    <img src="audbear_techy_web_templates/audbear_techy_web_resume/resume_template_professional_images/resume_template_41.png" alt="AudBear Cheetah">
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <h2>My Contact</h2>
+                <div class="info-box">
+                    <div class="contact-item"><i class="fa-solid fa-phone"></i> 123-456-7890</div>
+                    <div class="contact-item"><i class="fa-solid fa-envelope"></i> hello@audbear.com</div>
+                    <div class="contact-item"><i class="fa-solid fa-location-dot"></i> 123 Anywhere St., Any City</div>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <h2>Skill Technical</h2>
+                <div class="info-box">
+                    <ul class="sidebar-list">
+                        <li>Management</li>
+                        <li>Marketing</li>
+                        <li>Data Analysis</li>
+                        <li>Graphic Design</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <h2>Soft Skill</h2>
+                <div class="info-box">
+                    <ul class="sidebar-list">
+                        <li>Teamwork</li>
+                        <li>Problem-Solving</li>
+                        <li>Communication</li>
+                        <li>Adaptability</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <h2>Languages</h2>
+                <div class="info-box">
+                    <ul class="sidebar-list">
+                        <li>English – Fluent</li>
+                        <li>Bahasa Indonesia – Native</li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+            <header class="header">
+                <h1>AudBear Martinez</h1>
+                <h3>Fresh Graduate in Business Administration</h3>
+            </header>
+
+            <section>
+                <span class="section-title">Profile Summary</span>
+                <p class="summary-text">
+                    Motivated and detail-oriented fresh graduate with a degree in Business Administration. Skilled in project management, data analysis, and teamwork. Highly interested in pursuing a career in business consulting and eager to contribute to whale-sized organizational growth through innovative and strategic thinking.
+                </p>
+            </section>
+
+            <section>
+                <span class="section-title">Education</span>
+                <div class="content-item">
+                    <h4>University of AudBear Excellence</h4>
+                    <p>Bachelor of Business Administration</p>
+                    <p>2021 – 2025 | GPA: 3.65/4.00</p>
+                </div>
+            </section>
+
+            <section>
+                <span class="section-title">Internship Experience</span>
+                <ul class="bullets">
+                    <li>Prepared presentation materials and financial reports for senior consultants during high-stakes client meetings.</li>
+                    <li>Collaborated with a cross-functional team to provide data-driven recommendations for whale-sized client projects.</li>
+                </ul>
+            </section>
+
+            <section>
+                <span class="section-title">Achievement</span>
+                <ul class="bullets">
+                    <li>Analytics Certificate (2023)</li>
+                    <li>"Best Presentation Award" – Business Case Competition (2022)</li>
+                    <li>TOEFL iBT Score: 98</li>
+                </ul>
+            </section>
+        </main>
+    </div>
+</body>
+
+</html>
+
+
+
+
+

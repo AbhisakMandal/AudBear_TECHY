@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume Builder | AudBear TECHY</title>
+
+  <link rel="icon" type="image/png" href="../../audbear_techy_web_assets/audbear_techy_web_icon.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Global Design System -->
+  <link rel="stylesheet" href="../../audbear_techy_web_css/audbear_techy_web_global_css/audbear_techy_web_main.css">
+  <!-- Component-specific styles -->
+  <link rel="stylesheet"
+    href="../../audbear_techy_web_css/audbear_techy_web_resume_css/audbear_techy_web_resume_builder.css?v=2.2">
+  <link rel="stylesheet"
+    href="../../audbear_techy_web_css/audbear_techy_web_resume_css/audbear_techy_web_resume_templates.css">
+
+  <!-- CROPPER LIBS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css">
+  <link rel="stylesheet" href="../../audbear_techy_web_css/audbear_techy_web_global_css/audbear_techy_web_cropper.css">
+</head>
+
+<body class="standalone no-sidebar">
+
+  <!-- ══════════════════════════════════════
+       MAIN BUILDER CONTAINER
+  ══════════════════════════════════════ -->
+  <div id="standalone-container">
+
+    <!-- ── TOP TOOLBAR ── -->
+    <div id="builder-toolbar">
+      <div class="tb-left">
+        <button class="exit-builder-btn"
+          onclick="window.location.href='../audbear_techy_web_global_html/audbear_techy_web_workspace.html'">
+          <i class="fa-solid fa-angle-left"></i>
+          <span>Back to Workspace</span>
+        </button>
+
+      </div>
+
+      <div class="tb-center">
+        <div class="ws-header-badge combined-badge">
+          <img src="../../audbear_techy_web_assets/audbear_techy_web_icon.png" alt="AudBear" class="badge-icon">
+          <div class="badge-content">
+            <span class="badge-brand">AudBear <span>TECHY</span></span>
+            <span class="badge-tagline">Official Resume Builder</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tb-right">
+        <button class="tb-btn header-action-btn"
+          onclick="window.location.href='../audbear_techy_web_vault_html/audbear_techy_web_vault.html'"
+          style="margin-right: 12px;">
+          <i class="fa-solid fa-vault"></i>
+          <span>Vault</span>
+          <i class="fa-solid fa-angle-right" style="font-size: 10px; margin-left: 4px; opacity: 0.5;"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- ── BUILDER WORKSPACE ── -->
+    <div id="builder-layout" class="v-quadrant-workspace">
+
+      <!-- ═══════════════════════════════
+           LEFT: FORM EDITOR
+      ═══════════════════════════════ -->
+      <div id="builder-controls">
+
+        <!-- Editor Panel -->
+        <div id="builder-left-panel">
+          <div class="panel-header">
+            <button class="header-action-btn import-btn-styled" onclick="triggerImport()" title="Import Resume Data (JSON)">
+              <i class="fa-solid fa-file-import"></i> Import Existing
+            </button>
+
+            <div id="resume-name-pill" class="resume-title-box" onclick="renameResume()" title="Click to rename"
+              style="position: absolute; left: 50%; transform: translateX(-50%); margin-left: -80px;">
+              <div class="title-label">Document Title</div>
+              <div class="title-value" id="current-resume-name">Untitled Resume</div>
+              <i class="fa-solid fa-pen-to-square rename-icon"></i>
+            </div>
+
+            <div class="panel-actions" style="display:flex; gap:12px;">
+              <button class="header-action-btn" onclick="openTemplateGallery()">
+                <i class="fa-solid fa-layer-group"></i> Templates
+              </button>
+              <button class="header-action-btn" onclick="triggerDeepScan()" title="Deep Scan Preview Content">
+                <i class="fa-solid fa-expand"></i> Deep Scan
+              </button>
+              <button class="header-action-btn" onclick="openATSScore()" title="Analyze ATS Score">
+                <i class="fa-solid fa-chart-simple"></i> Analytics
+              </button>
+              <button class="header-action-btn ai-magic-btn" onclick="aiRedesign()" title="AI Redesign"
+                style="height: 38px; padding: 0 16px;">
+                <i class="fa-solid fa-wand-magic-sparkles"></i> AI Magic
+              </button>
+            </div>
+          </div>
+
+          <div id="builder-form-scroll">
+            <div id="builder-sections-container">
+
+              <!-- ── PERSONAL INFO ── -->
+              <div class="form-section open" id="sec-personal">
+                <div class="form-section-header" onclick="toggleSection(this)">
+                  <div class="form-section-icon" style="background:hsla(160, 80%, 50%, 0.1); color:#10B981;">
+                    <i class="fa-solid fa-user-tie"></i>
+                  </div>
+                  <div class="form-section-title">Personal Information</div>
+                  <i class="fa-solid fa-chevron-down form-section-toggle"></i>
+                </div>
+                <div class="form-section-body">
+
+                  <!-- Avatar -->
+                  <div class="avatar-upload">
+                    <div class="avatar-preview" id="avatarPreview" onclick="triggerAvatarUpload()" title="Upload photo">
+                      <img src="" id="avatarImg" style="display:none;">
+                      <span id="avatarInitials">RG</span>
+                    </div>
+                    <div class="avatar-controls">
+                      <div class="avatar-btns-row" style="display:flex; width: 100%; gap:16px; margin-bottom:12px;">
+                        <button class="tb-btn elite-btn" onclick="triggerAvatarUpload()">
+                          <i class="fas fa-camera"></i> Add Photo
+                        </button>
+                        <button class="avatar-edit-btn" onclick="triggerAvatarUpload()"
+                          style="background:hsla(180, 80%, 50%, 0.1); color:#22D3EE; border:1px solid hsla(180, 80%, 50%, 0.2); border-radius:10px; padding:8px 16px; font-size:12px; font-weight:700; cursor:pointer; transition:var(--transition); display:flex; align-items:center; gap:8px;">
+                          <i class="fas fa-pen-to-square"></i> Edit Photo
+                        </button>
+                        <button class="avatar-remove-btn" onclick="removePhoto()"
+                          style="margin-left: auto; background:hsla(0, 80%, 50%, 0.1); color:#F87171; border:1px solid hsla(0, 80%, 50%, 0.2); border-radius:10px; padding:8px 16px; font-size:12px; font-weight:700; cursor:pointer; transition:var(--transition); display:flex; align-items:center; gap:8px;">
+                          <i class="fas fa-trash-can"></i> Delete Photo
+                        </button>
+                      </div>
+                      <div class="photo-toggle-row">
+                        <label class="toggle-switch mini">
+                          <input type="checkbox" id="togglePhotoCheckbox" onchange="togglePhotoDisplay(this.checked)"
+                            checked>
+                          <span class="toggle-slider"></span>
+                        </label>
+                        <span class="toggle-label">Show on Resume</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-row" style="margin-bottom:14px;">
+                    <div class="form-group">
+                      <label class="form-label">Full Name</label>
+                      <input class="form-input" id="f-name" placeholder="John Doe"
+                        oninput="currentData.name=this.value; renderPreview();">
+                    </div>
+                    <div class="form-group">
+                      <label class="form-label">Job Title</label>
+                      <input class="form-input" id="f-title" placeholder="Software Engineer"
+                        oninput="currentData.title=this.value; renderPreview();">
+                    </div>
+                  </div>
+
+                  <div class="form-row" style="margin-bottom:14px;">
+                    <div class="form-group">
+                      <label class="form-label">Email</label>
+                      <input class="form-input" id="f-email" placeholder="john@email.com"
+                        oninput="currentData.email=this.value; renderPreview();">
+                    </div>
+                    <div class="form-group">
+                      <label class="form-label">Phone</label>
+                      <input class="form-input" id="f-phone" placeholder="+91 98765 43210"
+                        oninput="currentData.phone=this.value; renderPreview();">
+                    </div>
+                  </div>
+
+                  <div class="form-group" style="margin-bottom:14px;">
+                    <label class="form-label">Location</label>
+                    <input class="form-input" id="f-location" placeholder="City, Country"
+                      oninput="currentData.location=this.value; renderPreview();">
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label class="form-label">LinkedIn</label>
+                      <input class="form-input" id="f-linkedin" placeholder="linkedin.com/in/johndoe"
+                        oninput="currentData.linkedin=this.value; renderPreview();">
+                    </div>
+                    <div class="form-group">
+                      <label class="form-label">Portfolio / Website</label>
+                      <input class="form-input" id="f-github" placeholder="github.com/johndoe"
+                        oninput="currentData.github=this.value; renderPreview();">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ── PROFESSIONAL SUMMARY ── -->
+              <div class="form-section" id="sec-summary">
+                <div class="form-section-header" onclick="toggleSection(this)">
+                  <div class="form-section-icon" style="background:hsla(210, 80%, 50%, 0.1); color:#60A5FA;">
+                    <i class="fa-solid fa-align-left"></i>
+                  </div>
+                  <div class="form-section-title">Professional Summary</div>
+                  <i class="fa-solid fa-chevron-down form-section-toggle"></i>
+                </div>
+                <div class="form-section-body">
+                  <div class="form-group">
+                    <label class="form-label">Summary</label>
+                    <textarea class="form-textarea" id="f-summary" rows="5"
+                      oninput="currentData.summary=this.value; renderPreview();"
+                      placeholder="Write 2–3 impactful sentences about your career, key skills, and goals..."></textarea>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ── WORK EXPERIENCE ── -->
+              <div class="form-section" id="sec-experience">
+                <div class="form-section-header" onclick="toggleSection(this)">
+                  <div class="form-section-icon" style="background:hsla(35, 90%, 50%, 0.1); color:#F59E0B;">
+                    <i class="fa-solid fa-briefcase"></i>
+                  </div>
+                  <div class="form-section-title">Work Experience</div>
+                  <i class="fa-solid fa-chevron-down form-section-toggle"></i>
+                </div>
+                <div class="form-section-body">
+                  <div id="experienceContainer"></div>
+                  <button class="add-item-btn" onclick="addExp()">
+                    <i class="fas fa-plus"></i> Add Experience
+                  </button>
+                </div>
+              </div>
+
+              <!-- ── EDUCATION ── -->
+              <div class="form-section" id="sec-study">
+                <div class="form-section-header" onclick="toggleSection(this)">
+                  <div class="form-section-icon" style="background:hsla(260, 80%, 60%, 0.1); color:#A78BFA;">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                  </div>
+                  <div class="form-section-title">Education</div>
+                  <i class="fa-solid fa-chevron-down form-section-toggle"></i>
+                </div>
+                <div class="form-section-body">
+                  <div id="studyContentContainer"></div>
+                  <button class="add-item-btn" onclick="addStudy()">
+                    <i class="fas fa-plus"></i> Add Education
+                  </button>
+                </div>
+              </div>
+
+              <!-- ── SKILLS ── -->
+              <div class="form-section" id="sec-skills">
+                <div class="form-section-header" onclick="toggleSection(this)">
+                  <div class="form-section-icon" style="background:hsla(160, 80%, 50%, 0.1); color:#10B981;">
+                    <i class="fa-solid fa-screwdriver-wrench"></i>
+                  </div>
+                  <div class="form-section-title">Skills & Expertise</div>
+                  <i class="fa-solid fa-chevron-down form-section-toggle"></i>
+                </div>
+                <div class="form-section-body">
+                  <div id="skillTagsContainer" class="skills-tags-list"></div>
+                  <div class="skill-input-group">
+                    <input type="text" id="skillInput" placeholder="Type a skill and press Enter..."
+                      onkeydown="if(event.key==='Enter') addSkill()">
+                    <button onclick="addSkill()"><i class="fa-solid fa-plus"></i></button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ── PROJECTS ── -->
+              <div class="form-section" id="sec-projects">
+                <div class="form-section-header" onclick="toggleSection(this)">
+                  <div class="form-section-icon" style="background:hsla(0, 80%, 60%, 0.1); color:#F87171;">
+                    <i class="fa-solid fa-code-branch"></i>
+                  </div>
+                  <div class="form-section-title">Personal Projects</div>
+                  <i class="fa-solid fa-chevron-down form-section-toggle"></i>
+                </div>
+                <div class="form-section-body">
+                  <div id="projectsContainer"></div>
+                  <button class="add-item-btn" onclick="addProj()">
+                    <i class="fas fa-plus"></i> Add Project
+                  </button>
+                </div>
+              </div>
+
+              <!-- ── LANGUAGES ── -->
+              <div class="form-section" id="sec-languages">
+                <div class="form-section-header" onclick="toggleSection(this)">
+                  <div class="form-section-icon" style="background:hsla(190, 80%, 50%, 0.1); color:#38BDF8;">
+                    <i class="fa-solid fa-language"></i>
+                  </div>
+                  <div class="form-section-title">Languages</div>
+                  <i class="fa-solid fa-chevron-down form-section-toggle"></i>
+                </div>
+                <div class="form-section-body">
+                  <div id="languagesContainer"></div>
+                  <button class="add-item-btn" onclick="addLang()">
+                    <i class="fa-solid fa-plus"></i> Add Language
+                  </button>
+                </div>
+              </div>
+
+              <!-- ── ACHIEVEMENTS ── -->
+              <div class="form-section" id="sec-achievements">
+                <div class="form-section-header" onclick="toggleSection(this)">
+                  <div class="form-section-icon" style="background:hsla(45, 80%, 50%, 0.1); color:#FBBF24;">
+                    <i class="fa-solid fa-trophy"></i>
+                  </div>
+                  <div class="form-section-title">Achievements & Awards</div>
+                  <i class="fa-solid fa-chevron-down form-section-toggle"></i>
+                </div>
+                <div class="form-section-body">
+                  <div id="achievementsContainer"></div>
+                  <button class="add-item-btn" onclick="addAch()">
+                    <i class="fa-solid fa-plus"></i> Add Achievement
+                  </button>
+                </div>
+              </div>
+
+            </div><!-- /#builder-sections-container -->
+          </div><!-- /#builder-form-scroll -->
+        </div><!-- /#builder-left-panel -->
+
+
+      </div><!-- /#builder-controls -->
+
+      <!-- ═══════════════════════════════
+           RIGHT: LIVE PREVIEW
+      ═══════════════════════════════ -->
+      <div id="builder-center-panel">
+        <div id="builder-preview-toolbar">
+          <div class="preview-header-left">
+            <span class="preview-label">
+              <span class="status-dot"></span>
+              LIVE
+            </span>
+          </div>
+          <div class="preview-zoom">
+            <button class="zoom-btn" onclick="zoomOut()">−</button>
+            <input type="text" class="zoom-value" id="zoomValue" value="40%" onfocus="this.value = parseInt(this.value)"
+              onblur="handleZoomInput(this.value)" onkeydown="if(event.key==='Enter') this.blur()">
+            <button class="zoom-btn" onclick="zoomIn()">+</button>
+          </div>
+          <button class="tb-btn reset-btn-compact" onclick="resetToTemplateDefaults()"
+            title="Reset to Template Defaults">
+            <i class="fa-solid fa-rotate-left"></i>
+            <span>Reset All</span>
+          </button>
+        </div>
+        <div id="builder-preview-scroll">
+          <div class="preview-scroll-inner">
+            <div id="preview-content-wrapper">
+              <div id="resume-preview"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FLOATING SAVE BUTTON -->
+        <button class="floating-save-btn" onclick="saveResumeToVault()">
+          <i class="fa-solid fa-cloud-arrow-up"></i>
+          <span>Save to Vault</span>
+        </button>
+      </div>
+
+    </div><!-- /#builder-layout -->
+  </div><!-- /#standalone-container -->
+
+  <!-- ATS SCORE MODAL -->
+  <div id="ats-modal" class="modal-overlay" style="display:none;">
+    <div class="modal-content ats-modal-content">
+      <div class="modal-header">
+        <div class="modal-title"><i class="fas fa-bolt"></i> ATS Performance Analysis</div>
+        <button class="modal-close" onclick="closeATSScore()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div id="ats-modal-render"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PREMIUM CROPPER MODAL -->
+  <div id="cropper-container-inject"></div>
+
+  <!-- EXTERNAL LIBS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script src="https://unpkg.com/docx@7.1.0/build/index.js"></script>
+  
+  <!-- PDF & DOCX IMPORT LIBS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.4.21/mammoth.browser.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
+
+  <!-- APP JS (order matters) -->
+  <script
+    src="../../audbear_techy_web_js/audbear_techy_web_resume_js/audbear_techy_web_resume_compaction.js?v=1.2"></script>
+  <script
+    src="../../audbear_techy_web_js/audbear_techy_web_resume_js/audbear_techy_web_resume_vault_parser.js?v=1.2"></script>
+  <script
+    src="../../audbear_techy_web_js/audbear_techy_web_resume_js/audbear_techy_web_resume_templates.js?v=1.2"></script>
+  <script
+    src="../../audbear_techy_web_js/audbear_techy_web_resume_js/audbear_techy_web_resume_suggestions.js?v=1.2"></script>
+  <script
+    src="../../audbear_techy_web_js/audbear_techy_web_resume_js/audbear_techy_web_resume_export.js?v=1.2"></script>
+  <script
+    src="../../audbear_techy_web_js/audbear_techy_web_resume_js/audbear_techy_web_resume_templates_data.js?v=1.0"></script>
+  <script src="../../audbear_techy_web_js/audbear_techy_web_global_js/audbear_techy_web_cropper.js"></script>
+  <script
+    src="../../audbear_techy_web_js/audbear_techy_web_resume_js/audbear_techy_web_resume_builder.js?v=1.4"></script>
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="toast"></div>
+
+</body>
+
+</html>
+
+<!-- HIDDEN FILE INPUTS -->
+<input type="file" id="resume-import-input" style="display:none;" accept=".json,.pdf,.docx"
+  onchange="handleImport(event)">
+<input type="file" id="avatar-upload-input" style="display:none;" accept="image/*" onchange="handleAvatarUpload(event)">

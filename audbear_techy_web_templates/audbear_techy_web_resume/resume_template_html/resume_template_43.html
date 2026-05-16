@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- DYNAMIC BASE FOR RELOCATION RESILIENCE -->
+    <script>
+      (function() {
+        var path = window.location.pathname;
+        var segments = path.split('/');
+        var rootIndex = -1;
+        for (var i = 0; i < segments.length; i++) {
+          if (segments[i].indexOf('audbear_techy_web_') === 0 && segments[i].indexOf('.html') === -1) {
+            rootIndex = i - 1;
+            break;
+          }
+        }
+        if (rootIndex !== -1) {
+          var base = segments.slice(0, rootIndex + 1).join('/') + '/';
+          document.write('<base href=\"' + base + '\">');
+        }
+      })();
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template-43 | AudBear TECHY</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --accent-teal: #5a8289;
+            --box-bg: #d9e3e5;
+            --text-dark: #3e5055;
+            --font-main: 'Quicksand', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: #f4f7f8;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+            color: var(--text-dark);
+        }
+
+        .cv-container {
+            background-color: #fcfcfc;
+            width: 850px;
+            min-height: 1100px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        /* Geometric Background Elements */
+        .bg-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.1;
+            pointer-events: none;
+        }
+
+        /* Header Styling */
+        .header {
+            background-color: var(--accent-teal);
+            height: 180px;
+            display: flex;
+            align-items: center;
+            padding: 0 60px;
+            position: relative;
+            z-index: 2;
+            margin-top: 40px;
+        }
+
+        .profile-photo {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 8px solid #fff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: absolute;
+            left: 60px;
+            top: -20px;
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .header-info {
+            margin-left: 220px;
+            color: #fff;
+        }
+
+        .header-info h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+        }
+
+        .header-info h3 {
+            font-size: 1.4rem;
+            font-weight: 400;
+            opacity: 0.9;
+        }
+
+        /* Body Styling */
+        .cv-body {
+            display: flex;
+            padding: 60px;
+            gap: 50px;
+            position: relative;
+            z-index: 2;
+            flex-grow: 1;
+        }
+
+        .left-col {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .right-col {
+            width: 50%;
+        }
+
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--accent-teal);
+            border-bottom: 3px solid var(--accent-teal);
+            display: inline-block;
+        }
+
+        /* Timeline Items */
+        .timeline-item {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 30px;
+            border-left: 4px solid var(--accent-teal);
+        }
+
+        .timeline-node {
+            position: absolute;
+            left: -10px;
+            top: 5px;
+            width: 16px;
+            height: 16px;
+            background-color: var(--accent-teal);
+            border-radius: 2px;
+        }
+
+        .timeline-item h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .timeline-item p {
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+        }
+
+        .bullets {
+            list-style: none;
+            font-size: 0.85rem;
+            line-height: 1.6;
+            opacity: 0.85;
+        }
+
+        .bullets li::before {
+            content: '•';
+            margin-right: 10px;
+        }
+
+        /* Info Box (Right Column) */
+        .info-box {
+            background-color: var(--box-bg);
+            padding: 40px;
+            border-radius: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .info-section h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .info-text {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            opacity: 0.9;
+            text-align: justify;
+        }
+
+        .info-list {
+            list-style: none;
+            font-size: 1rem;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        .info-list li::before {
+            content: '•';
+            margin-right: 12px;
+            color: var(--accent-teal);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #d1dde0;
+            margin: 40px 60px;
+            padding: 15px 40px;
+            border-radius: 50px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .contact-item i {
+            color: var(--accent-teal);
+            background-color: #fff;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.8rem;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="cv-container">
+        <!-- BACKGROUND PATTERN (Simplified with CSS) -->
+        <div class="bg-pattern">
+            <svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <polygon points="0,0 50,20 100,0" fill="#ddd" />
+                <polygon points="0,100 50,80 100,100" fill="#ddd" />
+                <polygon points="0,50 30,50 50,30" fill="#eee" />
+            </svg>
+        </div>
+
+        <!-- HEADER -->
+        <header class="header">
+            <div class="profile-photo">
+                <img src="audbear_techy_web_templates/audbear_techy_web_resume/resume_template_professional_images/resume_template_43.png" alt="AudBear Jaguar">
+            </div>
+            <div class="header-info">
+                <h1>AudBear Loeb</h1>
+                <h3>Fresh Graduates</h3>
+            </div>
+        </header>
+
+        <!-- CV BODY -->
+        <div class="cv-body">
+            <!-- LEFT COLUMN -->
+            <div class="left-col">
+                <section>
+                    <span class="section-title">Education</span>
+                    <div class="timeline-item">
+                        <div class="timeline-node"></div>
+                        <h4>AudBear University</h4>
+                        <p>Bachelor's Degree in Informatics Engineering 2012</p>
+                    </div>
+                </section>
+
+                <section>
+                    <span class="section-title">Experience</span>
+                    <div class="timeline-item">
+                        <div class="timeline-node"></div>
+                        <h4>Hanover and Tyke</h4>
+                        <p>6-month internship</p>
+                        <ul class="bullets">
+                            <li>Software development for whale-sized enterprise systems.</li>
+                            <li>Manage servers and database integrity.</li>
+                            <li>Collaborate on UI/UX optimization projects.</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-node"></div>
+                        <h4>Rimberio</h4>
+                        <p>10-month internship</p>
+                        <ul class="bullets">
+                            <li>Software development and bug tracking.</li>
+                            <li>Manage servers and cloud infrastructure.</li>
+                            <li>Solve user issues and provide technical support.</li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+
+            <!-- RIGHT COLUMN -->
+            <div class="right-col">
+                <div class="info-box">
+                    <div class="info-section">
+                        <h3>About Me</h3>
+                        <p class="info-text">
+                            I am a new graduate who has a high enthusiasm for learning and a passion for developing whale-sized software solutions. I am eager to apply my technical skills in a professional environment and continue developing my expertise in informatics engineering.
+                        </p>
+                    </div>
+
+                    <div class="info-section">
+                        <h3>Skill</h3>
+                        <ul class="info-list">
+                            <li>Programming</li>
+                            <li>Graphic Design</li>
+                            <li>Programming Framework</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-section">
+                        <h3>Language</h3>
+                        <ul class="info-list">
+                            <li>English</li>
+                            <li>Indonesian</li>
+                            <li>Italian</li>
+                            <li>Arabic</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <div class="contact-item"><i class="fa-solid fa-phone"></i> +123-456-7890</div>
+            <div class="contact-item"><i class="fa-solid fa-envelope"></i> hello@audbear.com</div>
+            <div class="contact-item"><i class="fa-solid fa-location-dot"></i> 123 Anywhere St., Any City</div>
+        </footer>
+    </div>
+</body>
+
+</html>
+
+
+
+
+

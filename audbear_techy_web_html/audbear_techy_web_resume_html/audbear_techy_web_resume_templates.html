@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Templates Gallery | AudBear TECHY</title>
+
+    <link rel="icon" type="image/png" href="../../audbear_techy_web_assets/audbear_techy_web_icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Global Design System -->
+    <link rel="stylesheet" href="../../audbear_techy_web_css/audbear_techy_web_global_css/audbear_techy_web_main.css">
+    <!-- Component-specific styles -->
+    <link rel="stylesheet" href="../../audbear_techy_web_css/audbear_techy_web_global_css/audbear_techy_web_workspace.css">
+    <link rel="stylesheet" href="../../audbear_techy_web_css/audbear_techy_web_resume_css/audbear_techy_web_resume_templates.css">
+</head>
+
+<body class="standalone">
+    <!-- Quick View Modal -->
+    <div id="template-modal" class="template-modal" onclick="closeQuickView()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <div class="modal-header-left">
+                    <button class="modal-nav-btn back-btn-modal" onclick="closeQuickView()" title="Back to Gallery">
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </button>
+                    <div class="ws-header-badge">
+                        <img src="../../audbear_techy_web_assets/audbear_techy_web_icon.png" alt="AudBear" class="badge-icon">
+                        <span class="badge-brand">AudBear <span>TECHY</span></span>
+                    </div>
+                    <div class="modal-divider"></div>
+                    <h2 class="modal-viewer-title">Professional Viewer</h2>
+                </div>
+                <div class="modal-header-right">
+                    <button class="modal-close-red" onclick="closeQuickView()" title="Close Preview">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+            </div>
+            <div id="modal-preview-body" class="modal-preview-body">
+                <!-- Template content will be injected here -->
+            </div>
+            <div class="modal-footer">
+                <button id="modal-use-btn" class="modal-use-btn">
+                    <span>Build Resume</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+                <button class="close-modal" onclick="closeQuickView()">
+                    <i class="fa-solid fa-xmark"></i>
+                    <span>Close Preview</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <main class="gallery-container">
+        <!-- Page Header -->
+        <header class="dashboard-header">
+            <div class="header-left">
+                <button class="back-btn" onclick="window.location.href='audbear_techy_web_template_hub.html'"
+                    title="Back to Hub">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </button>
+                <div class="header-title-group">
+                    <h1 class="header-title">Choose Your Resume Template</h1>
+                    <p class="header-subtitle">Select from our collection of 63 premium, ATS-optimized designs.</p>
+                </div>
+            </div>
+            <div class="header-right">
+
+                <div class="ws-header-badge"
+                    onclick="window.location.href='../audbear_techy_web_global_html/audbear_techy_web_workspace.html'">
+                    <img src="../../audbear_techy_web_assets/audbear_techy_web_icon.png" alt="AudBear" class="badge-icon">
+                    <span class="badge-brand">AudBear <span>TECHY</span></span>
+                </div>
+                <div class="header-user-profile">
+                    <img src="../../audbear_techy_web_assets/audbear_techy_web_user.png" alt="User" class="user-avatar">
+                </div>
+            </div>
+        </header>
+
+        <div class="gallery-header-bar">
+            <div id="gallery-filters" class="gallery-filters">
+                <!-- Filter buttons will be rendered here -->
+            </div>
+        </div>
+
+        <div class="gallery-content-scrollable">
+            <div id="template-grid" class="template-grid">
+                <!-- Templates will be rendered here -->
+            </div>
+        </div>
+
+        <!-- Floating Action Button -->
+        <button id="floating-build-btn" class="floating-action-btn disabled" disabled>
+            <span>Build Resume</span>
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
+    </main>
+
+    <script src="../../audbear_techy_web_js/audbear_techy_web_resume_js/audbear_techy_web_resume_templates.js"></script>
+    <script src="../../audbear_techy_web_js/audbear_techy_web_resume_js/audbear_techy_web_resume_templates_ui.js"></script>
+</body>
+
+</html>

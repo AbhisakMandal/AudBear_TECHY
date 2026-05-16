@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- DYNAMIC BASE FOR RELOCATION RESILIENCE -->
+    <script>
+      (function() {
+        var path = window.location.pathname;
+        var segments = path.split('/');
+        var rootIndex = -1;
+        for (var i = 0; i < segments.length; i++) {
+          if (segments[i].indexOf('audbear_techy_web_') === 0 && segments[i].indexOf('.html') === -1) {
+            rootIndex = i - 1;
+            break;
+          }
+        }
+        if (rootIndex !== -1) {
+          var base = segments.slice(0, rootIndex + 1).join('/') + '/';
+          document.write('<base href=\"' + base + '\">');
+        }
+      })();
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template-53 | AudBear TECHY</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --sidebar-bg: #05162a;
+            --accent-orange: #fbb034;
+            --text-dark: #05162a;
+            --text-light: #ffffff;
+            --font-main: 'Montserrat', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+            color: var(--text-dark);
+        }
+
+        .cv-container {
+            background-color: #ffffff;
+            width: 850px;
+            min-height: 1100px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            display: flex;
+            position: relative;
+        }
+
+        /* Sidebar Styling */
+        .sidebar {
+            width: 40%;
+            background-color: var(--sidebar-bg);
+            color: var(--text-light);
+            display: flex;
+            flex-direction: column;
+            padding: 60px 40px;
+            position: relative;
+        }
+
+        /* Decorative Pills in Sidebar */
+        .sidebar::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 10px;
+            height: 60px;
+            background-color: var(--accent-orange);
+            border-radius: 5px;
+        }
+
+        .sidebar::after {
+            content: '';
+            position: absolute;
+            top: 100px;
+            left: 20px;
+            width: 10px;
+            height: 30px;
+            background-color: var(--accent-orange);
+            border-radius: 5px;
+            opacity: 0.7;
+        }
+
+        .profile-wrapper {
+            margin-bottom: 50px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .profile-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 10px solid var(--accent-orange);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .sidebar-section h2 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--accent-orange);
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .contact-list {
+            list-style: none;
+            font-size: 0.9rem;
+            margin-bottom: 50px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .contact-item i {
+            color: var(--accent-orange);
+            width: 15px;
+        }
+
+        .skill-item {
+            margin-bottom: 20px;
+        }
+
+        .skill-header {
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background-color: var(--accent-orange);
+            border-radius: 3px;
+        }
+
+        /* Main Area Styling */
+        .main-area {
+            width: 60%;
+            padding: 60px 0 60px 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            padding: 0 60px;
+            margin-bottom: 60px;
+        }
+
+        .header h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--sidebar-bg);
+            line-height: 1.1;
+        }
+
+        .header h3 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--sidebar-bg);
+            margin-top: 15px;
+        }
+
+        /* Overlapping Section Title */
+        .section-title-main {
+            background-color: var(--accent-orange);
+            color: var(--text-dark);
+            padding: 12px 40px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-left: -30px;
+            width: fit-content;
+            margin-bottom: 30px;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .main-section-inner {
+            padding: 0 60px;
+            display: flex;
+            flex-direction: column;
+            gap: 35px;
+            margin-bottom: 60px;
+        }
+
+        .content-item {
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .content-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            background-color: var(--accent-orange);
+            border-radius: 50%;
+        }
+
+        .content-header {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 5px;
+        }
+
+        .content-header h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .tag-pill {
+            background-color: var(--accent-orange);
+            color: var(--text-dark);
+            padding: 3px 12px;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .content-date {
+            font-size: 0.85rem;
+            color: #777;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .content-text {
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: #555;
+            text-align: justify;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="cv-container">
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="profile-wrapper">
+                <div class="profile-photo">
+                    <img src="audbear_techy_web_templates/audbear_techy_web_resume/resume_template_professional_images/resume_template_53.png" alt="AudBear Tasmanian Devil">
+                </div>
+            </div>
+
+            <section class="sidebar-section">
+                <h2><i class="fa-solid fa-user"></i> My Contact</h2>
+                <ul class="contact-list">
+                    <li class="contact-item"><i class="fa-solid fa-location-dot"></i> 123 Anywhere St., Any City</li>
+                    <li class="contact-item"><i class="fa-solid fa-phone"></i> +123-456-7890</li>
+                    <li class="contact-item"><i class="fa-solid fa-globe"></i> www.audbear.com</li>
+                    <li class="contact-item"><i class="fa-solid fa-envelope"></i> hello@audbear.com</li>
+                </ul>
+            </section>
+
+            <section class="sidebar-section">
+                <h2><i class="fa-solid fa-gear"></i> My Skills</h2>
+                <div class="skill-item">
+                    <span class="skill-header">Project Management</span>
+                    <div class="progress-bar"><div class="progress-fill" style="width: 90%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-header">Problem-Solving</span>
+                    <div class="progress-bar"><div class="progress-fill" style="width: 85%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-header">Creativity</span>
+                    <div class="progress-bar"><div class="progress-fill" style="width: 95%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-header">Leadership</span>
+                    <div class="progress-bar"><div class="progress-fill" style="width: 80%;"></div></div>
+                </div>
+            </section>
+        </aside>
+
+        <!-- MAIN AREA -->
+        <main class="main-area">
+            <header class="header">
+                <h1>AudBear<br>Napolitani</h1>
+                <h3>Professional Designer</h3>
+            </header>
+
+            <section>
+                <div class="section-title-main"><i class="fa-solid fa-graduation-cap"></i> Education Background</div>
+                <div class="main-section-inner">
+                    <div class="content-item">
+                        <div class="content-header">
+                            <h4>Bachelor in Graphic Design</h4>
+                            <span class="tag-pill">AudBear University</span>
+                        </div>
+                        <span class="content-date">2004 – 2008</span>
+                        <p class="content-text">Completed a whale-sized curriculum focusing on visual storytelling and digital design principles. Graduated with honors and led several student design projects.</p>
+                    </div>
+                    <div class="content-item">
+                        <div class="content-header">
+                            <h4>Masters in Graphic Design</h4>
+                            <span class="tag-pill">AudBear Excellence</span>
+                        </div>
+                        <span class="content-date">2008 – 2010</span>
+                        <p class="content-text">Advanced studies in brand strategy and user experience design. Specialized in creating high-impact visual identities for global brands.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="section-title-main"><i class="fa-solid fa-briefcase"></i> Work Experience</div>
+                <div class="main-section-inner">
+                    <div class="content-item">
+                        <div class="content-header">
+                            <h4>Senior Graphic Designer</h4>
+                            <span class="tag-pill">AudBear Industries</span>
+                        </div>
+                        <span class="content-date">2010 – Present</span>
+                        <p class="content-text">Leading a whale-sized design team in the creation of comprehensive marketing campaigns. Responsible for the visual direction of major product launches.</p>
+                    </div>
+                    <div class="content-item">
+                        <div class="content-header">
+                            <h4>Graphic Designer</h4>
+                            <span class="tag-pill">AudBear & Partners</span>
+                        </div>
+                        <span class="content-date">2008 – 2010</span>
+                        <p class="content-text">Executed various digital and print design projects. Collaborated with cross-functional teams to deliver innovative visual solutions.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+
+</html>
+
+
+
+
+

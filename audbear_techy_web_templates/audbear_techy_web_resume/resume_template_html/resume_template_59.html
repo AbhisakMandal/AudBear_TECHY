@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- DYNAMIC BASE FOR RELOCATION RESILIENCE -->
+    <script>
+      (function() {
+        var path = window.location.pathname;
+        var segments = path.split('/');
+        var rootIndex = -1;
+        for (var i = 0; i < segments.length; i++) {
+          if (segments[i].indexOf('audbear_techy_web_') === 0 && segments[i].indexOf('.html') === -1) {
+            rootIndex = i - 1;
+            break;
+          }
+        }
+        if (rootIndex !== -1) {
+          var base = segments.slice(0, rootIndex + 1).join('/') + '/';
+          document.write('<base href=\"' + base + '\">');
+        }
+      })();
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template-59 | AudBear TECHY</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --header-bg: #eeeeee;
+            --sidebar-bg: #343a40;
+            --main-bg: #ffffff;
+            --text-dark: #333333;
+            --text-light: #ffffff;
+            --text-muted: #666666;
+            --font-main: 'Montserrat', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+            color: var(--text-dark);
+        }
+
+        .cv-container {
+            background-color: var(--main-bg);
+            width: 850px;
+            min-height: 1100px;
+            display: flex;
+            flex-direction: column;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid #ddd;
+        }
+
+        /* Header Styling */
+        .header {
+            background-color: var(--header-bg);
+            padding: 40px 50px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header-top {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 40px;
+            background-color: #ddd;
+        }
+
+        .profile-pic img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .name-role h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            line-height: 0.9;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .name-role h3 {
+            font-size: 1.4rem;
+            color: #555;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 400;
+        }
+
+        .header-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 20px;
+            border-top: 1px solid #ccc;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.8rem;
+            color: #333;
+        }
+
+        .contact-item i {
+            background-color: #333;
+            color: #fff;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.75rem;
+        }
+
+        /* Body Split */
+        .cv-body {
+            display: flex;
+            flex-grow: 1;
+        }
+
+        /* Sidebar Styling */
+        .sidebar {
+            background-color: var(--sidebar-bg);
+            width: 35%;
+            padding: 40px 30px;
+            color: var(--text-light);
+        }
+
+        .sidebar-section {
+            margin-bottom: 40px;
+        }
+
+        .sidebar-heading {
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 25px;
+            border-bottom: 0px solid #555;
+        }
+
+        .sidebar-text {
+            font-size: 0.85rem;
+            line-height: 1.7;
+            opacity: 0.8;
+            text-align: justify;
+        }
+
+        .edu-item {
+            margin-bottom: 20px;
+        }
+
+        .edu-item h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 3px;
+        }
+
+        .edu-item p {
+            font-size: 0.8rem;
+            opacity: 0.8;
+            margin-bottom: 3px;
+        }
+
+        .edu-item .date {
+            font-size: 0.75rem;
+            opacity: 0.6;
+        }
+
+        .skills-list {
+            list-style: none;
+        }
+
+        .skills-list li {
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            opacity: 0.85;
+        }
+
+        .skills-list li::before {
+            content: '•';
+            color: #fff;
+            font-size: 1.2rem;
+        }
+
+        /* Main Content Styling */
+        .main-content {
+            width: 65%;
+            padding: 40px 40px;
+            background-color: var(--main-bg);
+        }
+
+        .main-section {
+            margin-bottom: 45px;
+        }
+
+        .main-heading {
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 30px;
+            color: #2c3e50;
+        }
+
+        .experience-item {
+            margin-bottom: 30px;
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 5px;
+        }
+
+        .exp-header h4 {
+            font-size: 1rem;
+            font-weight: 400;
+            color: #444;
+        }
+
+        .exp-header .date {
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .company-name {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .exp-desc {
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: #666;
+            text-align: justify;
+        }
+
+        /* References Grid */
+        .references-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .ref-item h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 2px;
+        }
+
+        .ref-item p {
+            font-size: 0.85rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .ref-contact {
+            font-size: 0.75rem;
+            color: #888;
+            line-height: 1.6;
+        }
+
+        .ref-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .ref-header h2 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            white-space: nowrap;
+            margin-right: 20px;
+        }
+
+        .ref-header .line {
+            flex-grow: 1;
+            height: 1px;
+            background-color: #ddd;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cv-container">
+        <!-- HEADER -->
+        <header class="header">
+            <div class="header-top">
+                <div class="profile-pic">
+                    <img src="audbear_techy_web_templates/audbear_techy_web_resume/resume_template_professional_images/resume_template_59.png"
+                        alt="AudBear TECHY Whale">
+                </div>
+                <div class="name-role">
+                    <h1>AudBear<br>TECHY</h1>
+                    <h3>UI / UX Designer</h3>
+                </div>
+            </div>
+            <div class="header-bottom">
+                <div class="contact-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+123-456-7890</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>hello@reallygreatsite.com</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fa-solid fa-globe"></i>
+                    <span>www.reallygreatsite.com</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>123 Anywhere St., Any City, ST 12345</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- BODY -->
+        <div class="cv-body">
+            <!-- SIDEBAR -->
+            <aside class="sidebar">
+                <div class="sidebar-section">
+                    <h2 class="sidebar-heading">About Me</h2>
+                    <p class="sidebar-text">
+                        A dedicated UI/UX Designer at AudBear TECHY with a passion for creating intuitive, whale-sized impacts in the digital world. I specialize in crafting seamless user experiences that combine aesthetic beauty with functional depth.
+                    </p>
+                </div>
+
+                <div class="sidebar-section">
+                    <h2 class="sidebar-heading">Education</h2>
+                    <div class="edu-item">
+                        <h4>M.A. in Interaction Design</h4>
+                        <p>Royal College of Art, London</p>
+                        <div class="date">2010 - 2012</div>
+                    </div>
+                    <div class="edu-item">
+                        <h4>B.A. in Graphic Design</h4>
+                        <p>Parsons School of Design, NY</p>
+                        <div class="date">2006 - 2010</div>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <h2 class="sidebar-heading">Skills</h2>
+                    <ul class="skills-list">
+                        <li>UI/UX</li>
+                        <li>Visual Design</li>
+                        <li>Wireframes</li>
+                        <li>Storyboards</li>
+                        <li>User Flows</li>
+                        <li>Process Flows</li>
+                    </ul>
+                </div>
+            </aside>
+
+            <!-- MAIN CONTENT -->
+            <main class="main-content">
+                <section class="main-section">
+                    <h2 class="main-heading">Work Experience</h2>
+
+                    <div class="experience-item">
+                        <div class="exp-header">
+                            <h4>Senior Product Designer</h4>
+                            <span class="date">2019 - 2022</span>
+                        </div>
+                        <div class="company-name">AudBear TECHY | Remote</div>
+                        <p class="exp-desc">Led the design of the AudBear mobile application, improving user engagement by 40%. Conducted extensive user research and usability testing to refine the navigation flow and visual language.</p>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="exp-header">
+                            <h4>Lead UI Developer</h4>
+                            <span class="date">2017 - 2019</span>
+                        </div>
+                        <div class="company-name">CloudScale Solutions | New York</div>
+                        <p class="exp-desc">Redesigned the core dashboard for enterprise clients, simplifying complex data visualizations. Collaborated with engineers to implement a robust design system across all product lines.</p>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="exp-header">
+                            <h4>UX Designer</h4>
+                            <span class="date">2015 - 2017</span>
+                        </div>
+                        <div class="company-name">InnoEdu Platforms | London</div>
+                        <p class="exp-desc">Conceptualized and designed interactive prototypes for a new educational platform. Focused on accessibility and inclusive design principles to reach a wider audience.</p>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="exp-header">
+                            <h4>Junior Web Designer</h4>
+                            <span class="date">2013 - 2015</span>
+                        </div>
+                        <div class="company-name">Creative Pulse Studio | Madrid</div>
+                        <p class="exp-desc">Assisted senior designers in creating marketing assets and web layouts. Gained experience in responsive design and cross-browser compatibility testing.</p>
+                    </div>
+                </section>
+
+                <section class="main-section">
+                    <div class="ref-header">
+                        <h2>References</h2>
+                        <div class="line"></div>
+                    </div>
+
+                    <div class="references-grid">
+                        <div class="ref-item">
+                            <h4>Harumi Kobayashi</h4>
+                            <p>Wardiere Inc. / CEO</p>
+                            <div class="ref-contact">
+                                Phone: 123-456-7890<br>
+                                Email: hello@reallygreatsite.com
+                            </div>
+                        </div>
+                        <div class="ref-item">
+                            <h4>Bailey Dupont</h4>
+                            <p>Wardiere Inc. / CEO</p>
+                            <div class="ref-contact">
+                                Phone: 123-456-7890<br>
+                                Email: hello@reallygreatsite.com
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+</body>
+
+</html>
+
+
+
+

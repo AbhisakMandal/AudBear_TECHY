@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- DYNAMIC BASE FOR RELOCATION RESILIENCE -->
+    <script>
+      (function() {
+        var path = window.location.pathname;
+        var segments = path.split('/');
+        var rootIndex = -1;
+        for (var i = 0; i < segments.length; i++) {
+          if (segments[i].indexOf('audbear_techy_web_') === 0 && segments[i].indexOf('.html') === -1) {
+            rootIndex = i - 1;
+            break;
+          }
+        }
+        if (rootIndex !== -1) {
+          var base = segments.slice(0, rootIndex + 1).join('/') + '/';
+          document.write('<base href=\"' + base + '\">');
+        }
+      })();
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template-22 | AudBear TECHY</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --section-title-bg: #d6e0e5;
+            --text-dark: #333333;
+            --text-muted: #555555;
+            --font-main: 'Inter', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+            color: var(--text-dark);
+        }
+
+        .cv-container {
+            background-color: #ffffff;
+            width: 850px;
+            min-height: 1100px;
+            padding: 60px 80px;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+
+        /* Header Styling */
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+        }
+
+        .header h3 {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .contact-row {
+            font-size: 0.85rem;
+            color: #666;
+            letter-spacing: 1px;
+        }
+
+        /* Profile Photo (Added to meet requirements) */
+        .profile-photo {
+            position: absolute;
+            top: 60px;
+            left: 80px;
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid #eee;
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Section Styling */
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            background-color: var(--section-title-bg);
+            padding: 10px 20px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+            display: block;
+        }
+
+        .summary-text {
+            font-size: 0.9rem;
+            line-height: 1.7;
+            color: #444;
+            text-align: justify;
+            padding: 0 10px;
+        }
+
+        /* Content Items */
+        .content-item {
+            margin-bottom: 30px;
+            padding: 0 10px;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 10px;
+        }
+
+        .item-header h4 {
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        .item-header .date {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #555;
+        }
+
+        .content-item ul {
+            padding-left: 20px;
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .content-item li {
+            margin-bottom: 8px;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            padding: 0 10px;
+        }
+
+        .skills-list {
+            list-style: none;
+            font-size: 0.85rem;
+            color: #555;
+        }
+
+        .skills-list li::before {
+            content: '•';
+            margin-right: 12px;
+            color: #333;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="cv-container">
+        <!-- PROFILE PHOTO -->
+        <div class="profile-photo">
+            <img src="audbear_techy_web_templates/audbear_techy_web_resume/resume_template_professional_images/resume_template_22.png" alt="AudBear Red Panda">
+        </div>
+
+        <!-- HEADER -->
+        <header class="header">
+            <h1>AudBear Sanchez</h1>
+            <h3>Administrative Manager</h3>
+            <div class="contact-row">
+                hello@audbear.com | 123-456-7890 | 123 Anywhere St., Any City
+            </div>
+        </header>
+
+        <!-- SUMMARY -->
+        <section class="section">
+            <span class="section-title">Summary</span>
+            <p class="summary-text">
+                Detail-oriented administrative professional with over three years of experience providing comprehensive support to executive teams and office operations. Proven track record of managing whale-sized administrative tasks efficiently and maintaining strict confidentiality. Strong organizational skills coupled with excellent communication abilities to coordinate office activities and facilitate smooth workflow.
+            </p>
+        </section>
+
+        <!-- WORK EXPERIENCE -->
+        <section class="section">
+            <span class="section-title">Work Experience</span>
+            
+            <div class="content-item">
+                <div class="item-header">
+                    <h4>Administrative Assistant, AudBear Industries</h4>
+                    <span class="date">Oct 2023 - Present</span>
+                </div>
+                <ul>
+                    <li>Managed executive calendars, schedule meetings, and coordinate travel arrangements.</li>
+                    <li>Maintained office supplies inventory and order supplies as needed, optimizing cost efficiency.</li>
+                    <li>Assisted in organizing company events, ensuring seamless execution.</li>
+                </ul>
+            </div>
+
+            <div class="content-item">
+                <div class="item-header">
+                    <h4>Office Coordinator, AudBear</h4>
+                    <span class="date">Jan 2022 - Sept 2023</span>
+                </div>
+                <ul>
+                    <li>Provided administrative support to a team of 20+ employees, including calendar management, expense reporting, and meeting coordination.</li>
+                    <li>Acted as a liaison between departments, fostering effective communication and collaboration.</li>
+                    <li>Assisted in onboarding new employees, facilitating orientation sessions and ensuring compliance with company policies.</li>
+                </ul>
+            </div>
+
+            <div class="content-item">
+                <div class="item-header">
+                    <h4>Internship, Salford & Co Corporation</h4>
+                    <span class="date">Apr 2021 - Dec 2021</span>
+                </div>
+                <ul>
+                    <li>Supported senior executives with administrative tasks, including scheduling meetings, managing correspondence, and preparing reports.</li>
+                    <li>Assisted in the planning and execution of corporate events and client meetings, ensuring a high level of professionalism.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- EDUCATION -->
+        <section class="section">
+            <span class="section-title">Education</span>
+            <div class="content-item">
+                <div class="item-header">
+                    <h4>Bachelor of Business Administration</h4>
+                    <span class="date">Jan 2019 - Feb 2021</span>
+                </div>
+                <ul>
+                    <li>University of Business Excellence</li>
+                    <li>Major in International Business</li>
+                    <li>Final CGPA: 3.90</li>
+                </ul>
+            </div>
+            <div class="content-item">
+                <div class="item-header">
+                    <h4>Foundation in Business Administration</h4>
+                    <span class="date">Jan 2018 - Dec 2018</span>
+                </div>
+                <ul>
+                    <li>AudBear University</li>
+                    <li>Final CGPA: 3.80</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- KEY SKILLS -->
+        <section class="section">
+            <span class="section-title">Key Skills</span>
+            <div class="skills-grid">
+                <ul class="skills-list">
+                    <li>Client Acquisition</li>
+                    <li>B2B Sales</li>
+                    <li>Negotiation</li>
+                </ul>
+                <ul class="skills-list">
+                    <li>Negotiation Skills</li>
+                    <li>Problem-Solving</li>
+                    <li>Time Management</li>
+                </ul>
+                <ul class="skills-list">
+                    <li>Relationship Management</li>
+                    <li>Market Analysis</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>
+
+
+
+
+

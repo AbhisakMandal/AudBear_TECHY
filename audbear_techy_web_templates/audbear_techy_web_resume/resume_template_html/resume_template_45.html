@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- DYNAMIC BASE FOR RELOCATION RESILIENCE -->
+    <script>
+      (function() {
+        var path = window.location.pathname;
+        var segments = path.split('/');
+        var rootIndex = -1;
+        for (var i = 0; i < segments.length; i++) {
+          if (segments[i].indexOf('audbear_techy_web_') === 0 && segments[i].indexOf('.html') === -1) {
+            rootIndex = i - 1;
+            break;
+          }
+        }
+        if (rootIndex !== -1) {
+          var base = segments.slice(0, rootIndex + 1).join('/') + '/';
+          document.write('<base href=\"' + base + '\">');
+        }
+      })();
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template-45 | AudBear TECHY</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --sidebar-bg: #e0e2d9;
+            --main-bg: #4a5d4e;
+            --accent-yellow: #fbc02d;
+            --text-light: #ffffff;
+            --text-dark: #333333;
+            --font-main: 'Montserrat', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+            color: var(--text-dark);
+        }
+
+        .cv-container {
+            background-color: #ffffff;
+            width: 850px;
+            min-height: 1100px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            display: flex;
+        }
+
+        /* Sidebar Styling */
+        .sidebar {
+            width: 42%;
+            background-color: var(--sidebar-bg);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .photo-wrapper {
+            background-color: var(--main-bg);
+            padding: 60px 40px;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .profile-photo {
+            width: 100%;
+            aspect-ratio: 1;
+            overflow: hidden;
+            border: 8px solid #fff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .sidebar-content {
+            padding: 20px 0 60px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+        }
+
+        /* Ribbon Title Styling */
+        .ribbon-title {
+            background-color: var(--accent-yellow);
+            color: var(--text-dark);
+            padding: 12px 30px;
+            font-size: 1.4rem;
+            font-weight: 700;
+            text-transform: capitalize;
+            position: relative;
+            margin-bottom: 20px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .ribbon-title::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            right: 0;
+            border-width: 0 15px 15px 0;
+            border-style: solid;
+            border-color: transparent #c49000 transparent transparent;
+        }
+
+        .sidebar-section-inner {
+            padding: 0 40px;
+        }
+
+        .sidebar-text {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #555;
+            text-align: justify;
+        }
+
+        .sidebar-list {
+            list-style: none;
+            font-size: 0.9rem;
+            line-height: 2;
+            color: #444;
+        }
+
+        .sidebar-list li::before {
+            content: '•';
+            margin-right: 12px;
+            color: #000;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 12px;
+            font-size: 0.85rem;
+        }
+
+        .contact-item i {
+            width: 30px;
+            height: 30px;
+            background-color: #555;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.8rem;
+        }
+
+        /* Main Content Styling */
+        .main-content {
+            width: 58%;
+            background-color: var(--main-bg);
+            color: var(--text-light);
+            padding: 60px 50px;
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+        }
+
+        .header h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            text-transform: capitalize;
+            line-height: 1;
+        }
+
+        .header h3 {
+            font-size: 1.2rem;
+            font-weight: 400;
+            font-style: italic;
+            opacity: 0.8;
+            margin-top: 15px;
+        }
+
+        .section-title-main {
+            font-size: 1.6rem;
+            font-weight: 700;
+            text-transform: capitalize;
+            color: var(--accent-yellow);
+            margin-bottom: 30px;
+            display: block;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 35px;
+            border-left: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -6px;
+            top: 5px;
+            width: 11px;
+            height: 11px;
+            background-color: var(--accent-yellow);
+            border-radius: 50%;
+        }
+
+        .timeline-item .date {
+            font-size: 0.85rem;
+            opacity: 0.8;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .timeline-item h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--accent-yellow);
+            margin-bottom: 5px;
+        }
+
+        .timeline-item .meta {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .timeline-bullets {
+            list-style: none;
+            font-size: 0.85rem;
+            line-height: 1.6;
+            opacity: 0.8;
+        }
+
+        .timeline-bullets li {
+            margin-bottom: 8px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .timeline-bullets li::before {
+            content: '•';
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="cv-container">
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="photo-wrapper">
+                <div class="profile-photo">
+                    <img src="audbear_techy_web_templates/audbear_techy_web_resume/resume_template_professional_images/resume_template_45.png" alt="AudBear Alpaca">
+                </div>
+            </div>
+
+            <div class="sidebar-content">
+                <section>
+                    <div class="ribbon-title">About Me</div>
+                    <div class="sidebar-section-inner">
+                        <p class="sidebar-text">
+                            I am a creative and dedicated designer with a passion for delivering whale-sized visual solutions. I thrive on creating innovative designs that help brands stand out. My approach combines artistic vision with practical application to achieve the best results for every project.
+                        </p>
+                    </div>
+                </section>
+
+                <section>
+                    <div class="ribbon-title">Expertise Skill</div>
+                    <div class="sidebar-section-inner">
+                        <ul class="sidebar-list">
+                            <li>Graphic design</li>
+                            <li>Computer Programming</li>
+                            <li>Content Marketing</li>
+                            <li>Digital Marketing</li>
+                            <li>Video editing</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section>
+                    <div class="ribbon-title">Contact Me</div>
+                    <div class="sidebar-section-inner">
+                        <div class="contact-item"><i class="fa-solid fa-phone"></i> +123-456-7890</div>
+                        <div class="contact-item"><i class="fa-solid fa-envelope"></i> hello@audbear.com</div>
+                        <div class="contact-item"><i class="fa-solid fa-globe"></i> www.audbear.com</div>
+                        <div class="contact-item"><i class="fa-solid fa-location-dot"></i> 123 Anywhere st., Any City, ST 12345</div>
+                    </div>
+                </section>
+            </div>
+        </aside>
+
+        <!-- MAIN AREA -->
+        <main class="main-content">
+            <header class="header">
+                <h1>AudBear<br>Thompson</h1>
+                <h3>Creative Designer</h3>
+            </header>
+
+            <section>
+                <span class="section-title-main">Education</span>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <span class="date">2015-2017</span>
+                    <h4>School Of Design University</h4>
+                    <span class="meta">123 Anywhere st., Any City, ST 12345</span>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <span class="date">2017-2019</span>
+                    <h4>School Of Marketing University</h4>
+                    <span class="meta">123 Anywhere st., Any City, ST 12345</span>
+                </div>
+            </section>
+
+            <section>
+                <span class="section-title-main">Work Experience</span>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <h4>Senior Graphic Designer</h4>
+                    <span class="meta">AudBear Inc | 2019-2020</span>
+                    <ul class="timeline-bullets">
+                        <li>Create more than 100 graphic designs for whale-sized companies.</li>
+                        <li>Complete a lot of complicated work within tight deadlines.</li>
+                        <li>Ensured high brand consistency across all visual assets.</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <h4>Senior Graphic Designer</h4>
+                    <span class="meta">AudBear & Co | 2020-Present</span>
+                    <ul class="timeline-bullets">
+                        <li>Managed large-scale design projects from concept to final delivery.</li>
+                        <li>Ensured customer satisfaction by handling day-to-day affairs.</li>
+                        <li>Managing oversees Company digital marketing strategies to reach more clients in website and social media.</li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+
+</html>
+
+
+
+
+

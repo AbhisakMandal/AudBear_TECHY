@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- DYNAMIC BASE FOR RELOCATION RESILIENCE -->
+    <script>
+      (function() {
+        var path = window.location.pathname;
+        var segments = path.split('/');
+        var rootIndex = -1;
+        for (var i = 0; i < segments.length; i++) {
+          if (segments[i].indexOf('audbear_techy_web_') === 0 && segments[i].indexOf('.html') === -1) {
+            rootIndex = i - 1;
+            break;
+          }
+        }
+        if (rootIndex !== -1) {
+          var base = segments.slice(0, rootIndex + 1).join('/') + '/';
+          document.write('<base href=\"' + base + '\">');
+        }
+      })();
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template-39 | AudBear TECHY</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --sidebar-bg: #ffffff;
+            --main-bg: #2d2d30;
+            --accent-orange: #f38d5f;
+            --text-dark: #222222;
+            --text-light: #ffffff;
+            --font-main: 'Montserrat', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+            color: var(--text-dark);
+        }
+
+        .cv-container {
+            background-color: #ffffff;
+            width: 850px;
+            min-height: 1100px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            display: flex;
+            position: relative;
+        }
+
+        /* Wavy Divider Background */
+        .cv-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60%;
+            height: 100%;
+            background-color: var(--main-bg);
+            z-index: 1;
+            clip-path: polygon(25% 0, 100% 0, 100% 100%, 0% 100%, 0% 50%, 25% 40%);
+            /* Simplified wavy shape */
+        }
+
+        /* Simplified Clip Path for the curve */
+        .sidebar {
+            width: 40%;
+            padding: 60px 40px;
+            background-color: #fff;
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .main-content {
+            width: 60%;
+            padding: 60px 50px;
+            color: var(--text-light);
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        /* Sidebar Content */
+        .header h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .header h3 {
+            font-size: 1.1rem;
+            font-weight: 400;
+            font-style: italic;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .section-title-side {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .about-text {
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: #555;
+            text-align: justify;
+        }
+
+        .contact-list {
+            list-style: none;
+            font-size: 0.85rem;
+            color: #444;
+            line-height: 2;
+        }
+
+        .contact-list li::before {
+            content: '•';
+            margin-right: 10px;
+            color: #000;
+        }
+
+        .edu-item {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 25px;
+            border-left: 1px dotted #999;
+        }
+
+        .edu-item .date {
+            font-size: 0.9rem;
+            font-style: italic;
+            color: #666;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .edu-item h4 {
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 3px;
+        }
+
+        .edu-item p {
+            font-size: 0.8rem;
+            color: #777;
+        }
+
+        /* Main Content Visuals */
+        .photo-circle-wrapper {
+            position: relative;
+            width: 250px;
+            height: 250px;
+            margin-bottom: 40px;
+            align-self: center;
+        }
+
+        .orange-circle {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--accent-orange);
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .diagonal-stripes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(0,0,0,0.2) 10px, rgba(0,0,0,0.2) 20px);
+            opacity: 0.5;
+        }
+
+        .profile-photo {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 6px solid #fff;
+            z-index: 5;
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .section-title-main {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            display: block;
+            text-transform: capitalize;
+        }
+
+        .exp-item {
+            position: relative;
+            padding-left: 25px;
+            border-left: 1px dotted #eee;
+            margin-bottom: 30px;
+        }
+
+        .exp-node {
+            position: absolute;
+            left: -6px;
+            top: 5px;
+            width: 11px;
+            height: 11px;
+            background-color: var(--accent-orange);
+            transform: rotate(45deg);
+        }
+
+        .exp-item h4 {
+            font-size: 1rem;
+            font-weight: 400;
+            opacity: 0.9;
+        }
+
+        .exp-item h4 strong {
+            font-weight: 700;
+        }
+
+        .exp-item ul {
+            padding-left: 15px;
+            margin-top: 10px;
+            font-size: 0.85rem;
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        /* Progress Bars */
+        .skill-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+
+        .skill-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .skill-name {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .progress-bar {
+            width: 120px;
+            height: 12px;
+            background-color: #444;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background-color: var(--accent-orange);
+            border-radius: 6px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="cv-container">
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <header class="header">
+                <h1>AudBear<br>Perez</h1>
+                <h3>Graphic designer</h3>
+            </header>
+
+            <section>
+                <span class="section-title-side">About Me</span>
+                <p class="about-text">
+                    I am a creative Graphic Designer with a passion for delivering whale-sized visual solutions. I specialize in branding, digital design, and innovative storytelling that helps brands stand out in a crowded marketplace.
+                </p>
+            </section>
+
+            <section>
+                <span class="section-title-side">Contact Me</span>
+                <ul class="contact-list">
+                    <li>+123-456-7890</li>
+                    <li>hello@audbear.com</li>
+                    <li>www.audbear.com</li>
+                    <li>123 Anywhere st., Any City, ST 12345</li>
+                </ul>
+            </section>
+
+            <section>
+                <span class="section-title-side">Education</span>
+                <div class="edu-item">
+                    <span class="date">2014-2016</span>
+                    <h4>AudBear University</h4>
+                    <p>123 Anywhere st., Any City, ST 12345</p>
+                </div>
+                <div class="edu-item">
+                    <span class="date">2016-2018</span>
+                    <h4>Art university</h4>
+                    <p>123 Anywhere st., Any City, ST 12345</p>
+                </div>
+                <div class="edu-item">
+                    <span class="date">2018-2019</span>
+                    <h4>Art university</h4>
+                    <p>123 Anywhere st., Any City, ST 12345</p>
+                </div>
+            </section>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+            <div class="photo-circle-wrapper">
+                <div class="orange-circle">
+                    <div class="diagonal-stripes"></div>
+                </div>
+                <div class="profile-photo">
+                    <img src="audbear_techy_web_templates/audbear_techy_web_resume/resume_template_professional_images/resume_template_39.png" alt="AudBear Gorilla">
+                </div>
+            </div>
+
+            <section>
+                <span class="section-title-main">Experience</span>
+                <div class="exp-item">
+                    <div class="exp-node"></div>
+                    <h4><strong>AudBear & co.</strong> | 2019-2020</h4>
+                    <p style="font-style: italic; opacity: 0.9; font-size: 0.9rem;">Senior Designer</p>
+                    <ul>
+                        <li>Made more than 1000 Logo designs with big companies.</li>
+                        <li>Complete a lot of complicated work.</li>
+                        <li>Delivered high-impact visual assets for global campaigns.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <span class="section-title-main">Expertise Skill</span>
+                <div class="skill-grid">
+                    <div class="skill-row">
+                        <span class="skill-name">• Logo Design</span>
+                        <div class="progress-bar"><div class="progress-fill" style="width: 90%;"></div></div>
+                    </div>
+                    <div class="skill-row">
+                        <span class="skill-name">• Creativity</span>
+                        <div class="progress-bar"><div class="progress-fill" style="width: 85%;"></div></div>
+                    </div>
+                    <div class="skill-row">
+                        <span class="skill-name">• Graphic Design</span>
+                        <div class="progress-bar"><div class="progress-fill" style="width: 95%;"></div></div>
+                    </div>
+                    <div class="skill-row">
+                        <span class="skill-name">• Video Editing</span>
+                        <div class="progress-bar"><div class="progress-fill" style="width: 80%;"></div></div>
+                    </div>
+                    <div class="skill-row">
+                        <span class="skill-name">• Branding</span>
+                        <div class="progress-bar"><div class="progress-fill" style="width: 85%;"></div></div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <span class="section-title-main">Language Skill</span>
+                <div class="skill-grid">
+                    <div class="skill-row">
+                        <span class="skill-name">• English</span>
+                        <div class="progress-bar"><div class="progress-fill" style="width: 95%;"></div></div>
+                    </div>
+                    <div class="skill-row">
+                        <span class="skill-name">• Chinese</span>
+                        <div class="progress-bar"><div class="progress-fill" style="width: 80%;"></div></div>
+                    </div>
+                    <div class="skill-row">
+                        <span class="skill-name">• Portuguese</span>
+                        <div class="progress-bar"><div class="progress-fill" style="width: 85%;"></div></div>
+                    </div>
+                    <div class="skill-row">
+                        <span class="skill-name">• French</span>
+                        <div class="progress-bar"><div class="progress-fill" style="width: 75%;"></div></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+
+</html>
+
+
+
+
+

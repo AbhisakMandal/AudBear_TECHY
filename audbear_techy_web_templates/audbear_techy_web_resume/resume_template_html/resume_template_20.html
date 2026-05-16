@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- DYNAMIC BASE FOR RELOCATION RESILIENCE -->
+    <script>
+      (function() {
+        var path = window.location.pathname;
+        var segments = path.split('/');
+        var rootIndex = -1;
+        for (var i = 0; i < segments.length; i++) {
+          if (segments[i].indexOf('audbear_techy_web_') === 0 && segments[i].indexOf('.html') === -1) {
+            rootIndex = i - 1;
+            break;
+          }
+        }
+        if (rootIndex !== -1) {
+          var base = segments.slice(0, rootIndex + 1).join('/') + '/';
+          document.write('<base href=\"' + base + '\">');
+        }
+      })();
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template-20 | AudBear TECHY</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:italic&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --text-dark: #222222;
+            --text-muted: #555555;
+            --border-light: #cccccc;
+            --font-main: 'Montserrat', sans-serif;
+            --font-serif: 'Playfair Display', serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: #f7f7f7;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+            color: var(--text-dark);
+        }
+
+        .cv-container {
+            background-color: #ffffff;
+            width: 850px;
+            min-height: 1100px;
+            padding: 70px;
+            border-radius: 5px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        /* Header Styling */
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+        }
+
+        .header h3 {
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            font-style: italic;
+            color: #444;
+            margin-bottom: 25px;
+        }
+
+        .contact-row {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            font-size: 0.85rem;
+            color: #555;
+            padding: 10px 0;
+            border-top: 1px solid var(--border-light);
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Profile Photo (Added to meet requirements) */
+        .profile-photo {
+            position: absolute;
+            top: 70px;
+            left: 70px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid #eee;
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Main Content Styling */
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .about-text {
+            font-size: 0.9rem;
+            line-height: 1.7;
+            color: #444;
+            text-align: justify;
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .content-item {
+            margin-bottom: 30px;
+        }
+
+        .content-header {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .content-role {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .content-desc {
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: #555;
+            text-align: justify;
+        }
+
+        .section-divider {
+            width: 100%;
+            height: 1px;
+            background-color: #eee;
+            margin: 10px 0 30px 0;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+        }
+
+        .skills-list {
+            list-style: none;
+            font-size: 0.85rem;
+            color: #555;
+        }
+
+        .skills-list li {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .skills-list li::before {
+            content: '•';
+            color: #000;
+        }
+
+        /* Footer */
+        .footer-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 25px;
+            background-color: #555;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="cv-container">
+        <!-- PROFILE PHOTO -->
+        <div class="profile-photo">
+            <img src="audbear_techy_web_templates/audbear_techy_web_resume/resume_template_professional_images/resume_template_20.png" alt="AudBear Squirrel">
+        </div>
+
+        <!-- HEADER -->
+        <header class="header">
+            <h1>AudBear Bennett</h1>
+            <h3>Professional Accountant</h3>
+            <div class="contact-row">
+                <div class="contact-item"><i class="fa-solid fa-phone"></i> +123-456-7890</div>
+                <div class="contact-item"><i class="fa-solid fa-envelope"></i> hello@audbear.com</div>
+                <div class="contact-item"><i class="fa-solid fa-location-dot"></i> 123 Anywhere St., Any City</div>
+            </div>
+        </header>
+
+        <!-- ABOUT ME -->
+        <section class="section">
+            <span class="section-title">About Me</span>
+            <p class="about-text">
+                I am a highly meticulous Professional Accountant with over 10 years of experience in financial auditing, tax preparation, and whale-sized corporate financial planning. I am dedicated to providing accurate financial reporting and strategic insights that drive business growth and ensure regulatory compliance across diverse industries.
+            </p>
+        </section>
+
+        <!-- EDUCATION -->
+        <section class="section">
+            <span class="section-title">Education</span>
+            <div class="content-item">
+                <div class="content-header">AudBear University | 2026-2030</div>
+                <div class="content-role">Senior Accountant</div>
+                <p class="content-desc">Focused on advanced financial modeling and international accounting standards. Participated in several high-level case studies involving corporate restructuring and risk assessment.</p>
+            </div>
+            <div class="content-item">
+                <div class="content-header">AudBear University | 2023-2026</div>
+                <div class="content-role">Bachelor of Accounting</div>
+                <p class="content-desc">Graduated with honors. Developed a strong foundation in core accounting principles, tax law, and financial analysis tools.</p>
+            </div>
+            <div class="section-divider"></div>
+        </section>
+
+        <!-- WORK EXPERIENCE -->
+        <section class="section">
+            <span class="section-title">Work Experience</span>
+            <div class="content-item">
+                <div class="content-header">Salford & Co. | 2033 - 2035</div>
+                <div class="content-role">Senior Accountant</div>
+                <p class="content-desc">Managed the full cycle of accounting for a portfolio of international clients. Oversaw the preparation of monthly, quarterly, and annual financial statements in accordance with IFRS.</p>
+            </div>
+            <div class="content-item">
+                <div class="content-header">Salford & Co. | 2030 - 2033</div>
+                <div class="content-role">Financial Accountant</div>
+                <p class="content-desc">Assisted in the development of internal control systems to improve audit efficiency. Conducted detailed variance analysis and provided recommendations for cost-saving measures.</p>
+            </div>
+            <div class="section-divider"></div>
+        </section>
+
+        <!-- SKILLS -->
+        <section class="section">
+            <span class="section-title">Skills</span>
+            <div class="skills-grid">
+                <ul class="skills-list">
+                    <li>Auditing</li>
+                    <li>Financial Accounting</li>
+                </ul>
+                <ul class="skills-list">
+                    <li>Auditing</li>
+                    <li>Financial Accounting</li>
+                </ul>
+                <ul class="skills-list">
+                    <li>Financial Reporting</li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="footer-bar"></div>
+    </div>
+</body>
+
+</html>
+
+
+
+
+

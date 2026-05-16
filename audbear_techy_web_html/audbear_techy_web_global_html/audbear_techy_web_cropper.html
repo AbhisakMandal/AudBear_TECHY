@@ -1,0 +1,83 @@
+<div id="audbear-cropper-modal" class="cropper-overlay" style="display:none;">
+    <div class="cropper-card">
+        <div class="cropper-header">
+            <div class="cropper-title">
+                <i class="fa-solid fa-crop-simple"></i>
+                <span>Premium Image Cropper</span>
+            </div>
+            <button class="cropper-close" onclick="closeCropper()">&times;</button>
+        </div>
+
+        <div class="cropper-body">
+            <div class="cropper-workspace">
+                <div class="img-container">
+                    <img id="cropper-target-img" src="">
+                </div>
+                <div class="cropper-sidebar">
+                    <div class="sidebar-label">Select Crop Shape</div>
+                    <div class="shape-grid">
+                        <button class="shape-opt active" data-shape="square" onclick="setCropShape('square')" title="Square">
+                            <div class="shape-preview square"></div>
+                        </button>
+                        <button class="shape-opt" data-shape="circle" onclick="setCropShape('circle')" title="Circle">
+                            <div class="shape-preview circle"></div>
+                        </button>
+                        <button class="shape-opt" data-shape="rounded-soft" onclick="setCropShape('rounded-soft')" title="Soft Rounded">
+                            <div class="shape-preview rounded-soft"></div>
+                        </button>
+                        <button class="shape-opt" data-shape="rounded-elite" onclick="setCropShape('rounded-elite')" title="Elite Rounded">
+                            <div class="shape-preview rounded-elite"></div>
+                        </button>
+                        <button class="shape-opt" data-shape="arch" onclick="setCropShape('arch')" title="The Arch">
+                            <div class="shape-preview arch"></div>
+                        </button>
+                        <button class="shape-opt" data-shape="pentagon" onclick="setCropShape('pentagon')" title="Pentagon">
+                            <div class="shape-preview pentagon"></div>
+                        </button>
+                        <button class="shape-opt" data-shape="hexagon" onclick="setCropShape('hexagon')" title="Hexagon">
+                            <div class="shape-preview hexagon"></div>
+                        </button>
+                        <button class="shape-opt" data-shape="elongated-hexagon" onclick="setCropShape('elongated-hexagon')" title="Elongated Hexagon">
+                            <div class="shape-preview elongated-hexagon"></div>
+                        </button>
+                        <button class="shape-opt" data-shape="beveled" onclick="setCropShape('beveled')" title="Beveled">
+                            <div class="shape-preview beveled"></div>
+                        </button>
+                        <button class="shape-opt" data-shape="slope-cut" onclick="setCropShape('slope-cut')" title="Slope Cut">
+                            <div class="shape-preview slope-cut"></div>
+                        </button>
+                        <button class="shape-opt" data-shape="standard-frame" onclick="setCropShape('standard-frame')" title="Standard Frame">
+                            <div class="shape-preview standard-frame"></div>
+                        </button>
+                    </div>
+
+                    <div class="cropper-controls">
+                        <button class="control-btn" onclick="cropper.rotate(-90)" title="Rotate Left">
+                            <i class="fa-solid fa-rotate-left"></i>
+                        </button>
+                        <button class="control-btn" onclick="cropper.rotate(90)" title="Rotate Right">
+                            <i class="fa-solid fa-rotate-right"></i>
+                        </button>
+                        <button class="control-btn" onclick="cropper.scaleX(-cropper.getData().scaleX)" title="Flip Horizontal">
+                            <i class="fa-solid fa-arrows-left-right"></i>
+                        </button>
+                        <button class="control-btn" onclick="cropper.reset()" title="Reset">
+                            <i class="fa-solid fa-arrow-rotate-back"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cropper-footer">
+            <button class="crop-btn cancel" onclick="closeCropper()">Cancel</button>
+            <button class="crop-btn save" onclick="saveCroppedImage()">
+                <i class="fa-solid fa-check"></i> Apply & Save
+            </button>
+        </div>
+    </div>
+</div>
+
+
+
+

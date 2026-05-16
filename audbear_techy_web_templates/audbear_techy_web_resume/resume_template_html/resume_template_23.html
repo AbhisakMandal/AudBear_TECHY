@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- DYNAMIC BASE FOR RELOCATION RESILIENCE -->
+    <script>
+      (function() {
+        var path = window.location.pathname;
+        var segments = path.split('/');
+        var rootIndex = -1;
+        for (var i = 0; i < segments.length; i++) {
+          if (segments[i].indexOf('audbear_techy_web_') === 0 && segments[i].indexOf('.html') === -1) {
+            rootIndex = i - 1;
+            break;
+          }
+        }
+        if (rootIndex !== -1) {
+          var base = segments.slice(0, rootIndex + 1).join('/') + '/';
+          document.write('<base href=\"' + base + '\">');
+        }
+      })();
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template-23 | AudBear TECHY</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --accent-navy: #1a4a7c;
+            --text-dark: #333333;
+            --text-muted: #555555;
+            --border-navy: #1a4a7c;
+            --font-main: 'Inter', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: #f7f9fc;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+            color: var(--text-dark);
+        }
+
+        .cv-container {
+            background-color: #ffffff;
+            width: 850px;
+            min-height: 1100px;
+            padding: 60px;
+            border-radius: 8px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Header Styling */
+        .header {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 50px;
+            align-items: flex-start;
+        }
+
+        .profile-photo {
+            width: 140px;
+            height: 140px;
+            overflow: hidden;
+            border: 1px solid #ddd;
+            flex-shrink: 0;
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .header-info {
+            flex-grow: 1;
+        }
+
+        .header-info h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--accent-navy);
+            margin-bottom: 15px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 5px;
+            font-size: 0.9rem;
+            color: #444;
+        }
+
+        .contact-grid strong {
+            color: #333;
+        }
+
+        /* Section Styling */
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--accent-navy);
+            margin-bottom: 15px;
+            display: block;
+            border-bottom: 2px solid var(--border-navy);
+            padding-bottom: 5px;
+        }
+
+        .summary-text {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #444;
+            text-align: justify;
+        }
+
+        /* Content Items */
+        .content-item {
+            margin-bottom: 30px;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 10px;
+        }
+
+        .item-header h4 {
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        .item-header .date {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #555;
+        }
+
+        .content-item ul {
+            padding-left: 20px;
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .content-item li {
+            margin-bottom: 6px;
+        }
+
+        /* Additional Info */
+        .info-list {
+            list-style: none;
+            font-size: 0.85rem;
+            line-height: 1.8;
+            color: #444;
+        }
+
+        .info-list li {
+            margin-bottom: 10px;
+        }
+
+        .info-list strong {
+            color: #333;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="cv-container">
+        <!-- HEADER -->
+        <header class="header">
+            <div class="profile-photo">
+                <img src="audbear_techy_web_templates/audbear_techy_web_resume/resume_template_professional_images/resume_template_23.png" alt="AudBear Lemur">
+            </div>
+            <div class="header-info">
+                <h1>AudBear Shah</h1>
+                <div class="contact-grid">
+                    <strong>Address:</strong> 123 Anywhere St., Any City
+                    <strong>Phone:</strong> 123-456-7890
+                    <strong>Email:</strong> hello@audbear.com
+                    <strong>Website:</strong> www.audbear.com
+                </div>
+            </div>
+        </header>
+
+        <!-- SUMMARY -->
+        <section class="section">
+            <span class="section-title">Summary</span>
+            <p class="summary-text">
+                Results-oriented Mechanical and Mechatronics Engineer seeking a challenging position to apply expertise in designing and implementing innovative solutions for whale-sized engineering challenges. Proven track record of success in project management, problem-solving, and cross-functional collaboration. Adept at utilizing cutting-edge technologies to optimise processes and enhance overall efficiency.
+            </p>
+        </section>
+
+        <!-- WORK EXPERIENCE -->
+        <section class="section">
+            <span class="section-title">Work Experience</span>
+            
+            <div class="content-item">
+                <div class="item-header">
+                    <h4>Mechatronics Engineer, AudBear Technologies</h4>
+                    <span class="date">Jan 2023 - Present</span>
+                </div>
+                <ul>
+                    <li>Led development of an advanced automation system, achieving a 15% increase in operational efficiency.</li>
+                    <li>Streamlined manufacturing processes, reducing production costs by 10%.</li>
+                    <li>Implemented preventive maintenance strategies, resulting in a 20% decrease in equipment downtime.</li>
+                </ul>
+            </div>
+
+            <div class="content-item">
+                <div class="item-header">
+                    <h4>System Engineer, AudBear Industries</h4>
+                    <span class="date">Feb 2021 - Dec 2022</span>
+                </div>
+                <ul>
+                    <li>Designed and optimised a robotic control system, realizing a 12% performance improvement.</li>
+                    <li>Coordinated testing and validation, ensuring compliance with industry standards.</li>
+                    <li>Provided technical expertise, contributing to a 15% reduction in system failures.</li>
+                </ul>
+            </div>
+
+            <div class="content-item">
+                <div class="item-header">
+                    <h4>Junior Project Engineer, Salford & Co Manufacturing</h4>
+                    <span class="date">Mar 2020 - Jan 2021</span>
+                </div>
+                <ul>
+                    <li>Managed full lifecycle of a cutting-edge automation project, meeting all milestones.</li>
+                    <li>Conducted feasibility studies and risk assessments, mitigating potential project risks.</li>
+                    <li>Collaborated with clients, leading to a 25% increase in customer satisfaction.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- EDUCATION -->
+        <section class="section">
+            <span class="section-title">Education</span>
+            <div class="content-item">
+                <div class="item-header">
+                    <h4>Bachelor of Mechatronics Engineering with Honours</h4>
+                    <span class="date">Aug 2016 - Oct 2019</span>
+                </div>
+                <ul>
+                    <li>University of Engineering Excellence</li>
+                    <li>Major in Automotive Technology.</li>
+                    <li>Thesis on "Technological Advancements within the current Mechatronics Industry".</li>
+                </ul>
+            </div>
+            <div class="content-item">
+                <div class="item-header">
+                    <h4>Diploma in Mechanical Engineering</h4>
+                    <span class="date">May 2014 - May 2016</span>
+                </div>
+                <ul>
+                    <li>Engineering University</li>
+                    <li>Relevant coursework in Structural Design and Project Management.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ADDITIONAL INFORMATION -->
+        <section class="section">
+            <span class="section-title">Additional Information</span>
+            <ul class="info-list">
+                <li><strong>Technical Skills:</strong> Mechatronics System Integration, Automotive Engineering Technology, Project Management, Robotics and Automation, CAD for Mechatronics.</li>
+                <li><strong>Languages:</strong> English, Malay, Japan.</li>
+                <li><strong>Certifications:</strong> Professional Engineer (PE) License, Project Management Professional (PMP).</li>
+                <li><strong>Awards/Activities:</strong> Actively participated in the "Innovation for Tomorrow" community outreach program, promoting STEM education and inspiring local students.</li>
+            </ul>
+        </section>
+    </div>
+</body>
+
+</html>
+
+
+
+
+

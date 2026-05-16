@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- DYNAMIC BASE FOR RELOCATION RESILIENCE -->
+    <script>
+      (function() {
+        var path = window.location.pathname;
+        var segments = path.split('/');
+        var rootIndex = -1;
+        for (var i = 0; i < segments.length; i++) {
+          if (segments[i].indexOf('audbear_techy_web_') === 0 && segments[i].indexOf('.html') === -1) {
+            rootIndex = i - 1;
+            break;
+          }
+        }
+        if (rootIndex !== -1) {
+          var base = segments.slice(0, rootIndex + 1).join('/') + '/';
+          document.write('<base href=\"' + base + '\">');
+        }
+      })();
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template-51 | AudBear TECHY</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --sidebar-top: #2d241e;
+            --sidebar-bottom: #8c7866;
+            --main-bg: #fdf6f2;
+            --text-dark: #2d241e;
+            --text-light: #ffffff;
+            --font-main: 'Montserrat', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+            color: var(--text-dark);
+        }
+
+        .cv-container {
+            background-color: #ffffff;
+            width: 850px;
+            min-height: 1100px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            display: flex;
+        }
+
+        /* Sidebar Styling */
+        .sidebar {
+            width: 38%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .sidebar-top {
+            background-color: var(--sidebar-top);
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+        }
+
+        .profile-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 6px solid #fff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .sidebar-bottom {
+            background-color: var(--sidebar-bottom);
+            flex-grow: 1;
+            padding: 60px 40px;
+            color: var(--text-light);
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+            margin-top: -60px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .sidebar-section h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            padding-bottom: 10px;
+        }
+
+        .contact-list {
+            list-style: none;
+            font-size: 0.9rem;
+            line-height: 2;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 12px;
+        }
+
+        .contact-item i {
+            width: 20px;
+        }
+
+        .skills-list {
+            list-style: none;
+            font-size: 1rem;
+            line-height: 2.2;
+        }
+
+        .skills-list li::before {
+            content: '•';
+            margin-right: 15px;
+            color: #fff;
+        }
+
+        /* Main Area Styling */
+        .main-area {
+            width: 62%;
+            background-color: var(--main-bg);
+            padding: 80px 50px;
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--sidebar-top);
+        }
+
+        .header h3 {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #555;
+            margin-top: 10px;
+        }
+
+        .profile-text {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: #444;
+            text-align: justify;
+        }
+
+        .section-title-main {
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-transform: capitalize;
+            color: var(--sidebar-top);
+            margin-bottom: 25px;
+            display: block;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+        }
+
+        .exp-item {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 30px;
+            border-left: 2px solid #ddd;
+        }
+
+        .exp-dot {
+            position: absolute;
+            left: -6px;
+            top: 5px;
+            width: 11px;
+            height: 11px;
+            background-color: var(--sidebar-top);
+            border-radius: 50%;
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 5px;
+        }
+
+        .exp-header h4 {
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        .exp-header .date {
+            font-size: 0.85rem;
+            color: #777;
+        }
+
+        .exp-meta {
+            font-size: 0.85rem;
+            font-style: italic;
+            color: #666;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .exp-text {
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        /* Progress Bars */
+        .lang-item {
+            margin-bottom: 20px;
+        }
+
+        .lang-header {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background-color: #ddd;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background-color: var(--sidebar-top);
+            border-radius: 4px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="cv-container">
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="sidebar-top">
+                <div class="profile-photo">
+                    <img src="audbear_techy_web_templates/audbear_techy_web_resume/resume_template_professional_images/resume_template_51.png" alt="AudBear Mandarin Duck">
+                </div>
+            </div>
+
+            <div class="sidebar-bottom">
+                <section class="sidebar-section">
+                    <h2>Contact</h2>
+                    <ul class="contact-list">
+                        <li class="contact-item"><i class="fa-solid fa-phone"></i> +123-456-7890</li>
+                        <li class="contact-item"><i class="fa-solid fa-envelope"></i> hello@audbear.com</li>
+                        <li class="contact-item"><i class="fa-solid fa-globe"></i> www.audbear.com</li>
+                        <li class="contact-item"><i class="fa-solid fa-location-dot"></i> 123 Anywhere St., Any City</li>
+                    </ul>
+                </section>
+
+                <section class="sidebar-section">
+                    <h2>Skills</h2>
+                    <ul class="skills-list">
+                        <li>Digital Strategy</li>
+                        <li>Campaign Planning</li>
+                        <li>Brand Management</li>
+                        <li>Content Creation</li>
+                        <li>Affiliate Marketing</li>
+                        <li>Audience Targeting</li>
+                    </ul>
+                </section>
+            </div>
+        </aside>
+
+        <!-- MAIN AREA -->
+        <main class="main-area">
+            <header class="header">
+                <h1>AudBear Chaudry</h1>
+                <h3>Digital Marketing</h3>
+            </header>
+
+            <section>
+                <p class="profile-text">
+                    Highly motivated and results-driven Digital Marketing specialist with over 8 years of experience in creating whale-sized growth for global brands. I specialize in strategic planning, content marketing, and audience engagement, consistently delivering high-impact campaigns that drive brand awareness and ROI.
+                </p>
+            </section>
+
+            <section>
+                <span class="section-title-main">Experience</span>
+
+                <div class="exp-item">
+                    <div class="exp-dot"></div>
+                    <div class="exp-header">
+                        <h4>Digital Marketing</h4>
+                        <span class="date">2016 – 2020</span>
+                    </div>
+                    <span class="exp-meta">AudBear Industries</span>
+                    <p class="exp-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet sem nec risus egestas accumsan. In enim nunc, tincidunt ut quam eget, luctus sollicitudin neque.</p>
+                </div>
+
+                <div class="exp-item">
+                    <div class="exp-dot"></div>
+                    <div class="exp-header">
+                        <h4>Digital Marketing</h4>
+                        <span class="date">2013 – 2016</span>
+                    </div>
+                    <span class="exp-meta">AudBear Industries</span>
+                    <p class="exp-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet sem nec risus egestas accumsan. In enim nunc, tincidunt ut quam eget, luctus sollicitudin neque.</p>
+                </div>
+
+                <div class="exp-item">
+                    <div class="exp-dot"></div>
+                    <div class="exp-header">
+                        <h4>Digital Marketing</h4>
+                        <span class="date">2010 – 2013</span>
+                    </div>
+                    <span class="exp-meta">AudBear Industries</span>
+                    <p class="exp-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet sem nec risus egestas accumsan. In enim nunc, tincidunt ut quam eget, luctus sollicitudin neque.</p>
+                </div>
+            </section>
+
+            <section>
+                <span class="section-title-main">Language</span>
+                <div class="lang-item">
+                    <div class="lang-header"><span>English</span><span>95%</span></div>
+                    <div class="progress-bar"><div class="progress-fill" style="width: 95%;"></div></div>
+                </div>
+                <div class="lang-item">
+                    <div class="lang-header"><span>Spanish</span><span>85%</span></div>
+                    <div class="progress-bar"><div class="progress-fill" style="width: 85%;"></div></div>
+                </div>
+                <div class="lang-item">
+                    <div class="lang-header"><span>French</span><span>75%</span></div>
+                    <div class="progress-bar"><div class="progress-fill" style="width: 75%;"></div></div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+
+</html>
+
+
+
+
+

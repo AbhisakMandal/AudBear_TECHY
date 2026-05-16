@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- DYNAMIC BASE FOR RELOCATION RESILIENCE -->
+    <script>
+      (function() {
+        var path = window.location.pathname;
+        var segments = path.split('/');
+        var rootIndex = -1;
+        for (var i = 0; i < segments.length; i++) {
+          if (segments[i].indexOf('audbear_techy_web_') === 0 && segments[i].indexOf('.html') === -1) {
+            rootIndex = i - 1;
+            break;
+          }
+        }
+        if (rootIndex !== -1) {
+          var base = segments.slice(0, rootIndex + 1).join('/') + '/';
+          document.write('<base href=\"' + base + '\">');
+        }
+      })();
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template-10 | AudBear TECHY</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --sidebar-bg: #939b8b;
+            --header-bg: #e5e5dc;
+            --main-bg: #ffffff;
+            --footer-bg: #e5e5dc;
+            --text-dark: #333333;
+            --text-muted: #666666;
+            --font-main: 'Inter', sans-serif;
+            --font-serif: 'Playfair Display', serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+            color: var(--text-dark);
+        }
+
+        .cv-container {
+            background-color: var(--main-bg);
+            width: 850px;
+            min-height: 1100px;
+            display: flex;
+            flex-direction: column;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.1);
+        }
+
+        .cv-top {
+            display: flex;
+            flex: 1;
+        }
+
+        /* Sidebar Styling */
+        .sidebar {
+            background-color: var(--sidebar-bg);
+            width: 38%;
+            padding: 40px 30px;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .profile-photo {
+            width: 100%;
+            height: 350px;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .sidebar-section {
+            margin-bottom: 40px;
+        }
+
+        .sidebar-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            display: block;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            padding-bottom: 5px;
+        }
+
+        .sidebar-text {
+            font-size: 0.85rem;
+            line-height: 1.7;
+            text-align: justify;
+            opacity: 0.9;
+        }
+
+        .sidebar-list {
+            list-style: none;
+            font-size: 0.85rem;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        .sidebar-list li::before {
+            content: '•';
+            margin-right: 12px;
+        }
+
+        /* Main Area Styling */
+        .main-area {
+            width: 62%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            background-color: var(--header-bg);
+            padding: 60px 45px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .header h1 {
+            font-family: var(--font-serif);
+            font-size: 4rem;
+            color: #444;
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .header h3 {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #666;
+            font-weight: 400;
+        }
+
+        .main-content {
+            padding: 50px 45px;
+        }
+
+        .section-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            color: #555;
+            display: block;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
+        }
+
+        .exp-item, .edu-item {
+            margin-bottom: 40px;
+        }
+
+        .exp-item h4, .edu-item h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 3px;
+        }
+
+        .exp-item .meta, .edu-item .meta {
+            font-size: 0.85rem;
+            font-style: italic;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .exp-item ul, .edu-item ul {
+            padding-left: 20px;
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        /* Footer Styling */
+        .footer {
+            background-color: var(--footer-bg);
+            padding: 25px 40px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .footer-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.85rem;
+            color: #555;
+        }
+
+        .footer-item i {
+            color: #444;
+            font-size: 1rem;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="cv-container">
+        <div class="cv-top">
+            <!-- SIDEBAR -->
+            <aside class="sidebar">
+                <div class="profile-photo">
+                    <img src="audbear_techy_web_templates/audbear_techy_web_resume/resume_template_professional_images/resume_template_10.png" alt="AudBear Owl">
+                </div>
+
+                <div class="sidebar-section">
+                    <span class="sidebar-title">Profile</span>
+                    <p class="sidebar-text">
+                        I am an IT project manager with holistic knowledge of software development and design. I am also experienced in coordinating with stakeholders and leading whale-sized technical transformations to success through agile methodologies and strategic innovation.
+                    </p>
+                </div>
+
+                <div class="sidebar-section">
+                    <span class="sidebar-title">Skills</span>
+                    <ul class="sidebar-list">
+                        <li>Project Management</li>
+                        <li>Software Development</li>
+                        <li>Budgeting and Cost Analysis</li>
+                        <li>Enterprise Resource Planning</li>
+                        <li>Staff and User Training</li>
+                        <li>Process Improvement</li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-section">
+                    <span class="sidebar-title">Awards</span>
+                    <ul class="sidebar-list">
+                        <li>Most Outstanding Employee of the Year, AudBear TECHY (2015)</li>
+                        <li>Best Mobile App Design, AudBear Tech Awards (2014)</li>
+                    </ul>
+                </div>
+            </aside>
+
+            <!-- MAIN AREA -->
+            <div class="main-area">
+                <header class="header">
+                    <h1>AudBear Ziv</h1>
+                    <h3>IT Project Manager</h3>
+                </header>
+
+                <main class="main-content">
+                    <section class="section">
+                        <span class="section-title">Work Experience</span>
+                        <div class="exp-item">
+                            <h4>Project Manager</h4>
+                            <span class="meta">AudBear Solutions | Oct 2017 - present</span>
+                            <ul>
+                                <li>Conduct day-to-day project coordination, planning, and implementation across multiple teams.</li>
+                                <li>Successfully delivered 15+ complex software projects within budget and timeline.</li>
+                            </ul>
+                        </div>
+                        <div class="exp-item">
+                            <h4>Senior UX Designer</h4>
+                            <span class="meta">Creative Platforms | Jan 2014 - Sept 2017</span>
+                            <ul>
+                                <li>Managed complex projects from start to finish.</li>
+                                <li>Collaborated with other designers to create a unified design system.</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section class="section">
+                        <span class="section-title">Educational History</span>
+                        <div class="edu-item">
+                            <h4>AudBear Graduate Center</h4>
+                            <span class="meta">Masters in Project Management | Jan 2013 - Dec 2014</span>
+                            <ul>
+                                <li>Studied project planning, coordination, and ethics.</li>
+                                <li>Worked with various startups on launching new apps and services.</li>
+                            </ul>
+                        </div>
+                        <div class="edu-item">
+                            <h4>Cliffmoor College</h4>
+                            <span class="meta">BA Product Design | Dec 2008 - Dec 2012</span>
+                            <ul>
+                                <li>GPA: 3.26</li>
+                                <li>Minor in Management</li>
+                                <li>Thesis involved studying several technology companies and optimizing their product processes.</li>
+                            </ul>
+                        </div>
+                    </section>
+                </main>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <div class="footer-item">
+                <i class="fa-solid fa-phone"></i>
+                <span>+123-456-7890</span>
+            </div>
+            <div class="footer-item">
+                <i class="fa-solid fa-envelope"></i>
+                <span>hello@audbear.com</span>
+            </div>
+            <div class="footer-item">
+                <i class="fa-solid fa-globe"></i>
+                <span>www.audbear.com</span>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>
+
+
+
+
+

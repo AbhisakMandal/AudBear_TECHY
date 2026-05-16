@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Vault | AudBear TECHY</title>
+    <meta name="description"
+        content="Securely store and manage up to 5 premium resumes in your AudBear TECHY Document Vault.">
+
+    <link rel="icon" type="image/png" href="../../audbear_techy_web_assets/audbear_techy_web_icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Global Design System -->
+    <link rel="stylesheet" href="../../audbear_techy_web_css/audbear_techy_web_global_css/audbear_techy_web_main.css">
+    <!-- Component-specific styles -->
+    <link rel="stylesheet"
+        href="../../audbear_techy_web_css/audbear_techy_web_global_css/audbear_techy_web_workspace.css">
+    <link rel="stylesheet" href="../../audbear_techy_web_css/audbear_techy_web_vault_css/audbear_techy_web_vault.css">
+</head>
+
+<body class="standalone">
+    <aside id="sidebar">
+        <div class="sidebar-header">
+            <div class="brand-section" onclick="window.location.href='../../audbear_techy_web_index.html'">
+                <div class="logo-container">
+                    <img src="../../audbear_techy_web_assets/audbear_techy_web_icon.png" alt="AudBear TECHY">
+                </div>
+                <div class="brand-name">AudBear <span>TECHY</span></div>
+            </div>
+            <div class="sidebar-divider"></div>
+        </div>
+
+        <nav>
+            <div class="nav-link"
+                onclick="window.location.href='../audbear_techy_web_global_html/audbear_techy_web_workspace.html'">
+                <i class="fa-solid fa-table-columns"></i>
+                <span>Workspace</span>
+            </div>
+            <div class="nav-link"
+                onclick="window.location.href='../audbear_techy_web_resume_html/audbear_techy_web_template_hub.html'">
+                <i class="fa-solid fa-layer-group"></i>
+                <span>Templates</span>
+            </div>
+            <div class="nav-link active" onclick="window.location.href='audbear_techy_web_vault.html'">
+                <i class="fa-solid fa-vault"></i>
+                <span>Vault</span>
+            </div>
+            <div class="sidebar-divider" style="opacity: 0.3; margin: 15px 20px;"></div>
+            <div class="nav-link" onclick="javascript:void(0)">
+                <i class="fa-solid fa-arrows-rotate"></i>
+                <span>Converter</span>
+            </div>
+            <div class="nav-link" onclick="javascript:void(0)">
+                <i class="fa-solid fa-expand"></i>
+                <span>Resize Document</span>
+            </div>
+            <div class="nav-link" onclick="javascript:void(0)">
+                <i class="fa-solid fa-circle-user"></i>
+                <span>Account</span>
+            </div>
+        </nav>
+
+        <div class="sidebar-footer">
+            <div class="sidebar-divider"></div>
+            <div class="nav-link logout-btn" onclick="window.location.href='../../audbear_techy_web_index.html'">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>Exit</span>
+            </div>
+        </div>
+    </aside>
+
+    <main class="vault-container">
+        <!-- Page Header -->
+        <header class="dashboard-header">
+            <div class="header-left">
+                <button class="back-btn" onclick="window.location.href='../audbear_techy_web_global_html/audbear_techy_web_workspace.html'"
+                    title="Return to Workspace">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </button>
+                <div class="header-title-group">
+                    <h1 class="header-title">Your Document Vault</h1>
+                    <p class="header-subtitle">Your private encrypted storage for premium resumes and documents.</p>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="ws-header-badge">
+                    <img src="../../audbear_techy_web_assets/audbear_techy_web_icon.png" alt="AudBear"
+                        class="badge-icon">
+                    <span class="badge-brand">AudBear <span>STUDIO</span></span>
+                </div>
+                <button class="theme-toggle-btn" id="themeToggleBtn" title="Toggle Theme">
+                    <i class="fa-solid fa-moon"></i>
+                    <span>Dark</span>
+                </button>
+                <div class="header-user-profile">
+                    <img src="../../audbear_techy_web_assets/audbear_techy_web_user.png" alt="User" class="user-avatar">
+                </div>
+            </div>
+        </header>
+
+        <div class="vault-header-bar">
+            <div id="vault-filters" class="vault-filters">
+                <div class="filter-item active" data-filter="all">
+                    <i class="fa-solid fa-boxes-stacked"></i>
+                    <span>All Documents</span>
+                    <span class="filter-count" id="count-all">0</span>
+                </div>
+                <div class="filter-item" data-filter="resume">
+                    <i class="fa-solid fa-file-invoice"></i>
+                    <span>Resume / CV</span>
+                    <span class="filter-count" id="count-resume">0</span>
+                </div>
+                <div class="filter-item locked" data-filter="vcard">
+                    <i class="fa-solid fa-id-card"></i>
+                    <span>Visiting Card</span>
+                    <span class="filter-count" id="count-vcard">0</span>
+                    <i class="fa-solid fa-lock lock-icon"></i>
+                </div>
+                <div class="filter-item locked" data-filter="invoice">
+                    <i class="fa-solid fa-file-invoice-dollar"></i>
+                    <span>Invoices</span>
+                    <span class="filter-count" id="count-invoice">0</span>
+                    <i class="fa-solid fa-lock lock-icon"></i>
+                </div>
+                <div class="filter-item" data-filter="imported">
+                    <i class="fa-solid fa-file-import"></i>
+                    <span>Imported Documents</span>
+                    <span class="filter-count" id="count-imported">0</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="vault-content-scrollable">
+
+
+            <div id="resume-list" class="vault-grid">
+                <!-- Rendered by JS -->
+            </div>
+        </div>
+    </main>
+
+    <!-- DELETE CONFIRMATION MODAL -->
+    <div id="delete-modal" class="vault-modal-overlay">
+        <div class="vault-modal">
+            <div class="vault-modal-icon">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+            </div>
+            <h3 class="vault-modal-title">Delete Document?</h3>
+            <p class="vault-modal-text">This action is permanent and cannot be undone. The document will be removed from
+                your vault forever.</p>
+            <div class="vault-modal-actions">
+                <button class="doc-btn" onclick="cancelDelete()">
+                    <i class="fa-solid fa-xmark"></i> Cancel
+                </button>
+                <button class="doc-btn danger-fill" onclick="executeDelete()">
+                    <i class="fa-solid fa-trash"></i> Delete Forever
+                </button>
+            </div>
+        </div>
+    </div> <!-- BULK DELETE MODAL -->
+    <div id="bulk-delete-modal" class="vault-modal-overlay">
+        <div class="vault-modal">
+            <div class="vault-modal-icon bulk-danger">
+                <i class="fa-solid fa-dumpster-fire"></i>
+            </div>
+            <h3 class="vault-modal-title">Delete <span id="bulk-delete-count">0</span> Documents?</h3>
+            <p class="vault-modal-text">You are about to permanently remove multiple documents from your vault. This
+                action is irreversible and will reclaim your storage slots.</p>
+            <div class="vault-modal-actions">
+                <button class="doc-btn" onclick="closeBulkDelete()">
+                    <i class="fa-solid fa-xmark"></i> Cancel
+                </button>
+                <button class="doc-btn danger-fill" onclick="executeBulkDelete()">
+                    <i class="fa-solid fa-trash-can"></i> Delete All Selected
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- VIEW RESUME MODAL -->
+    <div id="view-modal" class="template-modal" onclick="closeView()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <div class="modal-header-left">
+                    <button class="modal-nav-btn back-btn-modal" onclick="closeView()" title="Back to Vault">
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </button>
+                    <div class="ws-header-badge">
+                        <img src="../../audbear_techy_web_assets/audbear_techy_web_icon.png" alt="AudBear"
+                            class="badge-icon">
+                        <span class="badge-brand">AudBear <span>STUDIO</span></span>
+                    </div>
+                    <div class="modal-divider"></div>
+                    <h2 class="modal-viewer-title" id="view-modal-title">Professional Viewer</h2>
+                </div>
+                <div class="modal-header-right">
+                    <button class="modal-close-red" onclick="closeView()" title="Close Preview">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+            </div>
+            <div id="view-modal-body" class="modal-preview-body">
+                <!-- Template will be injected here -->
+                <div id="view-resume-frame"></div>
+            </div>
+            <div class="modal-footer">
+                <button id="view-edit-btn" class="modal-use-btn">
+                    <span>Edit Resume</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+                <button class="close-modal" onclick="closeView()">
+                    <i class="fa-solid fa-xmark"></i>
+                    <span>Close Preview</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- EXPORT OPTIONS MODAL -->
+
+    <!-- EXPORT OPTIONS MODAL -->
+    <div id="export-modal" class="vault-modal-overlay">
+        <div class="vault-modal">
+            <div class="vault-modal-icon">
+                <i class="fa-solid fa-download"></i>
+            </div>
+            <h3 class="vault-modal-title">Save to Storage</h3>
+            <p class="vault-modal-text">Choose your preferred format to save the document to your local storage.</p>
+            <div class="export-grid">
+                <button class="export-opt" onclick="executeExport('pdf')">
+                    <i class="fa-solid fa-file-pdf"></i>
+                    <span>PDF Document</span>
+                </button>
+                <button class="export-opt" onclick="executeExport('png')">
+                    <i class="fa-solid fa-file-image"></i>
+                    <span>PNG Image</span>
+                </button>
+                <button class="export-opt" onclick="executeExport('jpg')">
+                    <i class="fa-solid fa-file-image"></i>
+                    <span>JPG Image</span>
+                </button>
+                <button class="export-opt" onclick="executeExport('jpeg')">
+                    <i class="fa-solid fa-file-image"></i>
+                    <span>JPEG Image</span>
+                </button>
+            </div>
+            <div class="vault-modal-actions" style="margin-top: 20px;">
+                <button class="doc-btn" style="width: 100%;" onclick="closeExport()">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- EXPORT LIBRARIES -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <div id="export-container" style="position: absolute; left: -9999px; top: -9999px;"></div>
+    <div id="toast"></div>
+
+    <div id="bulk-delete-bar" class="bulk-actions-bar">
+        <div class="bulk-info">
+            <span id="selected-count">0</span> Documents selected
+        </div>
+        <button class="bulk-delete-btn" onclick="deleteSelectedDocuments()">
+            <i class="fa-solid fa-trash-can"></i> Delete All
+        </button>
+    </div>
+
+    <!-- Hidden Import Input -->
+    <input type="file" id="import-input" style="display: none;" accept=".json,.txt,.docx,.pdf">
+
+    <!-- External Libs for Import -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.4.21/mammoth.browser.min.js"></script>
+    <script>
+        // PDF.js worker config
+        if (window.pdfjsLib) {
+            window.pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.worker.min.js';
+        }
+    </script>
+    
+    <!-- Parser Utility -->
+    <script src="../../audbear_techy_web_js/audbear_techy_web_resume_js/audbear_techy_web_resume_vault_parser.js"></script>
+    <script src="../../audbear_techy_web_js/audbear_techy_web_vault_js/audbear_techy_web_vault.js"></script>
+</body>
+
+</html>

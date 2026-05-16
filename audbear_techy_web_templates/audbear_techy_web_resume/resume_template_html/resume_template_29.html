@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- DYNAMIC BASE FOR RELOCATION RESILIENCE -->
+    <script>
+      (function() {
+        var path = window.location.pathname;
+        var segments = path.split('/');
+        var rootIndex = -1;
+        for (var i = 0; i < segments.length; i++) {
+          if (segments[i].indexOf('audbear_techy_web_') === 0 && segments[i].indexOf('.html') === -1) {
+            rootIndex = i - 1;
+            break;
+          }
+        }
+        if (rootIndex !== -1) {
+          var base = segments.slice(0, rootIndex + 1).join('/') + '/';
+          document.write('<base href=\"' + base + '\">');
+        }
+      })();
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template-29 | AudBear TECHY</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --header-gold: #c6b068;
+            --header-dark: #333333;
+            --footer-bg: #f4f5f9;
+            --text-dark: #333333;
+            --text-muted: #666666;
+            --font-main: 'Montserrat', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+            color: var(--text-dark);
+        }
+
+        .cv-container {
+            background-color: #ffffff;
+            width: 850px;
+            min-height: 1100px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header Styling */
+        .header {
+            position: relative;
+        }
+
+        .header-top {
+            background-color: var(--header-gold);
+            padding: 60px 60px 40px 60px;
+        }
+
+        .header-top h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .header-bottom {
+            background-color: var(--header-dark);
+            padding: 15px 60px;
+        }
+
+        .header-bottom h3 {
+            font-size: 1.2rem;
+            color: #ffffff;
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-transform: capitalize;
+        }
+
+        /* Arch Profile Photo */
+        .profile-photo {
+            position: absolute;
+            top: 30px;
+            right: 60px;
+            width: 180px;
+            height: 240px;
+            border-radius: 90px 90px 0 0;
+            overflow: hidden;
+            border: 5px solid #fff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            z-index: 5;
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Body Split */
+        .cv-body {
+            display: flex;
+            padding: 50px 60px;
+            gap: 50px;
+        }
+
+        .sidebar {
+            width: 35%;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .main-content {
+            width: 65%;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: capitalize;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-title i {
+            font-size: 0.9rem;
+            color: #333;
+        }
+
+        /* Sidebar Content */
+        .contact-list {
+            list-style: none;
+            font-size: 0.85rem;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .edu-item {
+            margin-bottom: 20px;
+        }
+
+        .edu-item h4 {
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        .edu-item p {
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        .skills-list {
+            list-style: none;
+            font-size: 0.85rem;
+            line-height: 2.2;
+            color: #444;
+        }
+
+        .skills-list li::before {
+            content: '•';
+            margin-right: 12px;
+            color: #333;
+        }
+
+        /* Main Area Content */
+        .about-text {
+            font-size: 0.85rem;
+            line-height: 1.7;
+            color: #555;
+            text-align: justify;
+        }
+
+        .exp-item {
+            margin-bottom: 30px;
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 5px;
+        }
+
+        .exp-header h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+        }
+
+        .exp-header .date {
+            font-size: 0.8rem;
+            color: #777;
+            font-weight: 600;
+        }
+
+        .role-title {
+            font-size: 0.85rem;
+            color: #444;
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .exp-desc {
+            font-size: 0.8rem;
+            line-height: 1.6;
+            color: #666;
+            text-align: justify;
+        }
+
+        /* Footer Area */
+        .footer {
+            background-color: var(--footer-bg);
+            padding: 40px 60px;
+            display: flex;
+            gap: 50px;
+            margin-top: auto;
+        }
+
+        .footer-col {
+            flex: 1;
+        }
+
+        .ref-item {
+            margin-bottom: 15px;
+            font-size: 0.8rem;
+            color: #555;
+        }
+
+        .ref-item strong {
+            color: #333;
+            display: block;
+            margin-bottom: 3px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="cv-container">
+        <!-- HEADER -->
+        <header class="header">
+            <div class="header-top">
+                <h1>AudBear Silva</h1>
+            </div>
+            <div class="header-bottom">
+                <h3>Marketing Manager</h3>
+            </div>
+            <div class="profile-photo">
+                <img src="audbear_techy_web_templates/audbear_techy_web_resume/resume_template_professional_images/resume_template_29.png" alt="AudBear Toucan">
+            </div>
+        </header>
+
+        <!-- CV BODY -->
+        <div class="cv-body">
+            <!-- SIDEBAR -->
+            <aside class="sidebar">
+                <section>
+                    <span class="section-title"><i class="fa-solid fa-phone"></i> Contact</span>
+                    <ul class="contact-list">
+                        <li>+123-456-7890</li>
+                        <li>hello@audbear.com</li>
+                        <li>www.audbear.com</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <span class="section-title"><i class="fa-solid fa-graduation-cap"></i> Education</span>
+                    <div class="edu-item">
+                        <p>Bachelor of Business Management</p>
+                        <h4>AudBear University</h4>
+                        <p>2020 - 2023</p>
+                    </div>
+                    <div class="edu-item">
+                        <p>Bachelor of Business Management</p>
+                        <h4>AudBear University</h4>
+                        <p>2020 - 2023</p>
+                    </div>
+                    <div class="edu-item">
+                        <p>Bachelor of Business Management</p>
+                        <h4>AudBear University</h4>
+                        <p>2020 - 2023</p>
+                    </div>
+                </section>
+
+                <section>
+                    <span class="section-title"><i class="fa-solid fa-puzzle-piece"></i> Skills</span>
+                    <ul class="skills-list">
+                        <li>Organized</li>
+                        <li>Creativity</li>
+                        <li>Teamwork</li>
+                        <li>Critical thinking</li>
+                        <li>Communication</li>
+                        <li>Meeting deadlines</li>
+                    </ul>
+                </section>
+            </aside>
+
+            <!-- MAIN CONTENT -->
+            <main class="main-content">
+                <section>
+                    <span class="section-title"><i class="fa-solid fa-user"></i> About Me</span>
+                    <p class="about-text">
+                        I am a highly motivated Marketing Manager with a track record of driving whale-sized growth for leading brands. I specialize in creative strategy, cross-functional leadership, and delivering data-driven results that enhance market position and customer engagement.
+                    </p>
+                </section>
+
+                <section>
+                    <span class="section-title"><i class="fa-solid fa-briefcase"></i> Work Experience</span>
+                    
+                    <div class="exp-item">
+                        <div class="exp-header">
+                            <h4>AudBear Industries</h4>
+                            <span class="date">Oct 2023 - Present</span>
+                        </div>
+                        <span class="role-title">Marketing Manager</span>
+                        <p class="exp-desc">Spearheaded several high-impact marketing initiatives that resulted in a 30% increase in market share. Managed a diverse team of creatives to deliver consistent brand messaging across all platforms.</p>
+                    </div>
+
+                    <div class="exp-item">
+                        <div class="exp-header">
+                            <h4>Ginyard International Co.</h4>
+                            <span class="date">2021 - 2023</span>
+                        </div>
+                        <span class="role-title">Marketing Manager</span>
+                        <p class="exp-desc">Developed and implemented successful marketing strategies for regional markets. Coordinated with global teams to ensure alignment with international brand standards.</p>
+                    </div>
+
+                    <div class="exp-item">
+                        <div class="exp-header">
+                            <h4>Salford & Co.</h4>
+                            <span class="date">2019 - 2021</span>
+                        </div>
+                        <span class="role-title">Marketing Manager</span>
+                        <p class="exp-desc">Oversaw daily marketing operations and managed relationships with key vendors. Assisted in the launch of three major product lines.</p>
+                    </div>
+                </section>
+            </main>
+        </div>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <div class="footer-col">
+                <span class="section-title"><i class="fa-solid fa-language"></i> Languages</span>
+                <ul class="skills-list" style="list-style: none;">
+                    <li>English</li>
+                    <li>Spain</li>
+                </ul>
+            </div>
+            <div class="footer-col" style="flex: 2;">
+                <span class="section-title"><i class="fa-solid fa-book-open"></i> References</span>
+                <div style="display: flex; gap: 30px;">
+                    <div class="ref-item">
+                        <strong>AudBear Kobayashi</strong>
+                        AudBear Inc. / CEO<br>
+                        Phone: 123-456-7890<br>
+                        Email: hello@audbear.com
+                    </div>
+                    <div class="ref-item">
+                        <strong>Bailey Dupont</strong>
+                        AudBear Inc. / CEO<br>
+                        Phone: 123-456-7890<br>
+                        Email: hello@audbear.com
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>
+
+
+
+
+

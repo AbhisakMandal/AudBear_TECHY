@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- DYNAMIC BASE FOR RELOCATION RESILIENCE -->
+    <script>
+      (function() {
+        var path = window.location.pathname;
+        var segments = path.split('/');
+        var rootIndex = -1;
+        for (var i = 0; i < segments.length; i++) {
+          if (segments[i].indexOf('audbear_techy_web_') === 0 && segments[i].indexOf('.html') === -1) {
+            rootIndex = i - 1;
+            break;
+          }
+        }
+        if (rootIndex !== -1) {
+          var base = segments.slice(0, rootIndex + 1).join('/') + '/';
+          document.write('<base href=\"' + base + '\">');
+        }
+      })();
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template-63 | AudBear TECHY</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --sidebar-color: #7b91b0;
+            --text-main: #333;
+            --text-light: #666;
+            --bg-light: #f4f7f6;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-light);
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+            color: var(--text-main);
+        }
+
+        .cv-container {
+            background-color: var(--white);
+            width: 850px;
+            min-height: 1100px;
+            display: flex;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Sidebar Styling */
+        .sidebar {
+            background-color: var(--sidebar-color);
+            color: var(--white);
+            width: 35%;
+            border-radius: 200px 200px 0 0;
+            display: flex;
+            flex-direction: column;
+            padding: 240px 30px 40px 30px;
+            position: relative;
+            margin: 20px;
+        }
+
+
+        .profile-pic-container {
+            position: absolute;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid var(--white);
+            background-color: #eee;
+        }
+
+        .profile-pic-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .sidebar-section {
+            margin-bottom: 40px;
+        }
+
+        .sidebar-section h2 {
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .sidebar-section p {
+            font-size: 0.85rem;
+            line-height: 1.6;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+
+        .sidebar-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar-section ul li {
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .sidebar-section ul li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+        }
+
+        /* Main Content Styling */
+        .main-content {
+            width: 65%;
+            padding: 60px 50px;
+        }
+
+        .header {
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #000;
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .header h3 {
+            font-size: 1.1rem;
+            letter-spacing: 4px;
+            font-weight: 400;
+            color: var(--text-light);
+            text-transform: uppercase;
+            margin-bottom: 30px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px 30px;
+            margin-bottom: 40px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .contact-item i {
+            background-color: var(--sidebar-color);
+            color: var(--white);
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.8rem;
+        }
+
+        .divider {
+            height: 1px;
+            background-color: #ddd;
+            width: 100%;
+            margin-bottom: 40px;
+        }
+
+        .main-section {
+            margin-bottom: 40px;
+        }
+
+        .main-section h2 {
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            color: #000;
+        }
+
+        .experience-item,
+        .education-item {
+            margin-bottom: 25px;
+        }
+
+        .item-title {
+            font-weight: 700;
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+        }
+
+        .item-subtitle {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 10px;
+        }
+
+        .item-description {
+            font-size: 0.85rem;
+            color: var(--text-main);
+            list-style: none;
+        }
+
+        .item-description li {
+            margin-bottom: 5px;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .item-description li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+        }
+
+        /* Skills Styling */
+        .skills-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .skill-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .skill-name {
+            font-size: 0.85rem;
+            width: 40%;
+        }
+
+        .skill-bar-bg {
+            width: 55%;
+            height: 12px;
+            background-color: #e8eef3;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .skill-bar-fill {
+            height: 100%;
+            background-color: var(--sidebar-color);
+            border-radius: 6px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cv-container">
+        <div class="sidebar">
+            <div class="profile-pic-container">
+                <img src="audbear_techy_web_templates/audbear_techy_web_resume/resume_template_professional_images/resume_template_63.png"
+                    alt="AudBear Kingfisher">
+            </div>
+
+            <div class="sidebar-section">
+                <h2>ABOUT ME</h2>
+                <p>Passionate about commercial activities, I define myself as a person eager to learn and a great leader
+                    of large teams.</p>
+            </div>
+
+            <div class="sidebar-section">
+                <h2>ADDITIONAL INFO</h2>
+                <ul>
+                    <li>Driver's license</li>
+                    <li>Own vehicle</li>
+                    <li>Full availability</li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <h2>LANGUAGES</h2>
+                <p><strong>Spanish and Catalan:</strong><br>Native.</p>
+                <p style="margin-top: 10px;"><strong>English:</strong><br>High level.</p>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="header">
+                <h1>AudBear TECHY</h1>
+                <h3>SALES AGENT</h3>
+
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <i class="fa-solid fa-user"></i>
+                        <span>15/10/1995</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>hola@unsitiogenial.es</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>911-234-5678</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>123 Any Street,<br>Any City</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="main-section">
+                <h2>WORK EXPERIENCE</h2>
+
+                <div class="experience-item">
+                    <div class="item-title">Sales Agent</div>
+                    <div class="item-subtitle">Real Estate, S.L. | January 2017 - April 2019</div>
+                    <ul class="item-description">
+                        <li>Client visits.</li>
+                        <li>Acquisition of new properties.</li>
+                        <li>Development of marketing plans.</li>
+                        <li>Preparation of budgets.</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="item-title">Sales Agent</div>
+                    <div class="item-subtitle">Insurance Company, S.L. | January 2017 - April 2019</div>
+                    <ul class="item-description">
+                        <li>Sales assistant.</li>
+                        <li>Acquisition of new clients.</li>
+                        <li>Development of commercial proposals.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="main-section">
+                <h2>EDUCATION</h2>
+
+                <div class="education-item">
+                    <div class="item-title">Sea University</div>
+                    <div class="item-subtitle">Studies in economics | Current</div>
+                </div>
+
+                <div class="education-item">
+                    <div class="item-title">San Juan Study Center</div>
+                    <div class="item-subtitle">Studies in activities | September 2018 - July 2021</div>
+                </div>
+
+                <div class="education-item">
+                    <div class="item-title">Film School</div>
+                    <div class="item-subtitle">Studies in commerce | September 2015 - July 2017</div>
+                </div>
+            </div>
+
+            <div class="main-section">
+                <h2>SKILLS</h2>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <span class="skill-name">Good communication</span>
+                        <div class="skill-bar-bg">
+                            <div class="skill-bar-fill" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Large team management</span>
+                        <div class="skill-bar-bg">
+                            <div class="skill-bar-fill" style="width: 35%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Problem solving</span>
+                        <div class="skill-bar-bg">
+                            <div class="skill-bar-fill" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Office package proficiency</span>
+                        <div class="skill-bar-bg">
+                            <div class="skill-bar-fill" style="width: 65%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Commercial spirit</span>
+                        <div class="skill-bar-bg">
+                            <div class="skill-bar-fill" style="width: 95%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Quick results orientation</span>
+                        <div class="skill-bar-bg">
+                            <div class="skill-bar-fill" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+
+
+

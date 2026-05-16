@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- DYNAMIC BASE FOR RELOCATION RESILIENCE -->
+    <script>
+      (function() {
+        var path = window.location.pathname;
+        var segments = path.split('/');
+        var rootIndex = -1;
+        for (var i = 0; i < segments.length; i++) {
+          if (segments[i].indexOf('audbear_techy_web_') === 0 && segments[i].indexOf('.html') === -1) {
+            rootIndex = i - 1;
+            break;
+          }
+        }
+        if (rootIndex !== -1) {
+          var base = segments.slice(0, rootIndex + 1).join('/') + '/';
+          document.write('<base href=\"' + base + '\">');
+        }
+      })();
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template-19 | AudBear TECHY</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --text-dark: #000000;
+            --text-muted: #444444;
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Inter', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+            color: var(--text-dark);
+        }
+
+        .cv-container {
+            background-color: #ffffff;
+            width: 850px;
+            min-height: 1100px;
+            padding: 70px;
+            border-radius: 5px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        /* Header Styling */
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 30px;
+        }
+
+        .header h1 {
+            font-family: var(--font-serif);
+            font-size: 3.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .header h3 {
+            font-size: 1.2rem;
+            font-weight: 400;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #555;
+        }
+
+        /* Profile Photo (Added to meet requirements) */
+        .profile-photo {
+            position: absolute;
+            top: 70px;
+            right: 70px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 1px solid #000;
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Body Split */
+        .cv-body {
+            display: flex;
+            gap: 60px;
+        }
+
+        .col-left {
+            width: 35%;
+        }
+
+        .col-right {
+            width: 65%;
+        }
+
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 25px;
+            display: block;
+        }
+
+        .contact-list {
+            list-style: none;
+            font-size: 0.9rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .contact-item i {
+            font-size: 0.8rem;
+            width: 15px;
+        }
+
+        .edu-item {
+            margin-bottom: 25px;
+        }
+
+        .edu-item h4 {
+            font-weight: 700;
+            font-size: 0.95rem;
+            margin-bottom: 5px;
+        }
+
+        .edu-item p {
+            font-size: 0.85rem;
+            color: #555;
+        }
+
+        .edu-item .date {
+            font-size: 0.85rem;
+            color: #777;
+            margin-top: 5px;
+        }
+
+        .skills-list {
+            list-style: none;
+            font-size: 0.9rem;
+            line-height: 1.8;
+            color: #444;
+        }
+
+        .about-text {
+            font-size: 0.9rem;
+            line-height: 1.7;
+            color: #333;
+            text-align: justify;
+        }
+
+        .exp-item {
+            margin-bottom: 35px;
+        }
+
+        .exp-item h4 {
+            font-weight: 700;
+            font-size: 1rem;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .exp-desc {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #444;
+            text-align: justify;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="cv-container">
+        <!-- PROFILE PHOTO -->
+        <div class="profile-photo">
+            <img src="audbear_techy_web_templates/audbear_techy_web_resume/resume_template_professional_images/resume_template_19.png" alt="AudBear Bee">
+        </div>
+
+        <!-- HEADER -->
+        <header class="header">
+            <h1>AudBear Wilson</h1>
+            <h3>Business Manager</h3>
+        </header>
+
+        <!-- CV BODY -->
+        <div class="cv-body">
+            <!-- LEFT COLUMN -->
+            <div class="col-left">
+                <section class="section">
+                    <span class="section-title">Contact</span>
+                    <ul class="contact-list">
+                        <li class="contact-item"><i class="fa-solid fa-phone"></i> +123-456-7890</li>
+                        <li class="contact-item"><i class="fa-solid fa-envelope"></i> hello@audbear.com</li>
+                        <li class="contact-item"><i class="fa-solid fa-location-dot"></i> 123 Any St., Any City</li>
+                        <li class="contact-item"><i class="fa-solid fa-globe"></i> www.audbear.com</li>
+                    </ul>
+                </section>
+
+                <section class="section">
+                    <span class="section-title">Education</span>
+                    <div class="edu-item">
+                        <h4>Specialty</h4>
+                        <p>AudBear University</p>
+                        <p class="date">2004 - 2008</p>
+                    </div>
+                    <div class="edu-item">
+                        <h4>Specialty</h4>
+                        <p>AudBear University</p>
+                        <p class="date">2008 - 2012</p>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <span class="section-title">Key Skills</span>
+                    <ul class="skills-list">
+                        <li>Productivity & Efficiency Gains</li>
+                        <li>Revenue & Profit Growth</li>
+                        <li>Process Redesign & Improvement</li>
+                        <li>Coaching</li>
+                        <li>Mentoring</li>
+                    </ul>
+                </section>
+            </div>
+
+            <!-- RIGHT COLUMN -->
+            <div class="col-right">
+                <section class="section">
+                    <span class="section-title">About Me</span>
+                    <p class="about-text">
+                        I am a highly experienced Business Manager with a proven track record of driving whale-sized growth and operational excellence. I specialize in strategic planning, financial management, and leadership, consistently delivering results that exceed organizational goals and enhance market position.
+                    </p>
+                </section>
+
+                <section class="section">
+                    <span class="section-title">Career Highlights</span>
+                    
+                    <div class="exp-item">
+                        <h4>AudBear Industries</h4>
+                        <p class="exp-desc">Spearheaded a series of strategic initiatives that resulted in a 40% increase in annual revenue. Managed cross-functional teams to optimize internal processes and reduce overhead costs by 15%.</p>
+                    </div>
+
+                    <div class="exp-item">
+                        <h4>Creative Solutions Co.</h4>
+                        <p class="exp-desc">Led the successful launch of three major product lines, capturing significant market share within the first year. Implemented a data-driven decision-making framework that improved resource allocation efficiency.</p>
+                    </div>
+
+                    <div class="exp-item">
+                        <h4>Global Tech Partners</h4>
+                        <p class="exp-desc">Oversaw the expansion of operations into four new international markets. Developed and nurtured key partnerships that facilitated smooth market entry and sustained growth.</p>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+
+
+
+

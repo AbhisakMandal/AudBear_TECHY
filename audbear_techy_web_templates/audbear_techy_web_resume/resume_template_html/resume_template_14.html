@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- DYNAMIC BASE FOR RELOCATION RESILIENCE -->
+    <script>
+      (function() {
+        var path = window.location.pathname;
+        var segments = path.split('/');
+        var rootIndex = -1;
+        for (var i = 0; i < segments.length; i++) {
+          if (segments[i].indexOf('audbear_techy_web_') === 0 && segments[i].indexOf('.html') === -1) {
+            rootIndex = i - 1;
+            break;
+          }
+        }
+        if (rootIndex !== -1) {
+          var base = segments.slice(0, rootIndex + 1).join('/') + '/';
+          document.write('<base href=\"' + base + '\">');
+        }
+      })();
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template-14 | AudBear TECHY</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --accent-color: #3e515b;
+            --text-dark: #333333;
+            --text-muted: #666666;
+            --border-light: #ddd;
+            --font-main: 'Montserrat', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: #f1f3f4;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+            color: var(--text-dark);
+        }
+
+        .cv-container {
+            background-color: #ffffff;
+            width: 850px;
+            min-height: 1100px;
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Header Styling */
+        .header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .profile-photo {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 1px solid #eee;
+            z-index: 2;
+            margin-right: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .header-info {
+            z-index: 2;
+        }
+
+        .header-info h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent-color);
+        }
+
+        .header-info h3 {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+            font-weight: 400;
+        }
+
+        /* Horizontal Bar */
+        .header-bar {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 25px;
+            background-color: var(--accent-color);
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+
+        /* Body Split */
+        .cv-body {
+            display: flex;
+            margin-top: 40px;
+            gap: 40px;
+            position: relative;
+        }
+
+        /* Vertical Line Divider */
+        .cv-body::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 240px;
+            width: 1px;
+            height: 100%;
+            background-color: #ddd;
+        }
+
+        /* Sidebar Styling */
+        .sidebar {
+            width: 32%;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .section-title-sm {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #555;
+            margin-bottom: 20px;
+            text-transform: capitalize;
+        }
+
+        .sidebar-list {
+            list-style: none;
+            font-size: 0.8rem;
+            line-height: 2.2;
+            color: #444;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .contact-item i {
+            color: var(--accent-color);
+            width: 15px;
+            text-align: center;
+        }
+
+        /* Main Content Styling */
+        .main-content {
+            width: 68%;
+            padding-left: 20px;
+        }
+
+        .section-title-lg {
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 35px;
+            color: #444;
+        }
+
+        .section-title-md {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .exp-item {
+            margin-bottom: 35px;
+        }
+
+        .exp-item h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 3px;
+        }
+
+        .exp-item .meta {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .exp-item ul {
+            padding-left: 18px;
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: #666;
+        }
+
+        .edu-item {
+            margin-bottom: 25px;
+        }
+
+        .edu-item h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 3px;
+        }
+
+        .edu-item .meta {
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .skill-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+        }
+
+        .dot-container {
+            display: flex;
+            gap: 5px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            background-color: #ddd;
+            border-radius: 50%;
+        }
+
+        .dot.filled {
+            background-color: var(--accent-color);
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="cv-container">
+        <!-- HEADER -->
+        <header class="header">
+            <div class="header-bar"></div>
+            <div class="profile-photo">
+                <img src="audbear_techy_web_templates/audbear_techy_web_resume/resume_template_professional_images/resume_template_14.png" alt="AudBear Monkey">
+            </div>
+            <div class="header-info">
+                <h1>AudBear Weber</h1>
+                <h3>Marketing Manager</h3>
+            </div>
+        </header>
+
+        <!-- CV BODY -->
+        <div class="cv-body">
+            <!-- SIDEBAR -->
+            <aside class="sidebar">
+                <div class="sidebar-section">
+                    <h2 class="section-title-sm">Personal Info</h2>
+                    <ul class="contact-list" style="list-style: none; font-size: 0.85rem;">
+                        <li class="contact-item"><i class="fa-solid fa-cake-candles"></i> 01.01.1992 in Any City</li>
+                        <li class="contact-item"><i class="fa-solid fa-location-dot"></i> Jede Straße 1, Any City</li>
+                        <li class="contact-item"><i class="fa-solid fa-phone"></i> 01234 56789</li>
+                        <li class="contact-item"><i class="fa-solid fa-envelope"></i> hello@audbear.com</li>
+                        <li class="contact-item"><i class="fa-solid fa-user"></i> Single</li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-section">
+                    <h2 class="section-title-sm">Languages</h2>
+                    <ul class="sidebar-list">
+                        <li><strong>English:</strong> Native</li>
+                        <li><strong>German:</strong> Fluent</li>
+                        <li><strong>French:</strong> Basic</li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-section">
+                    <h2 class="section-title-sm">Soft Skills</h2>
+                    <ul class="sidebar-list">
+                        <li>Communication</li>
+                        <li>Empathy</li>
+                        <li>Engagement</li>
+                        <li>Resilience</li>
+                        <li>Problem Solving</li>
+                        <li>Structured Working</li>
+                        <li>Stress Management</li>
+                        <li>Teamwork</li>
+                        <li>Self-initiative</li>
+                        <li>Intercultural Competence</li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-section">
+                    <h2 class="section-title-sm">Volunteering</h2>
+                    <p style="font-size: 0.8rem; color: #555;"><strong>Association:</strong> Youth leader in the field of education.</p>
+                </div>
+            </aside>
+
+            <!-- MAIN CONTENT -->
+            <main class="main-content">
+                <h2 class="section-title-lg">Work Experience</h2>
+
+                <div class="exp-item">
+                    <h4>Marketing Manager</h4>
+                    <span class="meta">Agency Any City | January 2023 to Today</span>
+                    <ul>
+                        <li>Management and coordination of the marketing department in the field of public relations.</li>
+                        <li>Collaboration on various whale-sized projects.</li>
+                        <li>Team leadership of up to 20 team members.</li>
+                    </ul>
+                </div>
+
+                <div class="exp-item">
+                    <h4>Marketing Manager</h4>
+                    <span class="meta">Agency Spannungsbogen | March 2021 to December 2022</span>
+                    <ul>
+                        <li>Management and coordination of the marketing department in the field of digital marketing.</li>
+                        <li>Collaboration on various projects.</li>
+                        <li>Team leadership of up to 10 team members.</li>
+                    </ul>
+                </div>
+
+                <div class="exp-item">
+                    <h4>Marketing Assistant</h4>
+                    <span class="meta">Event Agency Any City | October 2019 to February 2021</span>
+                    <ul>
+                        <li>Preparation, planning and execution of events.</li>
+                        <li>Independent coordination with service providers.</li>
+                        <li>General administrative tasks.</li>
+                    </ul>
+                </div>
+
+                <h2 class="section-title-md">Education</h2>
+                <div class="edu-item">
+                    <h4>Highest Educational Qualification (e.g. Bachelor)</h4>
+                    <span class="meta">2010 to 2014 | AudBear University</span>
+                </div>
+                <div class="edu-item">
+                    <h4>Second Highest Educational Qualification (e.g. High School)</h4>
+                    <span class="meta">2002 to 2010 | AudBear City High School</span>
+                </div>
+
+                <h2 class="section-title-md">Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <span>Office Suite</span>
+                        <div class="dot-container">
+                            <div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span>Photoshop</span>
+                        <div class="dot-container">
+                            <div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div><div class="dot"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span>Illustrator</span>
+                        <div class="dot-container">
+                            <div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span>InDesign</span>
+                        <div class="dot-container">
+                            <div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+
+</html>
+
+
+
+
+

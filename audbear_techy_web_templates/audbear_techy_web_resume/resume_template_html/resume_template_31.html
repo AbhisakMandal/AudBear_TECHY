@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- DYNAMIC BASE FOR RELOCATION RESILIENCE -->
+    <script>
+      (function() {
+        var path = window.location.pathname;
+        var segments = path.split('/');
+        var rootIndex = -1;
+        for (var i = 0; i < segments.length; i++) {
+          if (segments[i].indexOf('audbear_techy_web_') === 0 && segments[i].indexOf('.html') === -1) {
+            rootIndex = i - 1;
+            break;
+          }
+        }
+        if (rootIndex !== -1) {
+          var base = segments.slice(0, rootIndex + 1).join('/') + '/';
+          document.write('<base href=\"' + base + '\">');
+        }
+      })();
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template-31 | AudBear TECHY</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --sidebar-bg: #111111;
+            --text-light: #ffffff;
+            --text-dark: #222222;
+            --text-muted: #555555;
+            --font-main: 'Montserrat', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+            color: var(--text-dark);
+        }
+
+        .cv-container {
+            background-color: #ffffff;
+            width: 850px;
+            min-height: 1100px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header Styling */
+        .header {
+            padding: 60px;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            background-color: #fdfdfd;
+        }
+
+        .profile-photo {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid #fff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            flex-shrink: 0;
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .header-info h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #111;
+        }
+
+        .header-info h3 {
+            font-size: 1.2rem;
+            color: #444;
+            letter-spacing: 2px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        /* Body Split */
+        .cv-body {
+            display: flex;
+            flex-grow: 1;
+        }
+
+        .sidebar {
+            width: 35%;
+            background-color: var(--sidebar-bg);
+            color: var(--text-light);
+            padding: 50px 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 45px;
+        }
+
+        .main-content {
+            width: 65%;
+            padding: 50px 60px;
+            display: flex;
+            flex-direction: column;
+            gap: 45px;
+        }
+
+        .sidebar-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+            display: block;
+        }
+
+        .section-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+            display: block;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        /* Sidebar Content */
+        .contact-list {
+            list-style: none;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 2;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .contact-item i {
+            color: #fff;
+            width: 15px;
+        }
+
+        .sidebar-list {
+            list-style: none;
+            font-size: 0.85rem;
+            line-height: 2.2;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .sidebar-list li::before {
+            content: '•';
+            margin-right: 12px;
+            color: #fff;
+        }
+
+        /* Main Content Content */
+        .profile-text {
+            font-size: 0.85rem;
+            line-height: 1.7;
+            color: #444;
+            text-align: justify;
+        }
+
+        .exp-item {
+            margin-bottom: 35px;
+        }
+
+        .exp-item h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .exp-item .meta {
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 3px;
+            display: block;
+        }
+
+        .exp-item .date {
+            font-size: 0.8rem;
+            color: #777;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .exp-bullets {
+            list-style: none;
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: #555;
+            padding-left: 10px;
+        }
+
+        .exp-bullets li::before {
+            content: '•';
+            margin-right: 12px;
+        }
+
+        .edu-item {
+            margin-bottom: 25px;
+        }
+
+        .edu-item h4 {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #555;
+            margin-bottom: 5px;
+        }
+
+        .edu-item p {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="cv-container">
+        <!-- HEADER -->
+        <header class="header">
+            <div class="profile-photo">
+                <img src="audbear_techy_web_templates/audbear_techy_web_resume/resume_template_professional_images/resume_template_31.png" alt="AudBear Penguin">
+            </div>
+            <div class="header-info">
+                <h1>AudBear Hadid</h1>
+                <h3>Senior Graphic Designer</h3>
+            </div>
+        </header>
+
+        <!-- CV BODY -->
+        <div class="cv-body">
+            <!-- SIDEBAR -->
+            <aside class="sidebar">
+                <section>
+                    <span class="sidebar-title">Contact</span>
+                    <ul class="contact-list">
+                        <li class="contact-item"><i class="fa-solid fa-phone"></i> 123-456-7890</li>
+                        <li class="contact-item"><i class="fa-solid fa-envelope"></i> hello@audbear.com</li>
+                        <li class="contact-item"><i class="fa-solid fa-location-dot"></i> 123 Any St., Any City</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <span class="sidebar-title">Expertise</span>
+                    <ul class="sidebar-list">
+                        <li>UX Design</li>
+                        <li>Graphics Design</li>
+                        <li>Project Management</li>
+                        <li>Branding</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <span class="sidebar-title">Software Knowledge</span>
+                    <ul class="sidebar-list">
+                        <li>Graphic Design Software</li>
+                        <li>Software for Design</li>
+                        <li>Another Software</li>
+                        <li>Team Communication Software</li>
+                        <li>Graphics Software</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <span class="sidebar-title">Personal Skills</span>
+                    <ul class="sidebar-list">
+                        <li>Creativity</li>
+                        <li>Team building</li>
+                        <li>Communication</li>
+                        <li>Problem Solving</li>
+                        <li>Leadership</li>
+                    </ul>
+                </section>
+            </aside>
+
+            <!-- MAIN CONTENT -->
+            <main class="main-content">
+                <section>
+                    <span class="section-title">Personal Profile</span>
+                    <p class="profile-text">
+                        I am a senior graphic designer with 10 years experience in creating whale-sized graphic design and UX design solutions. I am also experienced in coordinating a team of mid-level designers, ensuring high-quality output and consistent brand alignment across all projects.
+                    </p>
+                </section>
+
+                <section>
+                    <span class="section-title">Work Experience</span>
+                    
+                    <div class="exp-item">
+                        <h4>Applications Developer</h4>
+                        <span class="meta">AudBear Company</span>
+                        <span class="date">2016 - Present</span>
+                        <ul class="exp-bullets">
+                            <li>Database administration and website design for various enterprise platforms.</li>
+                            <li>Built the logic for a streamlined ad-serving platform that scaled effectively.</li>
+                            <li>Educational institutions and online classroom management solutions.</li>
+                        </ul>
+                    </div>
+
+                    <div class="exp-item">
+                        <h4>Web Content Manager</h4>
+                        <span class="meta">AudBear Company</span>
+                        <span class="date">2014 - 2016</span>
+                        <ul class="exp-bullets">
+                            <li>Database administration and website design for digital media systems.</li>
+                            <li>Built the logic for a streamlined ad-serving platform that scaled.</li>
+                            <li>Educational institutions and online classroom management.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section>
+                    <span class="section-title">Education</span>
+                    <div class="edu-item">
+                        <h4>Masters in Graphic Design</h4>
+                        <p>AudBear University | 2013 - 2015</p>
+                    </div>
+                    <div class="edu-item">
+                        <h4>BA Graphic Design</h4>
+                        <p>AudBear University | 2010 - 2013</p>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+</body>
+
+</html>
+
+
+
+
+

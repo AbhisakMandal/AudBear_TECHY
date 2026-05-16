@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- DYNAMIC BASE FOR RELOCATION RESILIENCE -->
+    <script>
+      (function() {
+        var path = window.location.pathname;
+        var segments = path.split('/');
+        var rootIndex = -1;
+        for (var i = 0; i < segments.length; i++) {
+          if (segments[i].indexOf('audbear_techy_web_') === 0 && segments[i].indexOf('.html') === -1) {
+            rootIndex = i - 1;
+            break;
+          }
+        }
+        if (rootIndex !== -1) {
+          var base = segments.slice(0, rootIndex + 1).join('/') + '/';
+          document.write('<base href=\"' + base + '\">');
+        }
+      })();
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template-08 | AudBear TECHY</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --sidebar-bg: #b2bb8e;
+            --main-bg: #ffffff;
+            --text-dark: #222222;
+            --text-muted: #666666;
+            --border-color: #cccccc;
+            --font-main: 'Montserrat', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+            color: var(--text-dark);
+        }
+
+        .cv-container {
+            background-color: var(--main-bg);
+            width: 850px;
+            min-height: 1100px;
+            display: flex;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Sidebar Styling */
+        .sidebar {
+            background-color: var(--sidebar-bg);
+            width: 40%;
+            padding: 50px 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .profile-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 6px solid #8e9471; /* Darker olive border */
+            overflow: hidden;
+            margin-bottom: 50px;
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .sidebar-section {
+            width: 100%;
+            margin-bottom: 40px;
+        }
+
+        .sidebar-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .sidebar-line {
+            width: 100%;
+            height: 1px;
+            background-color: #444;
+            margin-bottom: 25px;
+        }
+
+        .contact-list {
+            list-style: none;
+            font-size: 0.85rem;
+            color: #333;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .contact-item i {
+            width: 15px;
+        }
+
+        .edu-item {
+            margin-bottom: 25px;
+        }
+
+        .edu-item h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 3px;
+        }
+
+        .edu-item p {
+            font-size: 0.85rem;
+            margin-bottom: 3px;
+            font-weight: 600;
+        }
+
+        .edu-item .date {
+            font-size: 0.75rem;
+            color: #444;
+        }
+
+        .skills-list {
+            list-style: none;
+            font-size: 0.85rem;
+            line-height: 1.8;
+            padding-left: 10px;
+        }
+
+        .skills-list li::before {
+            content: '•';
+            margin-right: 12px;
+            color: #333;
+        }
+
+        /* Main Content Styling */
+        .main-content {
+            width: 60%;
+            padding: 40px;
+        }
+
+        .content-border {
+            border: 1px solid var(--border-color);
+            height: 100%;
+            padding: 50px 40px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            margin-bottom: 50px;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+        }
+
+        .header h3 {
+            font-size: 1.2rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+        }
+
+        .section {
+            margin-bottom: 45px;
+        }
+
+        .section-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .section-line {
+            width: 60%;
+            height: 1px;
+            background-color: #ddd;
+            margin-bottom: 25px;
+        }
+
+        .about-text {
+            font-size: 0.85rem;
+            line-height: 1.7;
+            color: #444;
+            text-align: justify;
+        }
+
+        .exp-item {
+            margin-bottom: 30px;
+        }
+
+        .exp-date {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .exp-item h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 3px;
+        }
+
+        .exp-item ul {
+            padding-left: 18px;
+            font-size: 0.8rem;
+            line-height: 1.6;
+            color: #555;
+            margin-top: 8px;
+        }
+
+        /* References */
+        .ref-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .ref-item h4 {
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 3px;
+        }
+
+        .ref-item p {
+            font-size: 0.75rem;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .ref-contact {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="cv-container">
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="profile-photo">
+                <img src="audbear_techy_web_templates/audbear_techy_web_resume/resume_template_professional_images/resume_template_08.png" alt="AudBear Deer">
+            </div>
+
+            <div class="sidebar-section">
+                <ul class="contact-list">
+                    <li class="contact-item"><i class="fa-solid fa-envelope"></i> hello@audbear.com</li>
+                    <li class="contact-item"><i class="fa-solid fa-phone"></i> +123-456-7890</li>
+                    <li class="contact-item"><i class="fa-solid fa-location-dot"></i> 123 Anywhere St., Any City</li>
+                    <li class="contact-item"><i class="fa-solid fa-globe"></i> www.audbear.com</li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <span class="sidebar-title">Education</span>
+                <div class="sidebar-line"></div>
+                <div class="edu-item">
+                    <h4>BA Sales and Commerce</h4>
+                    <p>AudBear University</p>
+                    <div class="date">2016 - 2020</div>
+                </div>
+                <div class="edu-item">
+                    <h4>Bachelor of Marketing</h4>
+                    <p>AudBear University</p>
+                    <div class="date">2020 - 2023</div>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <span class="sidebar-title">Skills</span>
+                <div class="sidebar-line"></div>
+                <ul class="skills-list">
+                    <li>Management Skills</li>
+                    <li>Creativity</li>
+                    <li>Digital Marketing</li>
+                    <li>Critical Thinking</li>
+                    <li>Leadership</li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <span class="sidebar-title">Language</span>
+                <div class="sidebar-line"></div>
+                <ul class="skills-list">
+                    <li>English</li>
+                    <li>French</li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+            <div class="content-border">
+                <header class="header">
+                    <h1>AudBear Wilson</h1>
+                    <h3>Marketing Manager</h3>
+                </header>
+
+                <section class="section">
+                    <span class="section-title">About Me</span>
+                    <div class="section-line"></div>
+                    <p class="about-text">
+                        I am a highly motivated Marketing Manager with extensive experience in creating whale-sized impacts for global brands. I specialize in strategic planning, consumer behavior analysis, and multi-channel campaign execution to drive significant ROI and brand growth.
+                    </p>
+                </section>
+
+                <section class="section">
+                    <span class="section-title">Work Experience</span>
+                    <div class="section-line"></div>
+                    
+                    <div class="exp-item">
+                        <span class="exp-date">Jul 2020 - Aug 2023 | AudBear Industries</span>
+                        <h4>Consumer Goods Seller</h4>
+                        <ul>
+                            <li>Led a team of marketers to launch a nationwide campaign.</li>
+                            <li>Analyzed market data to identify new growth opportunities.</li>
+                        </ul>
+                    </div>
+
+                    <div class="exp-item">
+                        <span class="exp-date">Jul 2020 - Aug 2015 | Timmerman Industries</span>
+                        <h4>FMCG Sales Agent</h4>
+                        <ul>
+                            <li>Developed and implemented a new sales strategy.</li>
+                            <li>Managed client relationships and negotiated contracts.</li>
+                        </ul>
+                    </div>
+
+                    <div class="exp-item">
+                        <span class="exp-date">Aug 2014 - Jul 2015 | AudBear Industries</span>
+                        <h4>Sales Agent</h4>
+                        <ul>
+                            <li>Assisted in the execution of localized marketing efforts.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="section" style="margin-top: auto;">
+                    <span class="section-title">References</span>
+                    <div class="section-line"></div>
+                    <div class="ref-grid">
+                        <div class="ref-item">
+                            <h4>Estelle Darcy</h4>
+                            <p>Wardiere Inc. / CEO</p>
+                            <div class="ref-contact">
+                                Phone: +123-456-7890<br>
+                                Email: hello@audbear.com
+                            </div>
+                        </div>
+                        <div class="ref-item">
+                            <h4>Harper Russo</h4>
+                            <p>Wardiere Inc. / CEO</p>
+                            <div class="ref-contact">
+                                Phone: +123-456-7890<br>
+                                Email: hello@audbear.com
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>
+
+
+
+
+
